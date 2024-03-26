@@ -42,17 +42,42 @@
 					<div class="recipe-info clearfix">
 						<p class="cooking-meta">
 								<?php
-									$postMeta = get_post_meta(get_the_ID());
+									$postMeta = get_post_meta( icl_object_id( $post->ID ) );
+									//var_dump( get_field('prep_time', icl_object_id( $post->ID ) ) );
+									//var_dump( get_fields( icl_object_id( $post->ID ) ) ); เวลา
 								?>
-								<?php if (isset($postMeta['prep_time']) && $postMeta['prep_time'][0]) { ?>
-										<span class="info" itemprop="prepTime" content="PT<?= $postMeta['prep_time'][0]?>M">
-										<img src="<?php bloginfo('template_directory'); ?>/images/icons/CookingTime-green.svg"><?= $postMeta['prep_time'][0]._e('mins', 'nuzest-theme') ?>
+								<?php if( ICL_LANGUAGE_CODE == 'th'):
+									$ttime = get_field('เวลา', $post->ID );
+									//var_dump($ttime);
+								 	?>
+									
+									<?php if ($ttime) { ?>
+											<span class="info" itemprop="prepTime" content="PT<?= $ttime?>M">
+											<img src="<?php bloginfo('template_directory'); ?>/images/icons/CookingTime-green.svg"><?= $ttime._e('mins', 'nuzest-theme') ?>
+											</span>
+									<?php }; ?>
+
+								<?php else: ?>
+									<?php if (isset($postMeta['prep_time']) && $postMeta['prep_time'][0]) { ?>
+											<span class="info" itemprop="prepTime" content="PT<?= $postMeta['prep_time'][0]?>M">
+											<img src="<?php bloginfo('template_directory'); ?>/images/icons/CookingTime-green.svg"><?= $postMeta['prep_time'][0]._e('mins', 'nuzest-theme') ?>
+											</span>
+									<?php }; ?>
+								<?php endif; ?>
+									<?php
+									if (isset($postMeta['หน่วยบริโภค']) && $postMeta['หน่วยบริโภค']) { ?>
+										<span class="info"><img src="<?php bloginfo('template_directory'); ?>/images/icons/Servings-green.svg"><span itemprop="recipeYield"><?= $postMeta['หน่วยบริโภค'][0]; ?></span>
 										</span>
-								<?php }; ?>
-								<?php if (isset($postMeta['servings']) && $postMeta['servings']) { ?>
-							<span class="info"><img src="<?php bloginfo('template_directory'); ?>/images/icons/Servings-green.svg"><span itemprop="recipeYield"><?= $postMeta['servings'][0]; ?></span>
+									<?php }; ?>								<?php if( ICL_LANGUAGE_CODE == 'th'): ?>
+
+								<?php else: ?>
+									<?php 
+									//var_dump( get_fields( icl_object_id( $post->ID ) ) );	
+									if (isset($postMeta['servings']) && $postMeta['servings']) { ?>
+										<span class="info"><img src="<?php bloginfo('template_directory'); ?>/images/icons/Servings-green.svg"><span itemprop="recipeYield"><?= $postMeta['servings'][0]; ?></span>
 										</span>
-								<?php }; ?>
+									<?php }; ?>
+								<?php endif; ?>
 						 </p>
 						 <ul class="dietary-class">
 								<?php
@@ -96,6 +121,7 @@
         
         <!-- ingredients list -->
         <?php
+        //var_dump(icl_object_id( $post->ID ));
         //var_dump( get_fields( $post->ID) );
         //var_dump(ICL_LANGUAGE_CODE);
 
@@ -109,7 +135,7 @@
 						<?php while( have_rows('ส่วนผสม') ): the_row(); ?>
 							<li itemprop="recipeIngredient">
 								<?php the_sub_field('ส่วนผสม'); ?>
-								<?php $extra = get_sub_field( 'ingredient_info' ) ?>
+								<?php $extra = get_sub_field( 'หมายเหตุ' ) ?>
 								<?php if( $extra ): ?>
 									<img src="<?php bloginfo('template_directory'); ?>/images/icons/question.svg"
 									data-toggle="tooltip" data-placement="bottom" title="<?php echo $extra ?>">
@@ -146,13 +172,24 @@
 		endif;?>		
 
 				<!-- cooking method -->
+		 <?php
+        //var_dump( get_fields( $post->ID) );
+		?>		        
+        <?php if( ICL_LANGUAGE_CODE == 'th'): ?>
+				<div class="rec-method">
+          			<h3><?php _e('วิธีทำ', 'nuzest-theme') ?></h3>
+          			<div itemprop="recipeInstructions">
+           				<?php the_field( 'วิธีทำ');?>
+					</div>
+        		</div>
+		<?php else: ?> 
 				<div class="rec-method">
           			<h3><?php _e('Method', 'nuzest-theme') ?></h3>
           			<div itemprop="recipeInstructions">
            				<?php the_field( 'method');?>
 					</div>
-        		</div>
-			
+        		</div>			
+		<?php endif; ?>	
 				
 					<div class="share-use-col">
                     
@@ -205,22 +242,45 @@
 				<?php } ?>
 				
 				<!-- (optional) post video -->
-				<?php if ( get_field('recipe_video') ) { ?>
-					<div class="embed-container recipe-video" itemprop="video">
-						<?php the_field('recipe_video'); ?>
-					</div>
-				<?php } ?>
+				<?php //var_dump( get_fields($post->ID));  ?>
+				<?php if( ICL_LANGUAGE_CODE == 'th'): ?>
+					<?php if ( get_field('วิดีโอสูตร') ) { ?>
+						<div class="embed-container recipe-video" itemprop="video">
+							<?php the_field('วิดีโอสูตร'); ?>
+						</div>
+					<?php } ?>	
+				<?php else: ?>			
+					<?php if ( get_field('recipe_video') ) { ?>
+						<div class="embed-container recipe-video" itemprop="video">
+							<?php the_field('recipe_video'); ?>
+						</div>
+					<?php } ?>
+				<?php endif; ?>
 				
 				<!-- (optional) additional image gallery -->
-				<?php
-				$images = get_field('image_gallery');
-				if( $images ):
-					foreach( $images as $image ): ?>
-					<div class="item">
-						<img class="img-responsive" itemprop="image" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-					</div>
-					<?php endforeach; ?>
+				<?php //var_dump( get_fields($post->ID));  ?>
+				<?php if( ICL_LANGUAGE_CODE == 'th'): ?>
+					<?php
+					$images = get_field('อัลบั้มรูปอาหาร');
+					if( $images ):
+						foreach( $images as $image ): ?>
+						<div class="item">
+							<img class="img-responsive" itemprop="image" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+						</div>
+						<?php endforeach; ?>
+					<?php endif; ?>
+				<?php else: ?>
+					<?php
+					$images = get_field('image_gallery');
+					if( $images ):
+						foreach( $images as $image ): ?>
+						<div class="item">
+							<img class="img-responsive" itemprop="image" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+						</div>
+						<?php endforeach; ?>
+					<?php endif; ?>					
 				<?php endif; ?>
+
 			</div> <!-- #recipe-left -->
 			
 		</div><!-- .row -->
