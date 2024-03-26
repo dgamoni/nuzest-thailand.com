@@ -1,0 +1,108 @@
+/*
+Theme Name: Nuzest Theme
+Description: Used to style the TinyMCE editor.
+*/
+
+
+/**
+ * Table of Contents:
+ *
+ * 1.0 - Body
+ * 2.0 - Typography
+ * 3.0 - Elements
+ * 4.0 - Alignment
+ * 5.0 - Caption
+ * 6.0 - Galleries
+ * 7.0 - Audio / Video
+ * 8.0 - RTL
+ */
+
+
+/**
+ * 1.0 - Body
+ */
+
+body {
+	color: #333;
+	font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.42857143;
+	margin: 20px 40px;
+	max-width: 600px;
+	vertical-align: baseline;
+}
+
+h1, h2, h3, h4, h5,
+.h1, .h2, .h3, .h4, .h5 {
+	font-weight: 300;
+}
+
+h1, .h1 {
+	font-size: 48px;
+	line-height: 51px;
+}
+h2, .h2 {
+	font-size: 33px;
+	line-height: 39px;
+	margin-bottom: 18px;
+}
+h3, .h3 {
+	font-size: 24px;
+	line-height: 30px;
+}
+
+b, strong {
+	font-weight: bold;
+}
+
+.VivaBeautiful {
+	font-family: VivaBeautiful !important;
+}
+
+.content-block { 
+    border:1px solid #eee; 
+    padding:3px;
+    background:#ccc;
+    max-width:250px;
+    float:right; 
+    text-align:center;
+}
+.content-block:after { 
+    clear:both;
+} 
+
+
+a.btn {
+	background: #fff;
+	color: #333 !important;
+	border: 2px solid #eaece9;
+	border-radius: 18px;
+	padding: .5em 21px .5em;
+	text-transform: uppercase;
+	text-align: center;
+	color: #333 !important;
+	min-width: 130px;
+	-webkit-transition: background 0.4s;
+	transition: background 0.4s;
+}
+
+a.btn-primary {
+	border-color: #d7df3a !important;
+}
+a.btn-primary.solid {
+	background: #d7df3a;
+}
+a.btn-orange {
+	border-color: #ffb231 !important;
+}
+a.btn-orange.solid {
+	background: #ffb231;
+}
+a.btn-purple {
+	border-color: #9673b3 !important;
+}
+a.btn-purple.solid {
+	background: #9673b3;
+}
+

@@ -1,0 +1,60 @@
+/* ============================================
+
+	Basic page
+
+=============================================== */
+
+html, body {
+	margin: 0;
+}
+
+body {
+	font-family: "Alright Sans LT", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	background-color: @color-bg-body;
+	margin-top: @body-offset;
+
+	@media @desktop {
+		margin-top: @body-offset-md;
+	}
+	
+	@media @xwide {
+		margin-top: @body-offset-lg;
+	}
+}
+
+
+section {
+	z-index: 1;
+	.relative;
+	max-width: 2560px;
+	margin: 0 auto;
+	overflow: hidden;
+	background-repeat: no-repeat;
+}
+
+
+.container {
+	z-index: 2;
+	.relative;
+	padding: 0 20px;
+	@media @tablet {
+		padding: 0 10px;
+	}
+}
+
+
+header.page-header {
+	border-bottom: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+#page-content {
+    margin-bottom: 30px;
+
+    @media @tablet {
+        margin-bottom: 50px;
+    }
+}

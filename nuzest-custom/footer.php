@@ -1,0 +1,77 @@
+<?php
+// get either the product category or post slug
+// then load the correct ingredients list
+
+global $post;
+if ($post) {
+    $terms = wp_get_object_terms($post->ID, array('products', 'product_cat'));
+
+    foreach ($terms as $term) {
+
+        $theSlug = $term->slug;
+
+        if (strpos($theSlug, 'clean-lean-protein') !== false) {
+            get_template_part('inc/content', 'in-clp');
+        }
+        if (strpos($theSlug, 'good-green-stuff') !== false) {
+            get_template_part('inc/content', 'in-ggs');
+        }
+        if (strpos($theSlug, 'kids-good-stuff') !== false) {
+            get_template_part('inc/content', 'in-kgs');
+        }
+    }
+}
+?>
+
+</div>
+<!-- / END main site container #page-content (opened in header.php)-->
+
+<footer>
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-xs-12 col-md-5 col-md-offset-1"><?php if (dynamic_sidebar('footer-left')) ; ?></div>
+                <div class="col-xs-12 col-md-5 mailing-list"><?php if (dynamic_sidebar('footer-right')) ; ?></div>
+            </div><!-- /END ROW -->
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <?php
+                    $args = array(
+                        'theme_location' => 'footer-menu',
+                        'menu_class' => 'footer-menu list-inline list-stacked-mobile',
+                        'container' => false,
+                        'fallback_cb' => false
+                    );
+                    wp_nav_menu($args);
+                    ?>
+                    <p>&copy; <?php bloginfo('name'); ?> <?php echo date('Y'); ?> | Site design by
+                        <a href="http://squadink.com" title="Squad Ink digital agency" target="_blank">Squad Ink</a></p>
+                </div>
+            </div><!-- /END ROW -->
+        </div>
+    </div>
+
+    <a class="scrollToTop pull-right" href="#"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></a>
+
+</footer>
+
+<script type="text/javascript">
+    window.TEMPLATE_PATH = '<?php echo get_template_directory_uri(); ?>';
+</script>
+
+<!-- General modal -->
+<?php get_template_part('inc/content', 'modal'); ?>
+<!-- Region Select Modal -->
+<?php get_template_part('inc/content', 'region'); ?>
+<!-- backdrop to be activated in theme.js when ingredients sidebars are revealed -->
+<div class="in-backdrop"></div>
+<?php wp_footer(); ?>
+</body>
+</html>
+

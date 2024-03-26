@@ -1,0 +1,241 @@
+/* ============================================
+	Bubbble blocks
+=============================================== */
+
+.usp-sec {
+	background: #ffffff;
+	height: auto;
+	padding-top: 0;
+	position: relative;
+}
+
+.usp-sec > div {
+	position: relative;
+	z-index: 10;
+}
+
+.usp-sec div.img-wrap {
+	z-index: 0;
+	background-repeat: no-repeat;
+	background-size: cover;
+	-ms-behavior: url(backgroundsize.min.htc);
+	behavior: url(backgroundsize.min.htc);
+	background-position: 10% 50%;
+	width: 100%;
+	height: 300px;
+}
+
+.usp-sec div.img-wrap.image-right {
+	background-position: 90% 50%;
+}
+
+.usp-bubble {
+	padding: 20px 0;
+}
+
+.usp-sec h2, .usp-sec h3, .usp-sec h4 {
+	font-weight: 400;
+}
+
+.usp-sec h1, .usp-sec .h1 {
+	font-weight: 300;
+}
+
+.usp-bubble ul li {
+	background-image: url(../../images/icons/tick-green.svg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-size: 30px 20px;
+	padding-left: 40px;
+}
+
+.clean-lean-protein .usp-bubble ul li, 
+.just-fruit-veg .usp-bubble ul li {
+	background-image: url(../../images/icons/tick-orange.svg);
+}
+
+.kids-good-stuff .usp-bubble ul li {
+	background-image: url(../../images/icons/tick-purple.svg);
+}
+
+.usp-buttons {
+	text-align: center;
+}
+
+
+@media only screen and (min-width: 768px) {
+	.usp-sec div.img-wrap {
+		height: 400px;
+	}
+}
+
+
+@media only screen and (min-width: 992px) {
+	.usp-sec {
+		padding-top: 45px;
+		padding-bottom: 45px;
+	}
+	
+	.usp-sec div.img-wrap {
+		background-position: 65% 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	
+	.usp-sec div.img-wrap.image-right {
+		background-position: 45% 100%;
+	}
+	
+	.usp-bubble {
+		/* defaults to top-right */
+		background: #ffffff;
+		border-radius: 80px 0 80px 80px;
+		padding: 30px 50px;
+	}
+	
+	.usp-bubble::after {
+		content: url(../../images/elem/peak-tr.svg);
+		display: block;
+		height: 40px;
+		position: absolute;
+		width: 25px;
+		right: -10px;
+		top: 0;
+	}
+	
+	.usp-bubble.top_left {
+		border-radius: 0 80px 80px 80px;
+	}
+	
+	.usp-bubble.bottom_left {
+		border-radius: 80px 80px 80px 0;
+	}
+	
+	.usp-bubble.bottom_right {
+		border-radius: 80px 80px 0;
+	}
+	
+	.usp-bubble.top_left::after {
+		-webkit-transform: scaleX(-1);
+		-ms-transform: scaleX(-1);
+		-webkit-filter: FlipH;
+		filter: FlipH;
+		-ms-filter: "FlipH";
+		transform: scaleX(-1);
+		right: auto;
+		bottom: 0px;
+		top: 0;
+		left: -10px;
+	}
+	
+	.usp-bubble.bottom_left::after {
+		-webkit-transform: scaleX(-1);
+		-ms-transform: scaleX(-1);
+		-webkit-filter: FlipH;
+		filter: FlipH;
+		-ms-filter: "FlipH";
+		transform: scale(-1);
+		left: -10px;
+		right: auto;
+		bottom: 0px;
+		top: auto;
+	}
+	.usp-bubble.bottom_right::after {
+		-webkit-transform: scaleX(-1);
+		-ms-transform: scaleX(-1);
+		-webkit-filter: FlipH;
+		filter: FlipH;
+		-ms-filter: "FlipH";
+		transform: scaleY(-1);
+		left: auto;
+		right: -10px;
+		bottom: 0px;
+		top: auto;
+	}
+	
+	.usp-bubble h4 {
+		margin-bottom: 3px;
+	}
+	
+	.usp-buttons {
+		text-align: left;
+		padding: 18px 0 6px 40px;
+	}
+
+	.usp-sec h1, .usp-sec h2 {
+		margin: 45px 0 30px;
+	}
+}
+
+
+@media only screen and (min-width: 1200px) {
+	.usp-sec {
+		padding-top: 75px;
+		padding-bottom: 75px;
+	}
+}
+
+@media only screen and (min-width: 1600px){
+	.usp-sec {
+		padding-top: 100px;
+		padding-bottom: 100px;
+	}
+}
+
+
+
+/* ============================================
+	Scrolling text
+=============================================== */
+
+.simply-scroll-container {
+    position: relative;
+    margin-bottom: 15px;
+    height: 400px;
+}
+
+.simply-scroll-container .simply-scroll-clip {
+  position: relative;
+  overflow: hidden;
+  height: inherit;
+  -webkit-mask-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0, #000000 5%, #000000 95%, rgba(0, 0, 0, 0) 100%);
+}
+
+.simply-scroll-container .simply-scroll-clip .simply-scroll-list {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.simply-scroll-container .simply-scroll-clip .simply-scroll-list li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+
+.simply-scroll-container .simply-scroll-clip .simply-scroll-list li h3 {
+  margin: 18px 0 3px;
+}
+
+.simply-scroll-container .simply-scroll-clip .simply-scroll-list li img {
+  border: none;
+  display: block;
+}
+
+
+@media only screen and (min-width: 992px){
+	.simply-scroll-container {
+		height: 340px;
+	}
+}
+
+
+@media only screen and (min-width: 1200px){
+	.simply-scroll-container {
+		height: 420px;
+	}
+}

@@ -1,0 +1,141 @@
+<?php
+
+if( function_exists('register_field_group') ):
+
+register_field_group(array (
+	'key' => 'group_55a3087d34523',
+	'title' => 'Contact Details',
+	'fields' => array (
+
+		array (
+			'key' => 'field_55a30883196b9',
+			'label' => 'Region Name',
+			'name' => 'region_name',
+			'prefix' => '',
+			'type' => 'select',
+			'instructions' => 'Used to differentiate your contact details from other regional NuZest distributors on the Contact Us page',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array (
+				'Global' => 'Global',
+				'Australia' => 'Australia',
+				'Chile' => 'Chile',
+				'Hong Kong' => 'Hong Kong',
+				'Hungary' => 'Hungary',
+				'Iceland' => 'Iceland',
+				'Japan' => 'Japan',
+				'New Zealand' => 'New Zealand',
+				'Russia' => 'Russia',
+				'Scandinavia' => 'Scandinavia',
+				'Singapore' => 'Singapore',
+				'UK & Europe' => 'UK & Europe',
+				'USA' => 'USA',
+				'United Arab Emirates' => 'United Arab Emirates',
+			),
+			'default_value' => array (
+				'' => '',
+			),
+			'allow_null' => 0,
+			'multiple' => 0,
+			'ui' => 0,
+			'ajax' => 0,
+			'placeholder' => '',
+			'disabled' => 0,
+			'readonly' => 0,
+		),
+		array (
+			'key' => 'field_61a18111982b0',
+			'label' => 'Site Template',
+			'name' => 'site_template',
+			'prefix' => '',
+			'type' => 'select',
+			'instructions' => 'Do not change this field - used for region-specific template changes',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array (
+				'st-base' => 'Base',
+				'st-eu' => 'EU',
+				'st-usa' => 'USA',
+			),
+			'default_value' => array (
+				'base' => 'Base',
+			),
+			'allow_null' => 0,
+			'multiple' => 0,
+			'ui' => 0,
+			'ajax' => 0,
+			'placeholder' => '',
+			'disabled' => 0,
+			'readonly' => 0,
+		),
+		array (
+			'key' => 'field_55a3095e196bb',
+			'label' => 'Facebook URL',
+			'name' => 'facebook_url',
+			'prefix' => '',
+			'type' => 'text',
+			'instructions' => 'Used to create the Facebook "Facepile" plugin on the Home page. If left blank, this plugin will link to the NuZest Global Facebook page. ',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => 'https://www.facebook.com/',
+			'append' => '',
+			'maxlength' => '',
+			'readonly' => 0,
+			'disabled' => 0,
+		),
+
+		// lat + long
+		array (
+			'key' => 'field_562f054d638d5',
+			'label' => 'Contact Map center',
+			'name' => 'contact_map_center',
+			'type' => 'google_map',
+			'instructions' => 'Set the place used to center the contact page map.',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'center_lat' => '-33.8587',
+			'center_lng' => '151.2140',
+			'zoom' => '',
+			'height' => '',
+		),
+	),
+	'location' => array (
+		array (
+			array (
+				'param' => 'options_page',
+				'operator' => '==',
+				'value' => 'site-settings',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+));
+
+endif;

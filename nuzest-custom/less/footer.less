@@ -1,0 +1,151 @@
+/* ============================================
+
+	Footer
+
+=============================================== */
+
+
+footer {}
+
+.footer-top {
+	border-top: 2px solid @color-brand;
+	background-color: @color-bg-alt;
+	padding: 30px 0;
+
+    @media @desktop {
+        padding-bottom: 50px;
+    }
+	
+	.textwidget {
+		margin: 0 0 12px;
+	}
+}
+
+.footer-bottom {
+	background-color:#333;
+	color:@color-bg-alt;
+}
+
+.footer-bottom p {
+	font-size: 12px;
+}
+
+.footer-bottom a, .footer-bottom a:visited, .footer-bottom a:active{
+	color:@color-bg-alt;}
+
+/*
+	Brute force mailing list signup layout
+	attempt to suit any situation by usiing basic targeting only
+ */
+
+footer {
+	.mailing-list {
+		//overflow: hidden;
+		div {
+			display: block;
+			clear: none !important;
+			.relative;
+		}
+
+		input[type='text'],
+		input[type='email'] {
+			width: 100%;
+			display: block;
+			margin: 0 auto;
+			border-radius: 20px;
+			@media @tablet {
+				width: 50%;
+			}
+			@media @desktop {
+				width: 50%;
+				float: left;
+			}
+			@media @wide {
+				width: 60%;
+			}
+
+			// input error class for MailChimp, + some generic guesses
+			&.mce_inline_error,
+			&.error, &.invalid {
+				border-color: @color-error !important;
+				background-color: lighten(@color-error, 42%);
+			}
+
+			// error messages guesses (prsumably an element alongside input)
+			& + div, & + span {
+				background-color: @color-error !important;
+				.absolute;
+				//width: 100%;
+				left: 0;
+				bottom: -9px; // account somewhat for <p> margin above
+				font-family: 'Alright Sans';
+				font-weight: normal;
+			}
+		}
+
+		input[type='submit'] {
+			.btn;
+			.btn-primary;
+			width: auto;
+			float: none;
+			display: block;
+            background: @color-brand;
+            margin: 10px auto 0;
+
+            &:hover {
+                background: @color-brand-alt;
+            }
+
+			@media @desktop {
+				float: left;
+                margin-top: 0;
+				margin-left: 10px;
+			}
+		}
+	}
+
+	.footer-menu {
+		margin: 2em 0;
+
+		li {
+			padding: 8px 0;
+		}
+
+		@media @desktop {
+			margin-top: 0;
+
+			li {
+				padding: 30px;
+				padding-bottom: 0;
+			}
+		}
+	}
+}
+
+
+
+// Social link area
+
+.social-links {
+
+	ul {
+		margin: 0;
+	}
+
+	a {
+		font-size: 22px;
+		color: @color-grey-50;
+		border: 1px solid @color-grey-10;
+		border-radius: 100%;
+		width: 35px;
+		height: 35px;
+		display: block;
+		text-align: center;
+		.relative;
+		padding-top: 3px;
+
+		&:hover {
+			color: @color-text-alt;
+		}
+	}
+}

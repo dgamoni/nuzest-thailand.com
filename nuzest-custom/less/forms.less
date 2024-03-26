@@ -1,0 +1,422 @@
+/* ============================================
+
+	Forms
+
+=============================================== */
+
+.ColorButton (@color, @color-alt) {
+	border-color: @color;
+	&:hover {
+		background: @color-alt;
+	}
+	&:active,
+	&.active {
+		background: @color;
+	}
+	&.solid {
+		background: @color;
+		&:hover {
+			background: @color-alt;
+		}
+	}
+}
+
+.btn,
+.button {
+	font-family: "Alright Sans Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: @color-text;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: normal;
+    line-height: 1.4;
+	border: 2px solid @color-border-alt;
+	background: @color-bg-alt;
+	.round(18);
+	padding: .6em 21px .5em;
+	transition: background 0.4s;
+	.text-center;
+
+	@media @tablet {
+		font-size: 14px;
+		min-width: 130px;
+	}
+
+	@media @desktop {
+		min-width: 150px;
+		font-size: 16px;
+		.round(22);
+	}
+
+	& + & {
+		margin-left: 2px;
+		@media @tablet {
+			margin-left: 6px;
+		}
+	}
+
+	&:hover {
+		background: @color-bg-body;
+		color: inherit;
+	}
+
+	&.active,
+	&:active,
+	&:focus {
+		box-shadow: none;
+		outline: none;
+		background: @color-bg-body;
+		color: inherit;
+	}
+
+	&.btn-primary {
+		.ColorButton(@color-brand, @color-brand-alt) !important;
+		&.disabled {
+			background-color: #f8f8f8;
+		}
+	}
+
+	// page level buttons based on page term (if set)
+	.clean-lean-protein #page-content &:not(.btn-plain),
+	.term-clean-lean-protein #page-content &:not(.btn-plain) {
+		.ColorButton(@color-cat-clp, @color-cat-clp-alt) !important;
+	}
+
+	.good-green-stuff #page-content &:not(.btn-plain),
+	.term-good-green-stuff #page-content &:not(.btn-plain) {
+		.ColorButton(@color-cat-ggs, @color-cat-ggs-alt) !important;
+	}
+
+	.kids-good-stuff #page-content &:not(.btn-plain),
+	.term-kids-good-stuff #page-content &:not(.btn-plain) {
+		.ColorButton(@color-cat-kgs, @color-cat-kgs-alt) !important;
+	}
+
+	//indivdual term button styles
+	//(looks like dupes, but need to keep these separate and after page level settings above,
+	//so they can still override page level settings on a per button basis)
+
+	&.btn-orange,
+	&.btn-clean-lean-protein {
+		.ColorButton(@color-cat-clp, @color-cat-clp-alt) !important;
+	}
+
+	&.btn-green,
+	&.btn-good-green-stuff {
+		.ColorButton(@color-cat-ggs, @color-cat-ggs-alt) !important;
+	}
+
+	&.btn-purple,
+	&.btn-kids-good-stuff {
+		.ColorButton(@color-cat-kgs, @color-cat-kgs-alt) !important;
+	}
+
+	&.btn-success {
+		border-color: @color-success !important;
+
+		&:hover {
+			background-color: lighten(@color-success, 10%);
+		}
+		&.active {
+			background-color: @color-success;
+		}
+	}
+
+	&.btn-square {
+		.round(8);
+		text-transform: none;
+		color: #333;
+		font-family: "Alright Sans";
+	}
+
+	&.btn-full-width {
+		width: 100%;
+	}
+
+	&.btn-textual {
+		border: none;
+		background: none;
+		border-bottom: 1px solid @color-brand;
+  		border-radius: 0;
+		padding: 0;
+  		margin: 0;
+		width: auto;
+		min-width: 0;
+		font-size: 14px;
+		font-weight: normal;
+		line-height: normal;
+		font-family: "Alright Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	}
+
+	&.btn-small {
+		padding: 3px 15px 0;
+  		min-width: 0;
+	}
+
+	.bnText + & {
+		margin: 9px 0;
+	}
+}
+
+
+// snippet button color in pages where product term would overwrite
+// eg: single product page
+.term-kids-good-stuff #page-content .product-cat-good-green-stuff .snippet a.btn,
+.term-clean-lean-protein #page-content .product-cat-good-green-stuff .snippet a.btn {
+	.ColorButton(@color-cat-ggs, @color-cat-ggs-alt) !important;
+}
+
+.term-kids-good-stuff #page-content .product-cat-clean-lean-protein .snippet a.btn,
+.term-good-green-stuff #page-content .product-cat-clean-lean-protein .snippet a.btn {
+	.ColorButton(@color-cat-clp, @color-cat-clp-alt) !important;
+}
+
+.term-good-green-stuff #page-content .product-cat-kids-good-stuff .snippet a.btn,
+.term-clean-lean-protein #page-content .product-cat-kids-good-stuff .snippet a.btn {
+	.ColorButton(@color-cat-kgs, @color-cat-kgs-alt) !important;
+}
+
+
+@media @mobile {
+	.snippet .btn {
+		border: none;
+		border-radius: 0;
+		background: none;
+		border-bottom: 2px solid @color-brand;
+		padding: 2px;
+		font-size: 14px;
+        line-height: 1;
+		min-width: auto;
+		height: auto;
+	}
+}
+
+.ninja-forms-form {
+  padding: 20px 10px;
+}
+
+.ninja-forms-form:before, .ninja-forms-form:after {
+	content: " ";
+    display: table;
+	clear: both;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="number"],
+input[type='password'],
+input[type='tel'],
+select,
+textarea,
+.inputStyle {
+	background: @color-bg-alt;
+	border: 1px solid @color-border-alt;
+	.round(4);
+	width: 100%;
+	padding: 0 9px;
+	color: @color-text;
+	height: 42px;
+	font-size: 14px;
+	//line-height: 36px;
+}
+.input-large {
+	font-size: 16px;
+	height: 54px;
+}
+
+textarea {
+	height: 90px;
+	padding: 13px 9px 0;
+}
+
+label {
+	display: block;
+	.uppercase;
+	.space(0.02em);
+	color: @color-text-alt;
+	font-family: "Alright Sans";
+	font-size: 13px;
+	line-height: 18px;
+	margin: 0 0 5px;
+	span {
+		color: lighten(@color-text-alt, 20%);
+		text-transform: none;
+		font-family: "Alright Sans Thin";
+	}
+	@media @desktop {
+		font-size: 14px;
+	}
+}
+
+.form-group {
+	margin: 0 0 24px;
+	padding: 0;
+}
+
+
+// search box specific
+.search-box {
+	input[type='text'] {
+		.round(22);
+		font-size: 16px;
+		padding: 0 0 0 21px;
+		border: 1px solid @color-brand;
+		text-transform: none;
+	}
+}
+
+// placeholder text
+
+::-webkit-input-placeholder 	{ color: lighten(@color-text-alt, 15%); .uppercase; }
+          :-moz-placeholder 	{ color: lighten(@color-text-alt, 15%); .uppercase; } // Firefox 18
+         ::-moz-placeholder 	{ color: lighten(@color-text-alt, 15%); .uppercase; } // Firefox 19+
+     :-ms-input-placeholder 	{ color: lighten(@color-text-alt, 15%); .uppercase; }
+
+/* ============================================
+
+	Custom Checkbox
+
+=============================================== */
+
+.checkbox {
+	.relative;
+	display: block;
+	//margin-right: 30px;
+	margin: 0;
+
+	label {
+		display: inline-block !important;
+		line-height: 21px !important;
+		padding-left: 42px !important;
+		padding-top: 12px !important;
+		margin: 0 !important;
+		cursor: pointer;
+		.text-left;
+		width: auto;
+
+		text-transform: none;
+	}
+
+	input[type='checkbox'] {
+		display: none !important;
+	}
+
+	input[type='checkbox'] + label:before {
+		content: '\f00c';
+		font-family: 'FontAwesome';
+		font-size: 16px;
+		line-height: 26px;
+		.text-center;
+		color: @color-grey-10;
+
+		width: 26px;
+		height: 26px;
+		.round(3);
+
+		background: @color-bg-alt;
+		border: 1px solid @color-grey-10;
+
+		display: block;
+
+		.absolute;
+		top: 7px;
+		left: 0px;
+	}
+
+	input[type='checkbox']:checked + label:before {
+		color: @color-bg-alt;
+		background: @color-brand;
+		border: 1px solid @color-brand;
+	}
+}
+
+/* ============================================
+
+	Custom radio buttons
+
+=============================================== */
+
+.radio {
+	.relative;
+	display: block;
+	//margin-right: 30px;
+	margin: 0;
+
+	label {
+		display: inline-block !important;
+		line-height: 21px;
+		padding-left: 42px;
+		cursor: pointer;
+		.text-left;
+		padding-top: 12px;
+		width: auto;
+		margin: 0;
+		text-transform: none;
+	}
+
+	input[type='radio'] {
+		display: none !important;
+	}
+
+	input[type='radio'] + label:before {
+		content: '\f0c8';
+		font-family: 'FontAwesome';
+		font-size: 14px;
+		line-height: 21px;
+		.text-center;
+		color: @color-grey-10;
+
+		width: 22px;
+		height: 22px;
+		.round(4);
+
+		background: @color-bg-alt;
+		border: 1px solid @color-grey-10;
+
+		display: block;
+
+		.absolute;
+		top: 9px;
+		left: 0px;
+	}
+
+	input[type='radio']:checked + label:before {
+		color: @color-bg-alt;
+		background: @color-brand;
+		border: 1px solid @color-brand;
+	}
+}
+
+
+
+/* ============================================
+
+	Input icons
+
+=============================================== */
+
+.field-icon {
+	.relative;
+	button {
+		.absolute;
+		right: 3px;
+		top: 1px;
+		padding: 0;
+		border: 0;
+		background: transparent;
+		margin: 0;
+		min-width: 45px;
+		.text-center;
+		line-height: 41px;
+		span {
+			font-size: 18px;
+			line-height: inherit;
+			color: @color-grey-50;
+			pointer-events: none;
+			z-index: 10;
+		}
+	}
+	select::-ms-expand {
+	    display: none;
+	}
+}

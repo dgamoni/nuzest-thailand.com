@@ -1,0 +1,1092 @@
+/* ============================================
+
+	Product pages
+
+=============================================== */
+
+
+body.products,
+body.good-green-stuff,
+body.clean-lean-protein,
+body.kids-good-stuff {
+
+	@media @desktop {
+		.usp-sec {
+			h1 {
+				margin: 45px 0 30px;
+			}
+			&:after {
+				content: url("images/icons/product-usp-peak.svg");
+				position: absolute;
+				bottom: -6px;
+				left: 50%;
+				margin-left: -58px;
+				width: 116px;
+				z-index: 3;
+			}
+		}
+	}
+
+
+
+	/*.usp-sec + .snippets {
+		padding-top: 60px;
+	}*/
+
+
+
+	/* ============================================
+
+		Common
+
+	=============================================== */
+
+
+	/* Fixed 'Buy Now' banner */
+	.bnFixed {
+		background: @color-bg-alt;
+		border-top: 1px solid @color-border-alt;
+		width: 100%;
+		text-align: center;
+		padding: 12px 0;
+		z-index: 200;
+
+		// affix with JS
+		&.affix {
+			bottom: 0;
+		}
+		.bnText {
+			padding-right: 0;
+		}
+		h5 {
+			margin: 10px 0 2px;
+		}
+		p {
+			margin-bottom: 6px;
+			font-size: 12px;
+		}
+		
+		@media @tablet {
+			
+			.bnText {
+				text-align: left;
+			}
+
+		}
+		@media @desktop {
+			p {
+				display: block;
+			}
+			.btn {
+			margin-top: 20px; 
+			}
+		}
+	}
+
+	.most-effective {
+		/*height: 1020px;*/
+		.text-center;
+		.bg-image-fill;
+		padding: 60px 0 120px;
+		
+		@media @desktop {
+			/*height: 1020px;*/
+			padding: 115px 0 125px 0;
+		}
+		
+	}
+
+	// holds the carousel of "Story" slides
+	.gallery-story {
+		.padd-xs;
+		padding-bottom: 30px !important;
+	}
+
+	section .spacer {
+		height: 80px;
+		position: absolute;
+		bottom: -20px;
+		background: @color-bg-alt;
+		width: 50%;
+
+		&.left {
+			left: 0;
+			border-radius: 0 80px 0 0;
+		}
+
+		&.right {
+			right: 0;
+			border-radius: 80px 0 0;
+		}
+	}
+
+	// how to take section
+
+	.how-to-take {
+		video {
+			margin: 30px auto;
+		}
+	}
+
+	// quote section
+	.product-quote {
+		background-image: url('images/banners/generic_quote_placeholder.jpg');
+		.bg-image-fill;
+		background-position: center;
+		height: 600px;
+		.text-center;
+
+		&:before {
+			content: '';
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: fade(black, 40%);
+		}
+
+		blockquote {
+			margin: 0 auto;
+			font-size: 24px;
+			color: @color-bg-alt;
+
+			@media @tablet 		{ font-size: 30px; }
+			@media @desktop 	{ font-size: 36px; }
+
+			@media @wide {
+				font-size: 45px;
+				width: 75%;
+			}
+		}
+
+		.profile-small {
+			.img-profile {
+				width: 120px;
+				height: 120px;
+
+			}
+			h3 {
+				color: @color-bg-alt;
+			}
+		}
+
+	}
+
+
+	.royalSlider.visibleNearby {
+		width: 100%;
+		min-height: 520px;
+		padding: 30px 0;
+
+		@media @tablet 		{ min-height: 540px; }
+		@media @desktop		{ min-height: 620px; }
+		@media @wide		{ min-height: 740px; }
+		@media @xwide 		{ min-height: 800px; }
+
+
+
+		.rsVisibleNearbyWrap {
+			overflow: visible !important;
+		}
+
+		.rsSlide {
+			overflow: visible !important;
+
+			h2, p {
+				max-width: 70%;
+			}
+
+			h2 {
+				//font-family: "Alright Sans";
+				margin: 30px auto 18px;
+				@media @wide {
+					font-size: 39px;
+					line-height: 42px;
+					margin: 45px auto 21px;
+				}
+			}
+
+			p {
+				margin: 18px auto 0;
+				@media @wide {
+					font-size: 18px;
+					line-height: 26px;
+				}
+
+			}
+
+			.rsImg {
+				margin-left: 0 !important;
+				margin-top: 0 !important;
+				opacity: 0.45;
+
+				transition: opacity 0.6s ease-in-out;
+			}
+
+			&.rsActiveSlide .rsImg {
+				opacity: 1;
+				transition: opacity 0.3s ease-in-out;
+			}
+		}
+	}
+
+
+
+
+	/* Off canvas ingredients lists
+	.row-offcanvas .sidebar-offcanvas {
+		display: none;
+	}
+
+	.row-offcanvas.active .sidebar-offcanvas {
+		display: block;
+	}
+
+	.row-offcanvas {
+		position: relative;
+		-webkit-transition: all .25s ease-out;
+		-o-transition: all .25s ease-out;
+		transition: all .25s ease-out;
+	}
+
+	.row-offcanvas-right {
+		right: 0;
+	}
+
+	.row-offcanvas-right	.sidebar-offcanvas {
+		right: -50%;
+	}
+
+	.row-offcanvas-right.active {
+		right: 50%;	}
+
+	.sidebar-offcanvas {
+		position: absolute;
+		top: 0;
+		padding: 0;
+		width: 50%;	}*/
+
+
+
+}
+
+/* ============================================
+
+	Good Green Stuff
+
+=============================================== */
+
+body.good-green-stuff {
+
+	.product-quote {
+		background-image: url('images/banners/ggs_quote_placeholder.jpg');
+	}
+
+	.most-effective {
+		background-image: url('images/banners/lay-temp.jpg');
+		background-position: top center;
+	}
+
+	.most-effective h2 {
+		font-size: 27px;
+		line-height: 36px;
+		margin-bottom: 30px;
+		@media @desktop {
+			font-size: 38px;
+			line-height: 44px;
+		}
+	}
+
+	ul.effective {
+		margin: 45px 0 60px 0;
+		@media @desktop {
+			margin: 45px 0 78px 0;
+		}
+
+		li {
+			margin-bottom: 15px;
+			a.btn.btn-square {
+				.text-center;
+				white-space: normal;
+			}
+		}
+
+	}
+
+	.eff-num {
+		height: 36px;
+		width: 36px;
+		.circle;
+		background: @color-brand;
+		display: block;
+		font-family: "Alright Sans Medium";
+		font-size: 18px;
+		line-height: 36px;
+		.text-center;
+		margin: 0 auto 30px;
+
+		@media @desktop {
+			height: 46px;
+			width: 46px;
+			font-size: 28px;
+			line-height: 46px;
+		}
+	}
+
+	.anchor {
+		height: 0;
+		margin: 0;
+		position: relative;
+		top: -70px;
+		visibility: hidden;
+		@media @desktop {
+			top: -135px;
+		}
+	}
+
+
+	.effective-1 {
+		padding: 30px 0;
+	}
+
+	// bottom bar contains graph and axis
+	.btmBar {
+		.clearfix();
+
+		position: relative;
+		text-align: left;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 10px 0 30px;
+		width: 100%;
+
+		@media (max-width: @screen-desktop) {
+			&.mute {
+				opacity: .4;
+				transition: opacity .1s linear;
+			}
+		}
+
+		@media @desktop {
+			width: 90%;
+			margin-top: 470px;
+		}
+		@media @xwide 		{ width: 80%; }
+		@media @xxwide 		{ width: 70%; }
+
+		.logo {
+			float: left;
+			background: url('images/nuzest-logo.png') transparent no-repeat 50% 50%;
+			background-size: auto 90%;
+			text-indent: -9999px;
+			.text-center;
+			height: 65px;
+			width: 50%;
+			@media @desktop {
+				width: 20%;
+				margin-left: 5%;
+			}
+			@media @xwide {
+				width: 25%;
+				margin-left: 5%;
+			}
+		}
+
+		p.other-logo {
+			float: left;
+			border: 1px solid @color-border-alt;
+			display: block;
+			height: 56px;
+			padding: 9px 0 0;
+			.text-center;
+			.uppercase;
+			position: relative;
+			top: 3px;
+			width: 45%;
+			margin-left: 5%;
+			@media @desktop {
+				width: 15%;
+				margin-left: 2.5%;
+			}
+			@media @xwide {
+				width: 20%;
+			}
+		}
+
+
+		// Graph elements
+
+		.bar-graph {
+			position: relative;
+			width: 100%;
+			overflow: hidden;
+			border-bottom: 1px solid @color-border-alt;
+			height: 300px;
+
+
+			@media @desktop {
+				height: 460px;
+				position: absolute;
+				bottom: 100%;
+			}
+
+			// "?" link to open vitamins bubble
+			.bubble-link-wrapper {
+				position: absolute;
+				bottom: 100px;
+				right: 0;
+				width: 45%;
+
+				@media @desktop {
+					display: none;
+				}
+			}
+
+			.bubble-link {
+				display: block;
+				width: 40px;
+				height: 40px;
+				background: @color-bg-body;
+				font-size: 20px;
+				text-align: center;
+				line-height: 40px;
+				border-radius: 50%;
+				margin: 0 auto;
+			}
+
+
+			.barNuZest, .barCompet {
+				height: 0;
+				position: absolute;
+				bottom: 0;
+				transition: height 0.3s ease-in-out;
+				.text-center;
+				padding: 0 10px;
+			}
+
+				.barNuZest {
+					background: @color-brand;
+					font-family: "Alright Sans Medium";
+					font-size: 21px;
+					color: @color-bg-alt;
+					line-height: 27px;
+					width: 50%;
+
+					@media @desktop 	{
+						margin-left: 5%;
+						width: 20%;
+					}
+
+					@media @xwide 	{
+						margin-left: 5%;
+						width: 25%;
+					}
+
+					.barDetails {
+						.percent {
+							font-size: 38px;
+							line-height: 1.4;
+							padding-top: 8px;
+						}
+
+						.moreOf {
+							font-family: 'Alright Sans Medium';
+						}
+
+						@media @tablet {
+							.percent {
+								padding-top: 30px;
+							}
+						}
+
+						@media @desktop {
+							.percent {
+								font-size: 48px;
+							}
+						}
+					}
+				}
+
+				.barCompet {
+					left: 55%;
+					background: @color-border;
+					width: 45%;
+					@media @desktop {
+						width: 15%;
+						left: 27.5%;
+					}
+					@media @xwide {
+						width: 20%;
+						left: 32.5%;
+					}
+				}
+		}
+	}
+
+
+	.effective-3 {
+		.padd-xs;
+
+		.effective-diagram {
+			margin: 30px auto -20px;
+			position: relative;
+			height: 400px;
+			@media @desktop {
+				height: 500px;
+				margin: 30px auto -40px;
+			}
+			@media @xwide {
+				height: 600px;
+				margin: 30px auto -80px;
+			}
+
+			.eff-circle {
+				position: absolute;
+				width: 400px;
+				height: 100%;
+				top: 0;
+				.circle;
+				background-color: fade(@color-border, 20%);
+				@eff-middle: fade(@color-border, 20%);
+				.gradient(to right, @color-bg-alt, @eff-middle);
+				display: table;
+				.opacity(0);
+				transition: all 0.4s ease-in-out;
+				-moz-background-clip: padding;
+				-webkit-background-clip: padding;
+				background-clip: padding-box;
+				@media @desktop {
+					width: 500px;
+				}
+				@media @xwide {
+					width: 600px;
+				}
+
+				hgroup {
+					height: 100%;
+					width: 100%;
+					display: table-cell;
+					vertical-align: middle;
+					padding: 0 20%;
+					
+					@media @smtab	{ padding: 0 25%; }
+					@media @tablet	{ padding: 0 30%; }
+					@media @desktop	{ padding: 0 35%; }
+					@media @xwide	{ padding: 0 40%; }
+
+				}
+
+				&.science {
+					right: 60%;
+					.text-right;
+					/*border-right: 3px solid #b2e0fa;*/
+					
+					background: #f4f5f6; 
+					background: -moz-linear-gradient(top,  #f4f5f6 0%, #eeeff1 99%); 
+					background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f4f5f6), color-stop(99%,#eeeff1)); 
+					background: -webkit-linear-gradient(top,  #f4f5f6 0%,#eeeff1 99%); 
+					background: -o-linear-gradient(top,  #f4f5f6 0%,#eeeff1 99%); 
+					background: linear-gradient(to bottom,  #f4f5f6 0%,#eeeff1 99%); 
+					filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f5f6', endColorstr='#eeeff1',GradientType=0 ); 
+				}
+
+				&.nature {
+					left: 60%;
+					.text-left;
+					/*.gradient(to left, @color-bg-alt, @eff-middle);*/
+
+					background: #f5f8e7; 
+					background: -moz-linear-gradient(top,  #f5f8e7 0%, #e0eb9f 100%); 
+					background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f5f8e7), color-stop(100%,#e0eb9f)); 
+					background: -webkit-linear-gradient(top,  #f5f8e7 0%,#e0eb9f 100%); 
+					background: -o-linear-gradient(top,  #f5f8e7 0%,#e0eb9f 100%); 
+					background: -ms-linear-gradient(top,  #f5f8e7 0%,#e0eb9f 100%); 
+					background: linear-gradient(to bottom,  #f5f8e7 0%,#e0eb9f 100%); 
+					filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f8e7', endColorstr='#e0eb9f',GradientType=0 ); 
+					/*border-left: 3px solid #c0edbf;*/
+				}
+			}
+
+			.ggs-pack {
+				background-image: url('images/ggs-tub.png');
+				background-position: 50%;
+				.bg-image-fill;
+				background-size: contain;
+				margin: 0 auto;
+				position: relative;
+				z-index: 20;
+				width: 120px;
+				height: 100%;
+				.opacity(0);
+				.scale(0.2,0.2);
+				transition: all 0.4s ease-in-out 0.35s, opacity 0.4s linear 0.35s;
+
+				@media @tablet 		{ width: 140px; }
+				@media @desktop 	{ width: 190px; }
+				@media @wide 		{ width: 230px; }
+				@media @xwide 		{ width: 300px; }
+
+			}
+
+			&.active {
+				.eff-circle {
+					.opacity(1);
+					&.science {
+						right: 45%;
+					}
+					&.nature {
+						left: 45%;
+					}
+
+				}
+				.ggs-pack {
+					.scale(1,1);
+					.opacity(1);
+				}
+			}
+
+		}
+
+
+	}
+
+}
+
+
+
+/* ============================================
+
+	Clean Lean Protein
+
+=============================================== */
+
+body.clean-lean-protein {
+	.most-effective {
+		background-image: url('images/banners/clean-lean-protein-surfer.jpg');
+		background-position: 25% 50%;
+		.relative;
+		padding: 90px 0 100px;
+		@media @desktop {
+			padding: 115px 0 150px;
+		}
+		@media @xwide {
+			padding: 115px 0 125px;
+		}
+
+		.user-profile {
+			@media @mobile {
+				padding-top: 30px;
+				h4 {
+					max-width: 66.666%;
+					margin: 0 auto;
+				}
+			}
+		}
+
+		/*.effective-signoff {
+			.absolute;
+			bottom: 20%;
+			width: 100%;
+			left: 50%;
+			margin-left: -50%;
+		}*/
+		
+		.effective-signoff {
+			padding: 100px 0 50px;
+			
+			@media @xwide {
+				padding: 200px 0 50px;
+			}	
+		}
+		
+	}
+	.product-quote {
+		background-image: url('images/banners/clp_quote_placeholder.jpg');
+	}
+}
+
+
+/* ============================================
+
+	Kids Good Stuff
+
+=============================================== */
+
+body.kids-good-stuff {
+	
+	.product-quote {
+		background-image: url('images/banners/kgs_quote_placeholder.jpg');
+	}
+	
+	.btn.toggle-in {
+		margin: 30px 0 10px;
+	}
+	
+	.kgs-nutrients {
+		.relative;
+		box-sizing: content-box;
+		z-index: 10;
+		padding-bottom: 0;
+		background-color: @color-brand;
+		padding-top: 90px;
+		@media @desktop {
+			padding-top: 160px;
+		}
+
+		&:before {
+			content: '';
+			.absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 80px;
+			background-color: @color-bg-alt;
+			z-index: 5;
+		}
+
+		// add "spacer" on top of :before pseudo
+		.spacer {
+			bottom: auto;
+			top: 0;
+			background-color: @color-brand;
+			z-index: 10;
+		}
+
+		.kgs-nutrients__content {
+			.relative;
+			min-height: 640px;
+			margin: 30px auto 0;
+
+			@media @tablet {
+				min-height: 740px;
+			}
+
+			.nutrients {
+
+				@keyframes spin {
+					  0% {	transform: rotate(0deg); }
+					 50% {	transform: rotate(180deg); }
+					100% {	transform: rotate(360deg); }
+				}
+
+				@keyframes wobble {
+					  0% { transform: scale(1) translate(0%, 0%); }
+					 33% { transform: scale(0.94) translate(-7%, 5%); }
+					 66% { transform: scale(1.04) translate(6%, -6%); }
+					100% { transform: scale(0.96) translate(-8%, 4%); }
+				}
+
+				.nutrients__bubble {
+					.absolute;
+					.circle;
+					.text-center;
+					box-sizing: content-box;
+					top: 100%;
+					left: 50%;
+					z-index: 20;
+					transition: left 0.8s cubic-bezier(0.3, 0, 0.110, 1) 0.1s, top 0.8s cubic-bezier(0.3, 0, 0.110, 1) 0.1s;;
+
+
+					width: 13em;
+					height: 13em;
+					margin-left: -6.5em;
+
+					// bubble sizes
+					@media @desktop {
+						width: 16em;
+						height: 16em;
+						margin-left: -8em;
+					}
+
+					&.bubble--lg {
+						width: 14em;
+						height: 14em;
+						margin-left: -7em;
+						@media @desktop {
+							width: 17em;
+							height: 17em;
+							margin-left: -8.5em;
+						}
+					}
+
+					&.bubble--md {
+						width: 12em;
+						height: 12em;
+						margin-left: -6em;
+						@media @desktop {
+							width: 14em;
+							height: 14em;
+							margin-left: -7em;
+						}
+					}
+
+					&.bubble--sm {
+						width: 11em;
+						height: 11em;
+						margin-left: -5.5em;
+						@media @desktop {
+							width: 12.5em;
+							height: 12.5em;
+							margin-left: -6.25em;
+						}
+					}
+
+
+					// container for the inner bubble text
+					.wrap {
+						.text-center;
+						.absolute;
+						.circle;
+						top: 0;
+						left: 0;
+						display: table;
+						width: 100%;
+						height: 100%;
+
+						// ensure 2nd wrap is above first
+						&:last-of-type {
+							z-index: 10;
+							background-color: @color-brand-alt;
+							.opacity(0);
+							transition: all 0.4s linear 0.2s;
+						}
+
+						// common
+						h2, p {
+							display: table-cell;
+							vertical-align: middle;
+							margin: 0 auto;
+							width: 100%;
+							height: 100%;
+							.opacity(0);
+						}
+
+						// main label specific
+						h2 {
+							color: @color-bg-alt;
+							.uppercase;
+							font-family: 'Alright Sans Medium';
+							z-index: 1;
+
+							@media @mobile {
+								font-size: 24px;
+							}
+							@media @wide {
+								font-size: 39px;
+							}
+
+							transition: opacity 0.6s linear 1.5s;
+						}
+
+						// body text specific
+						p {
+							font-size: 14px;
+							line-height: 18px;
+							z-index: 10;
+							padding: 0 30px;
+							transition: opacity 0.25s linear;
+							@media @tablet {
+								font-size: 15px;
+								line-height: 21px;
+							}
+
+						}
+
+					}
+
+					&:hover,
+					&.active {
+						cursor: pointer;
+						z-index: 40;
+						// show the paragraph
+						.wrap {
+							.opacity(1);
+							width: 110%;
+							height: 110%;
+							top: -5%;
+							left: -5%;
+							transition: all 0.25s linear;
+							// fade in the text separate to background
+							p {
+								.opacity(1);
+								transition: opacity 0.4s linear 0.2s;
+							}
+						}
+						// expand the border
+						span {
+							width: 120%;
+							height: 120%;
+							top: -10%;
+							left: -10%;
+							transition: width 0.3s ease-in-out, height 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out;
+						}
+					}
+
+					// border
+					span {
+						.absolute;
+						.circle;
+						z-index: 0;
+						top: -5%;
+						left: -5%;
+						width: 110%;
+						height: 110%;
+						display: block;
+						border: 3px dashed white;
+						transition: width 0.8s ease-in-out 0.1s, height 0.8s ease-in-out 0.1s, top 0.8s ease-in-out 0.1s, left 0.8s ease-in-out 0.1s;
+
+						animation: spin 24s infinite linear forwards;
+					}
+				}
+			}
+
+			// pack shot
+			.kgs-nutrients__package {
+				background: url('images/pages/kgs/nutrients-pack.png') no-repeat;
+				.bg-image-fill;
+				.absolute;
+				z-index: 30;
+				bottom: 0;
+				left: 50%;
+				background-position: 50% 100%;
+				width: 280px;
+				height: 400px;
+				margin-left: -140px;
+				pointer-events: none;
+				transition: transform 0.8s cubic-bezier(0.3, 0, 0.110, 1) 0.1s;
+
+				@media @tablet {
+					width: 360px;
+					height: 580px;
+					margin-left: -180px;
+				}
+				@media @desktop {
+					width: 486px;
+					height: 703px;
+					margin-left: -243px;
+				}
+			}
+
+			// straw
+			.kgs-nutrients__straw {
+				background: url('images/pages/kgs/nutrients-straw.png') no-repeat;
+				.bg-image-fill;
+				.absolute;
+				z-index: 20;
+				bottom: 5%;
+				left: 50%;
+				background-position: 50% 100%;
+				width: 156px;
+				height: 300px;
+				margin-left: -50px;
+				pointer-events: none;
+				.opacity(0);
+				transform: translate(25%,-50%) rotate(9deg);
+				transform-origin: 50% 0%;
+				transition: transform 1.8s ease-in-out 0s, opacity 1.2s linear 0s;
+				@media @tablet {
+					bottom: 10%;
+					width: 190px;
+					height: 368px;
+					margin-left: -65px;
+				}
+				@media @desktop {
+					bottom: 15%;
+					width: 234px;
+					height: 453px;
+					margin-left: -80px;
+				}
+			}
+
+			// animate in using .active class
+
+			&.active {
+				.nutrients__bubble {
+					&:nth-of-type(1) {
+						animation: wobble 14s infinite alternate;
+						transition: top 2.4s cubic-bezier(0.3, 0, 0.110, 1) 2.5s, left 2.4s cubic-bezier(0.3, 0, 0.110, 1) 2.5s;
+						top: 2%;
+						left: 53%;
+						@media @tablet {
+							left: 53%;
+						}
+					}
+
+					&:nth-of-type(2) {
+						animation: wobble 13.5s infinite alternate-reverse;
+						transition: top 1.7s cubic-bezier(0.3, 0, 0.110, 1) 2.1s, left 1.7s cubic-bezier(0.3, 0, 0.110, 1) 2.1s;
+						top: 13%;
+						left: 24%;
+						@media @tablet {
+							left: 18%;
+						}
+					}
+
+					&:nth-of-type(3) {
+						animation: wobble 14s infinite alternate 1.8s;
+						transition: top 2.1s cubic-bezier(0.3, 0, 0.110, 1) 1.9s, left 2.1s cubic-bezier(0.3, 0, 0.110, 1) 1.9s;
+						top: 24%;
+						left: 74%;
+						@media @tablet {
+							top: 15%;
+							left: 74%;
+						}
+					}
+
+					&:nth-of-type(4) {
+						animation: wobble 14.5s infinite alternate-reverse 1.25s;
+						transition: top 1.8s cubic-bezier(0.3, 0, 0.110, 1) 2.4s, left 1.8s cubic-bezier(0.3, 0, 0.110, 1) 2.4s;
+						top: 36%;
+						left: 37%;
+						@media @tablet {
+							top: 17%;
+							left: 37%;
+						}
+					}
+
+					&:nth-of-type(5) {
+						animation: wobble 14s infinite alternate 2s;
+						transition: top 1.9s cubic-bezier(0.3, 0, 0.110, 1) 2.9s, left 1.9s cubic-bezier(0.3, 0, 0.110, 1) 2.9s;
+						top: 49%;
+						left: 80%;
+						@media @tablet {
+							top: 39%;
+							left: 86%;
+						}
+					}
+
+					&:nth-of-type(6) {
+						animation: wobble 15s infinite alternate-reverse 1.5s;
+						transition: top 2s cubic-bezier(0.3, 0, 0.110, 1) 2.5s, left 2s cubic-bezier(0.3, 0, 0.110, 1) 2.5s;
+						top: 52%;
+						left: 23%;
+						@media @tablet {
+							top: 42%;
+							left: 23%;
+						}
+					}
+
+					// animate in the h2 text
+					.wrap {
+						h2 {
+							.opacity(1);
+							transition: opacity 0.6s linear 4s;
+						}
+					}
+				}
+
+				.kgs-nutrients__straw {
+					.opacity(1);
+					transform: translate(0,0) rotate(0);
+					transition: transform 2.4s cubic-bezier(0.3, 0, 0.110, 1) 1.1s, opacity 1.4s linear 1.2s;
+				}
+				.kgs-nutrients__package {
+					.translate(0, 53%);
+					transition: transform 2s cubic-bezier(0.3, 0, 0.110, 1) 1s;
+				}
+			}
+		}
+	}
+}
+

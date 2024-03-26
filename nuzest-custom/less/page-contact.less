@@ -1,0 +1,255 @@
+/* ============================================
+
+	Contact page
+
+=============================================== */
+
+body.contact {
+	background-color: @color-bg-alt;
+
+	#contact {
+		padding: 0 0 60px;
+
+		.primary-location {
+			font-size: 16px;
+
+			h4 {
+				font-family: 'Alright Sans';
+				line-height: 33px;
+				font-size: 26px;
+				.lighter {
+					font-family: 'Alright Sans Thin';
+				}
+			}
+			a.btn {
+				margin-top: 12px;
+			}
+		}
+
+		.secondary-location {
+			border-left: 1px solid @color-bg-body;
+			.location {
+				padding: 6px 0 21px;
+				margin: 0;
+				h4 {
+					font-family: 'Alright Sans';
+					color: @color-text;
+					margin-bottom: 0;
+				}
+			}
+		}
+
+		.lighter {
+			color: @color-grey-50;
+		}
+
+		.details {
+			display: none;
+			border-bottom: 1px solid @color-bg-body;
+		}
+
+		.expand {
+			font-size: 12px;
+			color: @color-grey-30;
+			cursor: pointer;
+			span{
+				color: @color-brand;
+				margin-left: 10px;
+			}
+		}
+	}
+
+	.search-box {
+		overflow: visible;
+		z-index: 3;
+	}
+
+
+	/* ============================================
+
+		Store Finder
+
+	=============================================== */
+
+	#acf-store-locator {
+		#acf-map-canvas {
+			width: 100%;
+			height: 420px;
+			@media @desktop 	{ height: 550px; }
+			@media @wide 		{ height: 620px; }
+			@media @xwide 		{ height: 690px; }
+		}
+
+		.store-tools {
+			padding: 30px 0;
+			@media @tablet {
+				padding: 60px 0 30px;
+			}
+			#acf-form.tools {
+				background-color: @color-border-alt;
+				padding: 45px 30px 30px;
+				border-radius: 0 24px 24px 24px;
+				.relative;
+				overflow: visible;
+				width: 90%;
+				margin: 0 auto;
+				@media @tablet {
+					width: 100%;
+				}
+
+				&:before {
+					content: '';
+					display: block;
+					.absolute;
+					top: 0;
+					left: -30px;
+					z-index: 10;
+					width: 30px;
+					height: 120px;
+					background-image: url('images/bkg/peak-light2-top-left.svg');
+					.bg-image-fill;
+					background-size: 100%;
+				}
+
+				h3 {
+					font-family: 'Alright Sans';
+					margin: 0 0 21px;
+					@media @mobile { font-size: 18px; }
+				}
+
+				input {
+					//.input-large;
+					margin: 0 0 12px;
+				}
+
+				button {
+					width: 100%;
+					margin-top: 3px;
+				}
+			}
+
+			ul.store-list {
+				margin: 0;
+				list-style: none;
+				@media @tablet {
+					padding: 0 60px 20px 0;
+				}
+				li {
+					margin: 0 0 21px;
+					padding: 0;
+					cursor: pointer;
+					.store-info {
+						width: 100%;
+						max-width: 100%;
+						min-height: 0;
+						.relative;
+						border-bottom: 1px solid @color-grey-10;
+						padding: 18px 0 45px;
+
+						@media @tablet {
+							padding: 18px 0 6px;
+						}
+
+						h3 {
+							font-family: 'Alright Sans';
+							margin: 0;
+							color: @color-grey-60;
+
+							@media @desktop {
+								padding-right: 200px;
+							}
+							@media @wide {
+								font-size: 21px;
+							}
+
+							&:hover {
+								color: @color-text;
+							}
+							&:after {
+								content: '\f107';
+								font-family: 'FontAwesome';
+								display: block;
+								.absolute;
+								text-align: right;
+								right: 0;
+								line-height: inherit;
+								pointer-events: none;
+								color: @color-grey-40;
+								transition: color 0.2s linear, transform 0.2s ease-in-out;
+								bottom: 8px;
+								@media @tablet {
+									bottom: 4px;
+								}
+							}
+							&:hover {
+								&:after {
+									color: @color-text;
+								}
+							}
+						}
+
+						span.details {
+							display: block;
+							visibility: hidden;
+							padding: 12px 0 0;
+							// animated
+							height: 30px;
+							margin-top: -30px;
+							.opacity(0);
+							transition: all 0.2s ease-in-out;
+							.directions {
+								.hidden;
+							}
+							a.storeLink {
+								font-size: 16px;
+								margin-bottom: 6px;
+							}
+						}
+
+						span.storeMeta {
+							.absolute;
+							bottom: 6px;
+							width: 100%;
+							left: 0;
+							@media @tablet {
+								left: auto;
+								right: 24px;
+								width: auto;
+							}
+							span {
+								font-size: 13px;
+								margin-left: 3px;
+								line-height: 27px;
+								padding: 0 6px;
+								color: @color-grey-60;
+								background: @color-border-alt;
+								.round(4);
+								.text-center;
+								display: inline-block;
+							}
+						}
+					}
+					&.active {
+						.store-info {
+							h3 {
+								color: @color-text;
+							}
+							span.details {
+								visibility: visible;
+								height: auto;
+								margin-top: 0;
+								.opacity(1);
+							}
+							h3 {
+								&:after {
+									transform: rotate(-180deg);
+									transition: transform 0.2s ease-in-out;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

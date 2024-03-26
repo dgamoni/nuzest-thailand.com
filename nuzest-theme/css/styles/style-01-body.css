@@ -1,0 +1,368 @@
+/*===========================================
+	Body Styles
+===========================================*/
+
+body {
+	font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	/*background-color: #f3f6f8;*/
+	background-color: #ededef; /*v3 updated colour scheme */
+	overflow-x: hidden;
+	margin-top: 60px;
+	font-size: 16px;
+}
+
+body.page-template-page-blank {margin-top: 0 !important;}
+
+body > div:last-of-type {margin-bottom: 0 !important;}
+
+div#page {
+	overflow-x: hidden;
+}
+
+
+
+/* Fix the Admin bar to the top of the page */
+#wpadminbar { position: fixed !important; }
+
+body.woocommerce,
+body.woocommerce-page,
+body.single-recipes,
+body.single-post {
+	padding-top: 20px;
+}
+
+
+/* body and navbar margins */
+	body.admin-bar .navbar#topNav { top: 46px;}
+	body.woocommerce-demo-store.woo-demo-store-top { margin-top: 108px; }
+	body.woocommerce-demo-store.woo-demo-store-top .navbar#topNav{ top: 48px; }
+	body.admin-bar.woocommerce-demo-store.woo-demo-store-top .navbar#topNav{ top: 94px; }
+	body.admin-bar.woocommerce-demo-store.woo-demo-store-top .woocommerce-store-notice{ top: 46px;}
+
+@media only screen and (min-width: 783px) {
+	body.admin-bar .navbar#topNav { top: 32px;}
+	body.admin-bar.woocommerce-demo-store.woo-demo-store-top .navbar#topNav{ top: 80px; }
+	body.admin-bar.woocommerce-demo-store.woo-demo-store-top .woocommerce-store-notice{ top: 32px;}
+
+}
+
+@media only screen and (min-width: 992px) {
+	body { margin-top: 85px; }
+	body.feature-banner{ margin-top: 0; }
+	body.woocommerce-demo-store.woo-demo-store-top { margin-top: 133px; }
+	body.feature-banner.woocommerce-demo-store.woo-demo-store-top { margin-top: 48px; }
+}
+
+@media only screen and (min-width: 1600px) {
+	body { margin-top: 115px; }
+	body.woocommerce-demo-store.woo-demo-store-top { margin-top: 163px; }
+}
+
+
+
+/*===========================================
+	Page Loading
+===========================================*/
+
+
+.page-loading {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    position: fixed;
+    left: 0;
+    top: 0;
+    text-align: center;
+    display: block;
+    z-index: 1200;
+    opacity: 0.96;
+    -webkit-transition: opacity 1s;
+    transition: opacity 1s;
+}
+
+.loading-message-content {
+    width: 100%;
+    position: absolute;
+    z-index: 1210;
+    vertical-align: middle;
+    height: 150px;
+    line-height: 150px;
+    top: 50%;
+    margin-top: -75px;
+    font-weight: bold;
+    font-family: arial, sans-serif;
+}
+
+
+
+/* ============================================
+	Bootstrap Visual Composer output
+=============================================== */
+
+.row.container {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.container .container {
+	width: auto; /* important for page template: page-sidebar */
+}
+
+.row {
+	position: relative;
+}
+
+
+.column[class*="offset"] .container {
+	width: 100%;
+}
+
+section, container {
+	position: relative;
+}
+
+header.page-header {
+    border-bottom: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+@media (min-width: 1600px) {
+	.container {
+			width: 1570px; /* Add XL breakpoint */
+	}
+	.col-xl-offset-3 {
+		margin-left: 25%;
+	}
+	.col-xl-offset-7 {
+		margin-left: 58.33333333% !important;
+	}
+	.col-xl-5 {
+		width: 41.66666667% !important;
+	}
+	.col-xl-6 {
+		width: 50%;
+	}
+}
+
+
+
+/* Add 1/5 colum widths to Bootstrap */
+.col-lg-1\/5, .col-lg-2\/5, .col-lg-3\/5, .col-lg-4\/5, .col-lg-5\/5, 
+.col-md-1\/5, .col-md-2\/5, .col-md-3\/5, .col-md-4\/5, .col-md-5\/5, 
+.col-sm-1\/5, .col-sm-2\/5, .col-sm-3\/5, .col-sm-4\/5, .col-sm-5\/5, 
+.col-xs-1\/5, .col-xs-2\/5, .col-xs-3\/5, .col-xs-4\/5, .col-xs-5\/5 {
+	position: relative;
+	min-height: 1px;
+	padding-left: 15px;
+	padding-right: 15px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+	.col-sm-1\/5, 
+	.col-sm-2\/5, 
+	.col-sm-3\/5, 
+	.col-sm-4\/5, 
+	.col-sm-5\/5 {
+		float: left;
+	}
+	
+	.col-sm-1\/5 {
+		width: 20%;
+	}
+	.col-sm-2\/5 {
+		width: 40%;
+	}
+	.col-sm-3\/5 {
+		width: 60%;
+	}
+	.col-sm-4\/5 {
+		width: 80%;
+	}
+	.col-sm-offset-1\/5 {
+		margin-left: 20%;
+	}
+	.col-sm-offset-2\/5 {
+		margin-left: 40%;
+	}
+	.col-sm-offset-3\/5 {
+		margin-left: 60%;
+	}
+	.col-sm-offset-4\/5 {
+		margin-left: 80%;
+	}
+}
+
+
+/* ============================================
+	Helper classes
+=============================================== */
+
+.margin-bottom-xs {
+    margin-bottom: 15px !important;
+}
+
+.margin-bottom-md {
+    margin-bottom: 30px !important;
+}
+
+.padd-30 {
+    /*padding: 30px 0 30px;*/
+	padding-bottom: 30px;
+}
+
+.padd-60 {
+	padding-top: 60px;
+	padding-bottom: 60px;
+}
+
+
+
+@media (min-width: 768px) {
+	.padd-xs {
+		padding: 54px 0 54px;
+	}
+}
+
+@media only screen and (min-width: 1200px){
+	.padd-xs {
+		padding: 75px 0 75px;
+	}
+}
+
+/* ============================================π
+	Typography
+=============================================== */
+
+p.woocommerce-store-notice {
+	font-size: 14px !important;
+}
+
+h1, h2, h3, h4, h5,
+.h1, .h2, .h3, .h4, .h5 {
+	font-weight: 300;
+}
+
+h2, .h2 {
+	font-size: 24px;
+	line-height: 27px;
+}
+h4, .h4 {
+	font-size: 16px;
+	line-height: 18px;
+}
+
+a, a:link, a:visited {
+	color: inherit;
+	border-bottom: 0px
+}
+
+label {
+    display: block;
+    /*text-transform: uppercase;*/
+    letter-spacing: 0.02em;
+    color: #646464;
+    font-family: Lato;
+		font-size: 14px;
+    line-height: 18px;
+    margin: 0 0 5px;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+@media only screen and (min-width: 768px) {
+	body {
+		font-size: 14px;
+	}
+	
+	h1, .h1 {
+		font-size: 45px;
+		line-height: 51px;
+	}
+	h2, .h2 {
+	font-size: 30px;
+	line-height: 39px;
+	}
+	h3, .h3 {
+		font-size: 21px;
+		line-height: 30px;
+	}
+	h4, .h4 {
+	font-size: 18px;
+	line-height: 24px;
+	}
+	h5, .h5 {
+		font-size: 18px;
+		line-height: 24px;
+	}
+	
+}
+
+@media only screen and (min-width: 992px) {
+	h1, .h1 {
+		font-size: 48px;
+		line-height: 51px;
+	}
+	h2, .h2 {
+		font-size: 33px;
+		line-height: 39px;
+		margin-bottom: 18px;
+	}
+	h3, .h3 {
+		font-size: 24px;
+		line-height: 30px;
+	}
+}
+
+.VivaBeautiful {
+    font-family: VivaBeautiful !important;
+}
+
+.Script {
+	font-family: Baskerville, Georgia, 'Times New Roman', Times, serif;
+	font-style: italic;
+}
+
+.fa, .fas {
+	font-weight: normal;
+}
+
+
+/* ============================================
+	Loading Screen
+=============================================== */
+
+.page-loading {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    position: fixed;
+    left: 0;
+    top: 0;
+    text-align: center;
+    display: block;
+    z-index: 1200;
+    opacity: 0.96;
+    -webkit-transition: opacity 1s;
+    transition: opacity 1s;
+}
+
+.loading-message-content {
+    width: 100%;
+    position: absolute;
+    z-index: 1210;
+    vertical-align: middle;
+    height: 150px;
+    line-height: 150px;
+    top: 50%;
+    margin-top: -75px;
+    font-weight: bold;
+    font-family: arial, sans-serif;
+}

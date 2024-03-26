@@ -1,0 +1,62 @@
+/* ============================================
+
+	Plugin overwrites 
+	– NOT including WooCommerce
+	
+=============================================== */
+
+
+// Ninja forms
+
+.ninja-forms-form { 
+	padding: 0;
+
+	.ninja-forms-required-items {
+		margin: 0 0 30px;
+	}
+
+	.label-above label {
+		margin: 0 0 3px;
+	}
+
+	.textarea-wrap textarea {
+		height: 90px;
+	}
+
+	.field-wrap {
+
+		margin: 0 0 24px;
+
+		&.spam-wrap {
+			width: 100%;
+			float: none;
+			@media @desktop {
+				width: 60%;	
+				float: left;
+			}
+		}
+
+		&.submit-wrap {
+		  float: right; 
+		}
+		
+		input[type="text"],
+		input[type="number"],
+		input[type="email"], 
+		input[type="number"],
+		input[type='password'] {
+		  height: 42px;
+		}
+
+		&.label-left label {
+			margin: 0 8px 5px 0;
+		}
+
+		&.label-left .ninja-forms-field, 
+		&.label-left .ninja-forms-star-rating-control {
+			margin-left: 0;
+		}
+	}
+
+}
+		

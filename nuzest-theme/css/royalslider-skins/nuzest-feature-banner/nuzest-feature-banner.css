@@ -1,0 +1,393 @@
+/******************************
+*
+*  RoyalSlider Skin for Nuzest Feature Banners 
+*
+*    
+*  Sprite: 'rs-nuzest-arrows.png'
+* 
+******************************/
+
+
+/* Background */
+.nz-feat-banner,
+.nz-feat-banner .rsOverflow,
+.nz-feat-banner .rsSlide,
+.nz-feat-banner .rsVideoFrameHolder,
+.nz-feat-banner .rsThumbs {
+	background: none;
+	color: #333;
+}
+
+/* SETUP */
+
+.nz-feat-banner {
+  height: 280px;
+  position: relative;
+  width: 100%;
+font-family: Lato;
+}
+
+.nz-feat-banner .rsContent {
+    background-repeat: no-repeat;
+    background-size: cover;
+	background-position: 25% 0;
+    position: absolute;
+    width: 100%;
+}
+
+/* Animated text blocks */
+
+.rsABlock, .rsSBlock {
+    top: 20px;/* default position */
+    bottom: auto;
+    right: 0px;
+    width: auto;
+	position: relative;
+}
+
+.bnHeading, .bnText, .bnButton {
+	display: none !important;
+}
+
+@media screen and (min-width: 768px) {
+	.bnHeading, .bnText, .bnButton {
+		display: block !important;
+	}
+	.nz-feat-banner {
+		height: 480px;
+	}
+	.bnHeading {
+		font-size: 30px;
+		line-height: 32px;
+		margin-top: 100px;
+		margin-bottom: 10px;
+		font-weight: 300;
+	}
+	.bnText{
+		font-size: 14px;
+		margin-bottom: 1.5em;
+	}
+}
+	
+@media screen and (min-width: 992px) {
+	.nz-feat-banner {
+    	height: 650px;
+	}
+	.bnHeading {
+		font-size: 40px;
+    	line-height: 46px;
+		margin-top: 130px;
+	}
+	.bnText{
+		font-size: 16px;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.nz-feat-banner {
+    	height: 770px;
+	}
+	.bnHeading {
+		font-size: 54px;
+    	line-height: 56px;
+		margin-top: 160px;
+	}
+}
+
+@media screen and (min-width: 1600px) {
+	.nz-feat-banner {
+    	height: 960px;
+	}
+	.bnHeading {
+		font-size: 72px;
+    	line-height: 69px;
+		margin-top: 200px;
+	}
+}
+
+
+/***************
+*
+*  1. Arrows
+*
+****************/
+
+.nz-feat-banner .rsArrow {
+	height: 100%;
+	width: 44px;
+	position: absolute;
+	display: block;
+	cursor: pointer;
+	z-index: 21;
+}
+.nz-feat-banner.rsVer .rsArrow {
+	width: 100%;
+	height: 44px;
+	
+}
+.nz-feat-banner.rsVer .rsArrowLeft { top: 0; left: 0; }
+.nz-feat-banner.rsVer .rsArrowRight { bottom: 0;  left: 0; }
+
+.nz-feat-banner.rsHor .rsArrowLeft { left: 0; top: 0; }
+.nz-feat-banner.rsHor .rsArrowRight { right: 0; top:0; }
+
+.nz-feat-banner .rsArrowIcn {		
+	width: 32px;
+	height: 32px;
+	top: 50%;
+	left: 50%;
+	margin-top:-16px;	
+	margin-left: -16px;
+
+	position: absolute;	
+	cursor: pointer;	
+	background: url('rs-nuzest-arrows.png');
+	
+	border-radius: 2px;
+}
+
+
+.nz-feat-banner.rsHor .rsArrowLeft .rsArrowIcn { background-position: 0 0; }
+.nz-feat-banner.rsHor .rsArrowRight .rsArrowIcn { background-position: -64px -64px; }
+
+.nz-feat-banner.rsVer .rsArrowLeft .rsArrowIcn { background-position: -96px -32px; }
+.nz-feat-banner.rsVer .rsArrowRight .rsArrowIcn { background-position: -96px -64px; }
+
+.nz-feat-banner .rsArrowDisabled .rsArrowIcn { opacity: .2; filter: alpha(opacity=20);  *display: none; }
+
+
+
+
+/***************
+*
+*  2. Bullets
+*
+****************/
+
+.nz-feat-banner .rsBullets {
+	position: relative;
+	z-index: 35;
+	padding-top: 4px;
+	width: 100%;
+	height: auto;
+	margin: 0 auto; 
+	text-align: center;
+	line-height: 5px;
+	overflow: hidden;
+	background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    bottom: 0;
+    overflow: visible;
+    position: relative;
+    z-index: 100;
+	display: none;
+}
+
+@media screen and (min-width: 768px) {
+	.nz-feat-banner .rsBullets {
+		display: block;
+		bottom: 50px;
+	}
+}
+
+@media screen and (min-width: 992px) {
+	.nz-feat-banner .rsBullets {
+		bottom: 70px;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.nz-feat-banner .rsBullets {
+		bottom: 100px;
+	}
+}
+
+.nz-feat-banner .rsBullets * {
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+.nz-feat-banner .rsBullet {
+	width: 5px;
+	height: 5px;
+	display: inline-block;
+	*display:inline; 
+	*zoom:1;
+	padding: 6px;
+	 cursor: pointer;
+  display: inline-block;
+  padding: 10px;
+}
+
+.nz-feat-banner .rsBullet span {
+  border: 1px solid #858585;
+  border-radius: 50%;
+  display: block;
+  height: 14px;
+  width: 14px;
+}
+
+.nz-feat-banner .rsBullet.rsNavSelected span {
+	background-color: #858585;
+}
+
+
+
+
+
+
+
+
+
+/***************
+*
+*  5. Fullscreen button
+*
+****************/
+
+.nz-feat-banner .rsFullscreenBtn {
+	right: 0;
+	top: 0;
+	width: 44px;
+	height: 44px;
+	z-index: 22;
+	display: block;
+	position: absolute;
+	cursor: pointer;
+	
+}
+.nz-feat-banner .rsFullscreenIcn {
+	display: block;
+	margin: 6px;
+	width: 32px;
+	height: 32px;
+
+	background: url('rs-nuzest-arrows.png') 0 0;
+	background-color: #000;
+	background-color: rgba(0,0,0,0.75);
+	*background-color: #000;
+	border-radius: 2px;
+
+}
+.nz-feat-banner .rsFullscreenIcn:hover {
+	background-color: rgba(0,0,0,0.9);
+}
+.nz-feat-banner.rsFullscreen .rsFullscreenIcn {
+	background-position: -32px 0;
+}
+
+
+
+
+
+/***************
+*
+*  6. Play/close video button
+*
+****************/
+
+.nz-feat-banner .rsPlayBtn {
+	-webkit-tap-highlight-color:rgba(0,0,0,0.3);
+	width:64px;
+	height:64px;
+	margin-left:-32px;
+	margin-top:-32px;
+	cursor: pointer;
+}
+.nz-feat-banner .rsPlayBtnIcon {
+	width:64px;
+	display:block;
+	height:64px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	
+	-webkit-transition: .3s;
+	-moz-transition: .3s;
+	transition: .3s;
+
+	background:url(rs-nuzest-arrows.png) no-repeat 0 -32px;
+	background-color: #000;
+	background-color: rgba(0,0,0,0.75);
+	*background-color: #000;
+}
+.nz-feat-banner .rsPlayBtn:hover .rsPlayBtnIcon {
+	background-color: rgba(0,0,0,0.9);
+}
+.nz-feat-banner .rsBtnCenterer {
+	position:absolute;
+	left:50%;
+	top:50%;
+}
+.nz-feat-banner .rsCloseVideoBtn {
+	right: 0;
+	top: 0;
+	width: 44px;
+	height: 44px;
+	z-index: 500;
+	position: absolute;
+	cursor: pointer;
+	-webkit-backface-visibility: hidden;
+	-webkit-transform: translateZ(0);
+	
+}
+.nz-feat-banner .rsCloseVideoBtn.rsiOSBtn {
+	top: -38px;
+	right: -6px;
+}
+
+.nz-feat-banner .rsCloseVideoIcn {
+	margin: 6px;
+	width: 32px;
+	height: 32px;
+	background: url('rs-nuzest-arrows.png') -64px 0;
+	background-color: #000;
+	background-color: rgba(0,0,0,0.75);
+	*background-color: #000;
+}
+.nz-feat-banner .rsCloseVideoIcn:hover {
+	background-color: rgba(0,0,0,0.9);
+}
+
+
+
+/***************
+*
+*  7. Preloader
+*
+****************/
+
+.nz-feat-banner .rsPreloader {
+	width:20px;
+	height:20px;
+	background-image:url(../preloaders/preloader-white.gif);
+
+	left:50%;
+	top:50%;
+	margin-left:-10px;
+	margin-top:-10px;	
+}
+
+
+
+
+/***************
+*
+*  8. Global caption
+*
+****************/
+.nz-feat-banner .rsGCaption {
+	position: absolute;
+	float: none;
+	bottom: 6px;
+	left: 6px;
+	text-align: left;
+
+	background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.75);
+
+	color: #FFF;
+	padding: 2px 8px;
+	width: auto;
+	font-size: 12px;
+	border-radius: 2px;
+}
+

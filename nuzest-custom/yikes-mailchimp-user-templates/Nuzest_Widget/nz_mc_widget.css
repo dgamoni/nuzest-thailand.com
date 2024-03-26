@@ -1,0 +1,12 @@
+/*
+	Template: Nuzest Widget Template
+	Description : This is the .css file associated with the above template. This file gets loaded when using the above 
+						template to display a custom opt-in form for YIKES Inc. Easy MailChimp Extender.
+	Author : Nuzest
+*/
+
+/*************************************************************************************************************************/
+
+.nz_mc_widget label {
+  display: none;
+}

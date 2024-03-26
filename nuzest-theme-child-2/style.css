@@ -1,0 +1,39 @@
+/*
+ Theme Name:   Nuzest Theme Child Thailand
+ Theme URI:    http://yourwebsite.com/nuzest-theme-child/
+ Description:  Active Child Theme for Nuzest Thailand website
+ Author:       Monique Bolland
+ Template:     nuzest-theme
+ Version:      1.0.0
+ Text Domain:  nuzest-theme-child
+*/
+
+/* Import Thai font : Kanit 
+@import 'https://fonts.googleapis.com/css?family=Kanit:100,200,400,400i,500&subset=thai';*/
+
+
+/* Coming Soon banner 
+#topNav { margin-top: 50px; }
+
+@media (min-width: 992px) {
+body { margin-top: 165px; }
+#topNav { margin-top: 48px; }
+}
+*/
+
+/* Font page for Poe */
+input[type="text"].kanit { font-family: Kanit !important; }
+.size14 { font-size: 14px !important; }
+.size15 { font-size: 15px !important; }
+.size18 { font-size: 18px !important; }
+.size24 { font-size: 24px !important; }
+.size32 { font-size: 32px !important; }
+.size48 { font-size: 48px !important; }
+.size54 { font-size: 54px !important; }
+
+.weight100 { font-weight: 100 !important; }
+.weight200 { font-weight: 200 !important; }
+.weight400 { font-weight: 400 !important; }
+.weight500 { font-weight: 500 !important; }
+
+.fontSize a.btn, .fontWeight a.btn { min-width: auto !important; }

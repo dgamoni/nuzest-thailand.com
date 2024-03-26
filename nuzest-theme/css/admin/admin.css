@@ -1,0 +1,166 @@
+.wpb_vc_param_value.items.param_group,
+.wpb_vc_param_value.image.attach_image,
+.wpb_vc_param_value.b_b_position.dropdown,
+.wpb_vc_param_value.b_b_peak_position.dropdown,
+.wpb_vc_param_value.detail_page_url.textfield,
+.wpb_vc_param_value.product_category.checkbox {
+    display: none;
+}
+
+/* Theme Options */
+.custom_css,
+.custom_script {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* User Profile Page */
+.user-googleplus-wrap, .user-twitter-wrap, .user-facebook-wrap {
+    display: none;
+}
+
+/* Nav Menu MegaMenu */
+span.item-menu-type {
+	font-style: italic;
+	color: #666;
+}
+
+li:not(.menu-item-depth-0) div[data-name="nz_mega_menu"] {
+	display: none;
+}
+
+.menu-item-settings .field-css-classes {
+	float: none;
+}
+
+
+/* ============================================
+
+	Admin custom styles (was /css/admin_style.css)
+
+=============================================== */
+
+/* always hide the roles box on posts */
+
+#rolediv.postbox {
+	display: none !important;
+
+}
+.contact_form_id_holder{
+	display: none;
+}
+
+
+
+/* JS Composer custom elements icons */
+.faq-list-vc-icon.vc_element-icon {
+  background: url(../../images/icons/vc_icons-vert.png);
+  background-position: 0 -352px;
+}
+.faq-categories-vc-icon.vc_element-icon {
+  background-image: url(../../images/icons/vc_icons-vert.png);
+  background-position: 0 -640px;
+}
+.faq-search-vc-icon.vc_element-icon {
+  background-image: url(../../images/icons/vc_icons-vert.png);
+  background-position: 0 -544px;
+}
+.nuzest-section-divider-vc-icon.vc_element-icon {
+  background-image: url(../../images/icons/vc_icons-vert.png);
+  background-position: 0 -672px;
+}
+.product-info-blocks-vc-icon.vc_element-icon {
+  background-image: url(../../images/icons/vc_icons-vert.png);
+  background-position: 0 -704px;
+}
+.ingredients-list-toggle-vc-icon.vc_element-icon {
+  background-image: url(../../images/icons/vc_icons-vert.png);
+  background-position: 0 -128px;
+}
+.ingredients-list-vc-icon.vc_element-icon {
+  background-image: url(../../images/icons/vc_icons-vert.png);
+  background-position: 0 -32px;
+}
+.press-coverage-vc-icon.vc_element-icon {
+  background-image: url(../../images/icons/vc_icons-vert.png);
+  background-position: 0 -96px;
+}
+.post-snippets-vc-icon.vc_element-icon {
+  background: url(../../images/icons/vc_icons-vert.png);
+  background-position: 0 -480px;
+}
+.people-vc-icon.vc_element-icon {
+  background-image: url(../../images/icons/vc_icons-vert.png);
+  background-position: 0 -256px;
+}
+.product-usp-list-vc-icon.vc_element-icon {
+  background-image: url(../../images/icons/vc_icons-vert.png);
+  background-position: 0 -512px;
+}
+.quick-buy-strip-vc-icon.vc_element-icon {
+  background-image: url(../../images/icons/vc_icons-vert.png);
+  background-position: 0 -384px;
+}
+.ggs-science-nature-vc-icon.vc_element-icon {
+  background-image: url(../../images/icons/vc_icons-vert.png);
+  background-position: 0 -288px;
+}
+.scroll-to-button-vc-icon.vc_element-icon {
+  background-image: url(../../images/icons/vc_icons-vert.png);
+  background-position: 0 -416px;
+}
+.testimonials-vc-icon.vc_element-icon {
+  background-image: url(../../images/icons/vc_icons-vert.png);
+  background-position: 0 -224px;
+}
+.home-contact-block-vc-icon.vc_element-icon {
+  background-image: url(../../images/icons/vc_icons-vert.png);
+  background-position: 0 -608px;
+}
+.royal-slider-icon.vc_element-icon {
+  background-image: url(../../images/icons/vc_icons-vert.png);
+  background-position: 0 -768px;
+}
+.kgs-bubbles-vc-icon.vc_element-icon {
+  background: url(../../images/icons/vc_icons-vert.png);
+  background-position: 0 -448px;
+}
+.nuzest-locations-vc-icon.vc_element-icon {
+  background-image: url(../../images/icons/vc_icons-vert.png);
+  background-position: 0 -160px;
+}
+.stores-map-vc-icon.vc_element-icon {
+  background-image: url(../../images/icons/vc_icons-vert.png);
+  background-position: 0 0;
+}
+.ggs-more-vitamins-vc-icon.vc_element-icon {
+  background-image: url(../../images/icons/vc_icons-vert.png);
+  background-position: 0 -64px;
+}
+.recipes-section-vc-icon.vc_element-icon {
+  background-image: url(../../images/icons/vc_icons-vert.png);
+  background-position: 0 -192px;
+}
+.blog-section-vc-icon.vc_element-icon {
+  background-image: url(../../images/icons/vc_icons-vert.png);
+  background-position: 0 -320px;
+}
+.jfv-map-section-vc-icon.vc_element-icon {
+  background-image: url(../../images/icons/vc_icons-vert.png);
+  background-position: 0 -576px;
+}
+.our-story-vc-icon.vc_element-icon {
+  background-image: url(../../images/icons/vc_icons-vert.png);
+  background-position: 0 -736px;
+}
+
+.nuzest-slider-vc-icon.vc_element-icon {
+	background-image: url(../../images/icons/vc_icons-vert.png);
+ 	background-position: 0 -800px;
+}
+.video-banner-vc-icon.vc_element-icon {
+	background-image: url(../../images/icons/vc_icons-vert.png);
+ 	background-position: 0 -832px;
+}

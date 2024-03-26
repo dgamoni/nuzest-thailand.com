@@ -1,0 +1,198 @@
+/* ============================================
+	Forms
+=============================================== */
+
+input[type="text"], 
+input[type="email"], 
+input[type="number"], 
+input[type="password"], 
+input[type="tel"], 
+select, 
+textarea {
+	background: #ffffff;
+	border: 1px solid #eaece9;
+	border-radius: 4px;
+	width: 100%;
+	padding: 0 9px;
+	color: #333333;
+	height: 42px;
+	font-size: 14px;
+}
+
+textarea {
+	min-height: 42px;
+}
+
+.checkbox, .radio {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+footer input[type="text"], 
+footer input[type="email"], 
+footer input[type="number"], 
+footer input[type="password"], 
+footer input[type="tel"], 
+footer select, 
+footer textarea {
+	border-radius: 20px;
+}
+
+footer input[type="submit"] {
+	display: inline-block;
+	padding: 6px 12px;
+	margin: 10px auto 0;
+	text-align: center;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.4;
+	text-transform: uppercase;
+	color: #333333;
+	border: 2px solid #d7df3a;
+	border-radius: 18px;
+	background: #d7df3a;
+	transition: background 0.4s;
+}
+
+footer input[type="submit"]:hover {
+	background: #e7ec89;
+}
+
+.search-box input[type='text'] {
+    border-radius: 22px;
+    font-size: 16px;
+    padding: 0 0 0 21px;
+    border: 1px solid #d7df3a;
+    text-transform: none;
+}
+
+
+
+/* ============================================
+	Buttons
+=============================================== */
+
+.btn, .button,
+#comments input[type=submit]{
+	background: #fff;
+	border: 2px solid #eaece9 !important;
+	/*border-radius: 18px;*/
+	padding: .5em 21px .5em;
+	text-transform: uppercase;
+	text-align: center;
+	color: #333 !important;
+	/*min-width: 130px;*/
+	-webkit-transition: background 0.4s;
+	transition: background 0.4s;
+	min-width: 150px;
+    font-size: 16px;
+    border-radius: 22px;
+}
+
+.btn:hover, .button:hover,
+#comments input[type=submit]:hover {
+	background: #f3f6f8;
+	color: inherit;
+}
+.btn.btn-primary, .button.btn-primary,
+#comments input[type=submit] {
+    border-color: #d7df3a !important;
+}
+.btn.btn-primary:hover, .button.btn-primary:hover,
+.btn.btn-green:hover, .button.btn-green:hover,
+#comments input[type=submit]:hover {
+	background: #e7ec89;
+}
+
+.btn.btn-primary:active, .button.btn-primary:active, .btn.btn-primary.active, .button.btn-primary.active,
+#comments input[type=submit]:active {
+    background: #d7df3a !important;
+}
+
+.btn.active, .button.active, .btn:active, .button:active, .btn:focus, .button:focus,
+#comments input[type=submit]:focus {
+    box-shadow: none;
+    outline: none;
+    background: #f3f6f8;
+    color: inherit;
+}
+
+.btn.btn-primary.solid, .button.btn-primary.solid,
+.btn.btn-green.solid, .button.btn-green.solid {
+	background: #d7df3a;
+}
+
+.btn.btn-primary.solid:hover, .button.btn-primary.solid:hover,
+.btn.btn-green.solid:hover, .button.btn-green.solid:hover{
+	background: #e7ec89;
+}
+
+.btn.btn-orange, .button.btn-orange, 
+.btn.btn-clean-lean-protein, .button.btn-clean-lean-protein {
+	border-color: #ffb231 !important;
+}
+
+.btn.btn-orange:hover, .button.btn-orange:hover, 
+.btn.btn-clean-lean-protein:hover, .button.btn-clean-lean-protein:hover {
+	background: #ffd897;
+}
+
+.btn.btn-orange.solid, .button.btn-orange.solid, 
+.btn.btn-clean-lean-protein.solid, .button.btn-clean-lean-protein.solid {
+	background: #ffb231;
+}
+
+.btn.btn-orange.solid:hover, .button.btn-orange.solid:hover, 
+.btn.btn-clean-lean-protein.solid:hover, .button.btn-clean-lean-protein.solid:hover {
+	background: #ffd897;
+}
+
+.btn.btn-purple, .button.btn-purple, 
+.btn.btn-kids-good-stuff, .button.btn-kids-good-stuff {
+	border-color: #9673b3 !important;
+}
+
+.btn.btn-purple:hover, .button.btn-purple:hover, 
+.btn.btn-kids-good-stuff:hover, .button.btn-kids-good-stuff:hover {
+	background: #c8b5d7;
+}
+
+.btn.btn-purple.solid, .button.btn-purple.solid, 
+.btn.btn-kids-good-stuff.solid, .button.btn-kids-good-stuff.solid {
+	background: #9673b3;
+}
+
+.btn.btn-purple.solid:hover, .button.btn-purple.solid:hover, 
+.btn.btn-kids-good-stuff.solid:hover, .button.btn-kids-good-stuff.solid:hover {
+	background: #c8b5d7;
+}
+
+span.btn,
+span.btn a,
+span.btn a:hover,
+a span.btn,
+a span.btn:hover {
+	text-decoration: none;
+}
+
+.btn.btn-square, 
+.button.btn-square {
+	border-radius: 8px;
+	text-transform: none;
+	margin: 3px;
+}
+
+.btn.btn-full-width, 
+.button.btn-full-width {
+    width: 100%;
+}
+
+@media only screen and (min-width: 768px){
+	.btn + .btn, 
+	.btn + .button, 
+	.button + .btn, 
+	.button + .button {
+		margin-left: 6px;
+		margin-top: auto;
+	}
+}

@@ -1,0 +1,211 @@
+/* ============================================
+
+	About page
+
+=============================================== */
+
+.about-lead {
+	color: @color-text;
+
+	@media @tablet {
+		font-size: 22px;
+	}
+}
+
+body.about {
+
+	@media @tablet {
+		.intro-sec.primary-intro h1 {
+			margin-bottom: 18px;
+		}
+	}
+
+}
+
+
+#story {
+	background: url(images/banners/about-nuzest.jpg) no-repeat bottom center;
+
+	.story-slider {
+		width: 100%;
+
+		.slide {
+			p:first-of-type {
+				.about-lead;
+			}
+
+			h1 {
+				margin: 0 0 24px;
+			}
+		}
+
+	}
+
+	.slide-nav {
+		margin-top: 30px;
+
+		@media (max-width: @screen-tablet) {
+			/**
+			 * 1. Undo .btn-group-justified styles to stack buttons on mobile.
+			 */
+
+			display: block; // [1]
+
+			.btn {
+				display: block; // [1]
+				width: auto; // [1]
+				border: 2px solid @color-brand !important; // [1]
+				border-radius: 18px; // [1]
+				margin: 0 0 1em; // [1]
+			}
+		}
+
+		.btn {
+			font-size: 18px;
+			padding-top: 6px;
+			padding-bottom: 3px;
+			border: 2px solid @color-brand;
+
+			&.btn-active {
+				background: @color-brand;
+			}
+
+			&:nth-child(1) {
+				border-right: none;
+			}
+
+			&:nth-child(3) {
+				border-left: none;
+			}
+
+			@media (min-width: @screen-desktop) and (max-width: @screen-wide) {
+				/**
+				 * 1. Button text is too large on desktop until wide desktop. Reduce size.
+				 */
+
+				font-size: 14px; // [1]
+			}
+		}
+	}
+}
+
+#story p,
+#philosophy p {
+	color: #5b5b5b;
+	line-height: 1.4;
+
+	&.lead {
+		.about-lead;
+	}
+
+	@media @tablet {
+		/**
+		 * 1. Increase font sizes for copy.
+		 */
+
+		font-size: 18px; // [1]
+	}
+}
+
+#philosophy {
+	h1 {
+		text-align: left;
+		margin-bottom: .6em;
+	}
+}
+
+#team {
+	.team-group {
+		padding-bottom: 40px;
+		border-bottom: 1px solid #848484;
+		margin-bottom: 60px;
+
+		h1.role {
+			margin: 0 0 40px;
+		}
+
+		&:first-of-type {
+			padding-top: 0;
+		}
+
+		&:last-of-type {
+			padding-bottom: 0;
+			border-bottom: none;
+			margin-bottom: 20px;
+		}
+
+		@media @desktop {
+			padding-bottom: 100px;
+			margin-bottom: 100px;
+
+			h1.role {
+				margin-bottom: 100px;
+			}
+		}
+	}
+
+	// @todo: refactor this and the ambassadors profiles into component
+
+}
+
+#testimonials {
+	.quote-slider {
+		width: 100%;
+
+		// RoyalSlider
+		.rsContent {
+			text-align: center;
+
+			.quote {
+				font-size: 16px;
+				margin-bottom: 1em;
+			}
+
+			.byline {
+				max-width: 400px;
+				color: #5b5b5b;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			@media @tablet {
+				.quote {
+					font-size: 28px;
+				}
+			}
+		}
+
+		.rsBullets {
+			margin-top: 15px;
+
+			@media @tablet {
+				margin-top: 30px;
+			}
+		}
+
+		.rsOverflow {
+			padding: 0 10%;
+
+			@media @tablet {
+				padding: 0 15%;
+			}
+		}
+
+		.rsArrow {
+			background: @color-bg-body;
+
+			@media (max-width: @screen-tablet) {
+				/**
+				 * 1. Reduce size of navigation arrows and links on mobile.
+				 */
+
+				width: 25px; // [1]
+
+				.rsArrowIcn {
+					margin-left: -25px; // [1]
+					transform: scale(.4); // [1]
+				}
+			}
+		}
+	}
+}

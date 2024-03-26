@@ -1,0 +1,63 @@
+/* ============================================
+	Pagination
+=============================================== */
+
+.row-pagination {
+    text-align: center;
+    font-variant-numeric: lining-nums;
+    -moz-font-feature-settings: "lnum" 1;
+    -moz-font-feature-settings: "lnum=1";
+    -ms-font-feature-settings: "lnum" 1;
+    -o-font-feature-settings: "lnum" 1;
+    -webkit-font-feature-settings: "lnum" 1;
+    font-feature-settings: "lnum" 1;
+}
+.row-pagination .pagination {
+    width: 100%;
+    padding: 0 10px;
+}
+.row-pagination .pagination li {
+    display: inline-block;
+    width: 3%;
+    margin: 0 1.5%;
+    min-width: 30px;
+    vertical-align: middle;
+}
+
+.row-pagination .pagination li a:hover, 
+.row-pagination .pagination li span:hover, 
+.row-pagination .pagination li a:active, 
+.row-pagination .pagination li span:active, 
+.row-pagination .pagination li a.current, 
+.row-pagination .pagination li span.current{
+    color: #333333;
+    font-size: 45px;
+}
+.row-pagination .pagination li a, 
+.row-pagination .pagination li span {
+    color: #888888;
+    text-decoration: none;
+    font-size: 33px;
+    line-height: 45px;
+    display: block;
+    width: 100%;
+    height: 45px;
+    cursor: pointer;
+}
+.row-pagination .pagination li a.prev, 
+.row-pagination .pagination li span.prev, 
+.woocommerce-pagination li a.prev{
+    background: url(../../images/elem/page-arrow.svg) no-repeat 50%;
+    text-indent: -9999px;
+}
+.row-pagination .pagination li a.next, 
+.row-pagination .pagination li span.next, 
+.woocommerce-pagination li a.next{
+    background: url(../../images/elem/page-arrow.svg) no-repeat 50%;
+    text-indent: -9999px;
+    -o-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -moz-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+}

@@ -1,0 +1,189 @@
+/* ============================================
+
+	Shop
+
+=============================================== */
+
+
+.product-img-small {
+  width: 100px;
+}
+
+.woocommerce {
+
+	//top level page title & info
+	.page-title,
+	.archive-description,
+	.term-description {
+		text-align: center;
+	}
+
+	//list of shop cats
+	.category-list {
+  		padding: 40px 0;
+	}
+
+	//product snippet layout
+	.snippet div.info {
+		padding-bottom: 40px;
+	}
+
+	//product single layout
+	div.product div.images {
+		.relative;
+
+		img {
+			background-color: white;
+		}
+
+		div.thumbnails {
+			text-align: center;
+
+			a {
+				float: none;
+				display: inline-block;
+				width: 100%;
+				max-width: 112px;
+			}
+		}
+	}
+
+
+	span.onsale {
+		.absolute;
+		top: 15px;
+		left: 15px;
+		background-color: @color-brand;
+		z-index: 1;
+		padding: 0 5px;
+	}
+
+
+	.quick-view-button {
+		display: none;
+
+		// hide quickview button when underneath desktop, there isn't enough
+		// width for the modal to display properly otherwise
+		@media @desktop {
+			display: block;
+		}
+
+		// remove eye icon from quickview buttons
+		span {
+			display: none;
+		}
+	}
+
+	//product detail tabs
+	div.product .woocommerce-tabs ul.tabs {
+		margin-bottom: 0;
+	}
+
+	div.product .woocommerce-tabs .panel {
+		padding: 20px;
+		border: 1px solid @color-border;
+  		border-radius: 0 0 4px 4px;
+  		border-top: 0px;
+	}
+
+	//product meta
+	.product_meta {
+		display: none;
+	}
+
+	// picker
+	.attribute_pa_flavour_picker {
+		@media (max-width: @screen-tablet) {
+			text-align: center;
+		}
+	}
+
+	//picker options
+	.option-outer-wrapper {
+		display: inline-block;
+		width: 100px;
+  		text-align: center;
+  		vertical-align: top;
+  		margin-bottom: 10px;
+
+  		label {
+  			font-size: 12px !important;
+  			padding: 6px 20px 0 !important;
+		}
+	}
+
+	.option-inner-wrapper {
+		width: 38px;
+		height: 38px;
+		margin: 0 auto;
+	}
+
+
+	//swatch section
+	.woocommerce div.product form.cart .swatch-wrapper {
+		margin: 0;
+	}
+
+	//variation section
+
+	.variation-images {
+		.nowrap;
+		overflow: hidden;
+		img {
+			display: inline;
+		}
+		.rsArrow {
+			top: 0;
+		}
+	}
+
+	.variation_form_section>label {
+  		float: left;
+	}
+
+	div[itemprop="offers"] {
+		.margin-bottom-md;
+	}
+
+	div.product p.price,
+	div.product span.price {
+		color: inherit;
+		font-size: inherit;
+	}
+
+	div.product p.price del,
+	div.product span.price del {
+		display: inline-block;
+	}
+	div.product p.price ins,
+	div.product span.price ins {
+		text-decoration: none;
+		font-weight: normal;
+	}
+
+	.essb_links.essb_template_grey-circles-retina {
+		margin: 0;
+	}
+
+	.rsArrow .rsArrowIcn {
+		height: 62px;
+		margin-top: -31px;
+	}
+
+
+	// single product page only
+	&.single-product {
+		.single_variation .price {
+			display: none
+		}
+	}
+
+}
+
+.woocommerce-page {
+	&.single-product #page-content {
+		padding-top: 50px;
+	}
+}
+
+

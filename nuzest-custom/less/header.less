@@ -1,0 +1,515 @@
+/* ============================================
+
+	Navigation
+
+=============================================== */
+
+/* Mobile navigation */
+.navbar {
+	background: @color-bg-alt; /* Fallback 
+	background: fade(@color-bg-alt, 95%);*/
+	border-bottom: 2px solid @color-bg-body;
+	height: 60px;
+
+	// full screen overlay - use when mobile search is open
+	&:after {
+		content: '';
+		display: block;
+		position: fixed;
+		// below the header and search form, as they're semi-opaque
+		top: 112px;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: rgba(0,0,0,.7);
+
+		// transition
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	// state
+	&.search-open {
+		border-bottom: none;
+
+		// show full screen overlay
+		&:after {
+			opacity: 1;
+			visibility: visible;
+			transition: all .15s ease-out;
+		}
+	}
+
+	@media @desktop {
+		/**
+		 * 1. Ensure full screen overlay doesn't show - it's mobile only.
+		 */
+
+		&:after {
+			display: none; // [1]
+		}
+	}
+}
+
+.navbar-header {
+	float: none;
+	margin-left: 0;
+	margin-right: 0;
+
+	@media @desktop {
+		/**
+		 * 1. Position logo to left of navigation links.
+		 */
+
+		float: left; // [1]
+	}
+}
+
+.navbar-default {
+
+	// hamburger menu
+	button.navbar-toggle {
+		float: left;
+		display: block;
+		border: 0;
+		background: transparent;
+		position: absolute;
+		top: 1px;
+		left: 15px;
+
+		span.nav-icon {
+			display: block;
+			width: 100%;
+			height: 100%;
+			&:before {
+				content: '\f0c9';
+				font-family: 'FontAwesome';
+				font-size: 21px;
+				line-height: 21px;
+				text-align: center;
+				color: @color-grey-50;
+			}
+		}
+
+	}
+
+	// mobile search form
+
+	.mobileSearch {
+		// "open search bar" icon
+		a {
+			display: inline-block;
+			position: absolute;
+			top: 13px;
+			left: 50px;
+			font-size: 18px;
+			line-height: 21px;
+			color: @color-grey-50;
+			// larger tappable area
+			padding: 5px 10px;
+		}
+
+		// actual form, positioned underneath the mobile header
+		.search-form {
+			display: none;
+			position: fixed;
+			top: 60px;
+			left: 0;
+			width: 100%;
+			background: fade(@color-bg-alt, 95%);
+			padding: 0 25px 10px;
+
+			// query field
+			.form-control {
+				font-family: 'Alright Sans Thin';
+				font-size: 24px;
+				background: none;
+				text-transform: none;
+				padding: 0;
+				border: none;
+				box-shadow: none;
+			}
+
+			// state
+
+			&.open {
+				display: block;
+			}
+		}
+
+		@media @desktop {
+			display: none !important;
+		}
+	}
+}
+
+// toggle hamburger icon style on active
+.navmenu.in + .navbar-default{
+	button.navbar-toggle {
+		border: 0;
+		background: transparent;
+		span.nav-icon:before {
+			content: '\f00d';
+		}
+	}
+}
+
+
+// hide language switcher from menus
+#mainNav .menu-item-language, 
+.footer-menu .menu-item-language,
+#mobileNav .menu-item-language {
+	display: none;
+}
+
+.navbar-brand {
+	padding: 9px;
+	.text-center;
+	width: 100%;
+
+	@media @desktop {
+		.text-left;
+		width: auto;
+	}
+}
+
+.navbar-brand img {
+	height: 40px;
+	display: inline;
+}
+
+#menu-header-menu {
+	position: absolute;
+	right: 10px;
+	margin: 7.5px -15px;
+	a {
+		color: #666;
+		padding: 10px 6px 9px;
+		margin: 0 6px;
+		font-size: 12px;
+	}
+
+	li { /* on mobile only show the cart item */
+		display: none;
+		&.cart {
+			display: block;
+			font-family: 'Alright Sans LT Medium';
+			padding-right: 9px;
+			a {
+				.fa {
+					color: @color-grey-40;
+					padding-right: 9px;
+				}
+			}
+		}
+	}
+}
+
+#menu-header-menu .menu-item-language > a[href="#"] {
+  background: none !important;
+}
+
+
+#menu-main-menu {
+	display: none;
+	visibility: hidden;
+}
+
+#mobileNav{
+	margin-top: 60px;
+	box-shadow: 3px 12px 21px rgba(0,0,0,0.1);
+	//overflow-y: scroll;
+	height: 100%;
+	padding-bottom: 90px;
+
+	ul#menu-mobile-menu {
+		margin: 12px 0;
+		li {
+			margin: 0;
+			padding: 0 10px;
+			font-family: "Alright Sans LT Thin";
+			font-size: 24px;
+			// shop menu item
+			&.menu-item-71 {
+				background: @color-border-alt;
+			}
+			a {
+				color: #333;
+				padding: 6px 15px;
+				display: block;
+			}
+		}
+		ul.sub-menu {
+			list-style: none;
+			border-top: 1px solid @color-grey-20;
+			margin: -6px 6px 0;
+			padding: 6px 0;
+
+			li {
+				font-size: 16px;
+				a {
+					padding: 3px 0 3px 6px;
+				}
+			}
+		}
+	}
+}
+
+
+@media @desktop {
+	.navbar {
+		background: @color-bg-alt; /* Fallback */
+		background: fade(@color-bg-alt, 90%);
+		border-bottom: 2px solid @color-bg-alt;
+		height: 85px;
+	}
+
+	.navbar-toggle {
+		display: none !important;
+	}
+
+	.navbar-brand {
+		padding: 15px 10px;
+		height: auto;
+	}
+
+	.navbar-brand img {
+		height: 62px;
+	}
+
+	#menu-header-menu {
+		margin: 0 -15px;
+	}
+	
+	#menu-header-menu li {
+		display: block;
+	}
+
+	#menu-header-menu a {
+		font-size: 12px;
+		padding: 5px 6px 6px; 
+	}
+	
+	#menu-header-menu li.cart {
+		background: @color-bg-alt;
+		padding-right: 0;
+		border-bottom: 1px solid #E0E0E0;
+		border-left: 1px solid #E0E0E0;
+		border-right: 1px solid #E0E0E0;
+		margin-left: 9px;
+	}
+
+
+
+	#menu-main-menu{
+		display: block;
+		visibility:visible;
+		margin-top: 30px;
+
+		li {
+			font-family: "Alright Sans LT Medium";
+			font-size: 16px;
+			margin: 0;
+			padding: 18px 15px 25px;
+
+			> a {
+				color: #333;
+				padding: 0;
+			}
+
+			&:hover {
+				.sub-menu {
+					visibility: visible;
+					.opacity(1);
+				}
+			}
+
+			&.menu-item-has-children {
+				margin-right: 8px;
+				background: url("images/bkg/menu-expand.svg") no-repeat scroll right 25px ~"/" 10px 6px;
+			}
+
+			&.nz-menu-shop {
+				float: right;
+				padding-right: 0;
+
+				> a {
+					display: block;
+					margin-top: -8px;
+					padding-top: 7px;
+					border: 2px solid @color-brand;
+					border-radius: 24px;
+					background: @color-bg-alt;
+					height: 36px;
+					text-align: center;
+					text-transform: uppercase;
+					width: 110px;
+					transition: background 0.3s;
+
+					&:hover {
+						background: @color-brand-alt;
+						border-color: @color-brand;
+					}
+					&:active {
+						background: @color-brand;
+						border-color: @color-brand;
+					}
+				}
+			}
+
+            &.menu-search-box {
+                margin-left: 20px;
+            }
+
+			// sub navigation
+
+
+			ul.sub-menu {
+				position: absolute;
+				margin: 0;
+				padding: 0;
+				width: 300px;
+				top: 55px;
+				left: 0;
+				visibility: hidden;
+				.opacity(0);
+				transition: opacity 0.2s , visibility 0.2s;
+				li {
+					margin: 0;
+					//font-family: "Alright Sans LT";
+					font-size: 16px;
+					background-color: #f4f5f4;
+					border-bottom: 2px solid #fcfcfc;
+					list-style: none;
+					padding: 12px 18px 9px;
+					&:last-child {
+						border-bottom: none;
+					}
+					&:hover {
+						background-color: #eaebe9;
+					}
+
+					a {
+						text-decoration: none;
+					}
+				}
+			}
+		}
+	}
+
+
+	.current-menu-item > a, .current-menu-parent > a {
+		border-bottom: 2px solid @color-brand;
+	}
+}
+
+#menuSearchForm {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    top: 8px; right: 0;
+    width: 36px; 
+	height: 36px;
+    background: @color-bg-alt;
+    border: 2px solid @color-brand;
+    border-radius: 20px;
+    transition: width .4s cubic-bezier(0.22, 0.61, 0.36, 1), background-color .3s;
+
+	&:hover {
+		background-color: @color-brand-alt;
+		text-decoration: none;
+	}
+
+	&:active {
+		background-color: @color-brand;
+	}
+
+    input[type='text'] {
+        height: 36px;
+        border: none;
+
+        // visibility animation
+        visibility: hidden;
+        opacity: 0;
+
+    }
+
+    // desktop search form is open
+    .open & {
+        width: 300px;
+        // unset button-like effects
+        background: white !important;
+        padding: 0 40px 0 10px;
+
+        input[type='text'] {
+            visibility: visible;
+            opacity: 1;
+            transition: all .3s .4s;
+        }
+    }
+}
+
+#menuSearchButton {
+    z-index: 1;
+    position: absolute;
+    top: 3px; right: 0;
+    color: #aeaeae;
+    padding: 4px 8px;
+
+    // button depressed effect
+    &:active {
+        top: 4px;
+    }
+}
+
+@media @xwide {
+	/* Increase navigation size on larger screens */
+	
+	.navbar {
+		height: 115px;
+	}
+	
+	.navbar-brand img {
+		height: auto;
+	}
+	
+	#menu-header-menu a {
+		font-size: 12px; 
+		padding: 10px 6px 9px;
+	}
+	
+	#menu-main-menu{
+		margin-top: 50px;
+		
+		li{
+			font-size: 18px;
+			padding: 18px 18px 25px;	
+			
+			&.nz-menu-shop a {
+				height: 40px;
+				width: 130px;
+				margin-top: -11px;
+				padding-top: 9px;
+			}
+			
+			ul.sub-menu{
+				top: 64px;
+			}
+		
+		}
+	}
+
+	#menuSearchForm {
+		width: 40px;
+		height: 40px;
+	}
+	
+	#menuSearchButton {
+		padding: 5px 10px;
+	}
+}
+
+
+
+
+

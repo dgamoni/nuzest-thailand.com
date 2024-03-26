@@ -1,0 +1,162 @@
+<?php
+
+// add summary wrapper opening `</div>`
+add_action('woocommerce_single_product_summary', 'nz_wc_summary_wrapper_open', 1);
+function nz_wc_summary_wrapper_open() {
+        echo '<div class="desktop-summary">';
+}
+
+// add summary wrapper closing `</div>`
+add_action('woocommerce_single_product_summary', 'nz_wc_summary_wrapper_close', 100);
+function nz_wc_summary_wrapper_close() {
+        echo '</div>';
+}
+
+// move the sale flash into the product images container so we can absolutely
+// position it above the image
+remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10);
+remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10);
+add_action('nz_before_single_image', 'woocommerce_show_product_sale_flash', 1);
+
+//full description instead of excerpt under title
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
+add_action('woocommerce_single_product_summary', 'woocommerce_template_single_description', 8);
+function woocommerce_template_single_description() {
+        wc_get_template( 'single-product/full-description.php' );
+}
+
+//add a back button
+add_action('woocommerce_single_product_summary', 'nz_wc_back_button', 2);
+function nz_wc_back_button() {
+        echo '<a class="btn-back" href="javascript:history.back();"><i class="fa fa-reply"></i> ' . __('Back') . '</a>';
+}
+
+
+//add a nutrition button
+add_action('woocommerce_single_product_summary', 'nz_wc_nutrition_button', 9);
+function nz_wc_nutrition_button() {
+//      echo '<a class="btn toggle-in margin-top-md margin-bottom-md">Ingredients/Nutrition</a>';
+
+global $post;
+        if ( has_term (array('clean-lean-protein', 'good-green-stuff', 'kids-good-stuff','clean-lean-protein-th', 'good-green-stuff-th', 'kids-good-stuff-th'), 'product_cat' ) || get_post_meta($post->ID, 'show_ingredients', true) ==true) {
+                echo '<a class="btn toggle-in margin-top-md margin-bottom-md">';
+                _e('Ingredients/Nutrition','show_ingredients');
+                echo '</a>';
+        }
+
+}
+
+//remove data tabs
+remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 11);
+
+//add term category class to body on product pages,
+//same as already on term archive pages
+function add_category_term_class( $classes ) {
+        if (is_product()) {
+                global $product;
+                $cats = get_the_terms($product->id, 'product_cat');
+                if (is_array($cats) || is_object($cats))
+                {
+                    foreach ($cats as $cat)
+                    {
+                                        $classes[] = 'term-'.$cat->slug;
+
+                    }
+                }
+
+        }
+        return $classes;
+}
+add_filter( 'body_class', 'add_category_term_class' );
+
+//add social buttons
+add_action('woocommerce_share', 'nz_wc_share_buttons', 10);
+function nz_wc_share_buttons() {
+        echo do_shortcode('[easy-social-share]');
+}
+
+//bootstrap the thumbnails
+add_filter('woocommerce_single_product_image_thumbnail_html', 'nz_wc_single_product_image_thumbnail_html');
+function nz_wc_single_product_image_thumbnail_html($tag ) {
+        return '<div class="carousel__slide col-sm-4">' . $tag . '</div>';
+}
+
+//add list of variation descriptions, to be used by js
+add_action( 'woocommerce_single_product_summary', 'nz_wc_variation_descriptions' );
+function nz_wc_variation_descriptions() {
+        // get the product
+        global $product;
+
+        // Get the post IDs of all the product variations
+        $variation_ids = $product->children;
+
+        // check if we have variations
+        if ( empty( $variation_ids ) )
+                return;
+
+        // walk the variations
+        echo '<div id="variation_description"></div>';
+
+                foreach( $variation_ids as $variation_id ) {
+                        $description = wcpvd_get_variation_description( $variation_id );
+                        echo '<div id="variation-' . $variation_id . '" style="display: none;">';
+                                echo $description;
+                        echo '</div>';
+                }
+
+
+
+}
+
+// For simple product quick view, display the price above the "add to cart" form
+add_action('woocommerce_before_add_to_cart_form', 'nz_wc_simple_price');
+function nz_wc_simple_price() {
+        global $product;
+
+        if (is_product()) return;
+        if ($product->product_type !== 'simple') return;
+
+        woocommerce_get_template('loop/price.php');
+}
+
+// By default, variable products with same min and max price do not show the price. We always want to show the price.
+add_filter('woocommerce_show_variation_price', 'nz_wc_variable_product_same_min_max_price', 10, 3);
+function nz_wc_variable_product_same_min_max_price($show, $product, $variation) {
+        return !($variation->get_price() === '');
+}
+
+
+/**
+ * Construct duplicate summary for mobile single product view. Visible on
+ * mobile, and before the product image.
+ */
+
+add_action('nz_wc_single_product_mobile_summary', 'nz_wc_back_button', 1);
+add_action('nz_wc_single_product_mobile_summary', 'nz_single_product_title', 5);
+add_action('nz_wc_single_product_mobile_summary', 'woocommerce_template_single_description', 9);
+add_action('nz_wc_single_product_mobile_summary', 'nz_wc_nutrition_button', 10);
+
+function nz_single_product_title() {
+        global $product;
+        echo sprintf('<h1>%s</h1>', $product->post->post_title);
+}
+
+add_action( 'woocommerce_before_single_product_summary', 'nz_wc_show_mobile_product_summary', 15 );
+function nz_wc_show_mobile_product_summary() {
+        echo '<div class="mobile-summary visible-xs-block">';
+        do_action( 'nz_wc_single_product_mobile_summary' );
+        echo '</div>';
+}
+
+
+/**
+ * Quick view tweaks.
+ */
+
+// amend the quick view product button to open a 90% viewport width modal
+add_filter('woocommerce_loop_quick_view_link_args', 'nz_get_quick_view_url_for_product', 15, 1);
+function nz_get_quick_view_url_for_product($options) {
+        $options['width'] = "90%";
+
+        return $options;
+}

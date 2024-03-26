@@ -1,0 +1,134 @@
+/*===========================================
+	Single Recipe Post Layouts
+===========================================*/
+
+.rec-ingredients {
+    margin: 30px 0 45px;
+}
+.rec-ingredients .bubble {
+    padding: 30px 20px 0;
+    background: #ffffff;
+    border-radius: 10px 10px 0 0;
+    border: 1px solid #d6d6d6;
+    border-bottom: 0;
+}
+.rec-ingredients:after {
+    content: '';
+    background: url(../../images/elem/peak-ingredients.svg) transparent no-repeat 0 0;
+    background-size: contain;
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 30px;
+    top: -1px;
+}
+
+.rec-ingredients .bubble h3 {
+    margin: 0 0 18px;
+	font-weight: 400;
+}
+.rec-ingredients .bubble ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.rec-ingredients .bubble ul img {
+    width: 15px;
+    margin-top: -10px;
+}
+.rec-ingredients .bubble ul li {
+    list-style: none;
+    margin: 0;
+    padding: 15px 0 12px 33px;
+    position: relative;
+    border-bottom: 1px solid #eaece9;
+}
+.rec-ingredients .bubble ul li:before {
+    color: #d7df3a;
+    /*content: '•';*/
+	font-family: 'FontAwesome';
+	content: "\f111";
+    counter-increment: li;
+    font-size: 10px;
+    left: 4px;
+    top: 15px;
+    line-height: 21px;
+    position: absolute;
+    text-align: right;
+}
+.single-recipes .recipe-info .cooking-meta {
+    margin-bottom: 1em;
+}
+.single-recipes .recipe-info .info img {
+    margin-right: 10px;
+}
+.single-recipes .rec-method h3 {
+    margin: 0 0 10px;
+    font-weight: 400;
+}
+.single-recipes .info img{
+    height: 27px;
+}
+.single-recipes .recipe-info .cooking-meta {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 0 1em;
+}
+.single-recipes .recipe-info .info{
+    line-height: 27px;
+	margin-right: 40px;
+}
+ul.dietary-class {
+    list-style: none;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+ul.dietary-class li:not(:last-of-type) {
+    margin-right: 20px;
+}
+ul.dietary-class li {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+ul.dietary-class li span {
+    display: block;
+    float: left;
+    width: 33px;
+    height: 33px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+ul.dietary-class li.gluten-free span {
+  background-image: url(../../images/icons/GlutenFree-green.svg);
+}
+ul.dietary-class li.dairy-free span {
+  background-image: url(../../images/icons/DairyFree-green.svg);
+}
+ul.dietary-class li.sugar-free span {
+  background-image: url(../../images/icons/SugarFree-green.svg);
+}
+ul.dietary-class li.vegan span {
+  background-image: url(../../images/icons/Vegan-green.svg);
+}
+
+.nz-prod h3 {
+    font-weight: 400;
+}
+.nz-prod {
+    margin: 45px 0;
+    padding: 30px 30px 20px 20px;
+    background-color: #eaece9;
+}
+.nz-prod h3 {
+    margin: 0 0 18px;
+}
+
+@media only screen and (min-width: 992px){
+	.rec-ingredients {
+		margin-top: 20px;
+	}
+}
+

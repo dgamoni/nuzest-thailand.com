@@ -1,0 +1,98 @@
+/* ============================================
+	Region Select Modal
+=============================================== */
+
+.region-line{
+	border-top: 1px #eee solid; 
+	width:100px; 
+	margin: 50px 0
+}
+
+.countrylink{
+	margin-bottom: 15px;
+}
+
+.countrylink .flag{
+	padding: 10px 0;
+	height:24px;
+	width:24px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 5px;
+	background-image: url(../../images/flags/world_flags.png);
+}
+
+#flagus{
+	background-position: -366px -210px;
+}
+#flagcl{
+	background-position: -366px -261px;
+}
+#flaguk{
+	background-position: -340px -235px;
+}
+#flagcr{
+	background-position: -288px -314px;
+}
+#flagis{
+	background-position: -26px -366px;
+}
+#flagpl{
+	background-position: -78px -392px;
+}
+#flagsc{
+	background-position: -392px -184px;
+}
+#flaghk{
+	background-position: -183px -52px;
+}
+#flagru{
+	background-position: -314px -288px;
+}
+#flagsg{
+	background-position: 0px -366px;
+}
+#flagth{
+	background-position: -131px -210px;
+}
+#flagnz{
+	background-position: -340px -130px;
+}
+#flagau{
+	background-position: -26px -52px;
+}
+#flagae{
+	background-position: -235px -156px;
+}
+
+@media only screen and (min-width: 768px) {
+	h4.continent{
+		margin-bottom: 30px;
+	}
+	.countrylink a:hover{
+		border-bottom: 2px #d9de5b solid;
+		text-decoration: none;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	#regionSelect .modal-dialog .modal-body .row.region-row .region {
+    	width: 100%;
+  	}
+  	.region-line{
+		display: none;
+  	}
+	.countrylink {
+    	margin-bottom: 5px;
+	}
+	h4.continent {
+		margin-top: 30px;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+	.countrylink .flag{
+		float: left;
+		margin-right: 0;
+	}
+}

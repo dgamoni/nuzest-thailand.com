@@ -1,0 +1,67 @@
+/* ============================================
+
+	Testimonials page
+
+=============================================== */
+
+body.testimonials {
+
+	.user-profile {
+		.img-profile {
+			width: 115px;
+			height: 115px;
+		}
+		
+		h4, .h4 {
+			margin-bottom: 0; 
+		}
+		.quick-list {
+			li {
+				min-height: 140px;
+				margin: 0;
+				padding: 0;
+				@media @desktop {
+					min-height: 160px;
+				}
+				@media @xwide {
+					min-height: 120px;
+				}
+
+				> blockquote {
+					.absolute;
+					opacity: 1;
+					transition: all 0.1s linear 0.1s;
+				}
+				blockquote {
+					margin: 0;
+					font-size: 18px;
+				}
+				.detail {
+					padding-right: 0;
+				}
+				.quick-arrow {
+					right: auto;
+					left: 50%;
+					background: url("images/bkg/menu-expand-green.svg");
+				}
+				hr {
+					.absolute;
+					bottom: -20px;
+					left: 0;
+					width: 100%;
+				}
+
+				&.active {
+					> blockquote {
+						transition: all 0.1s linear;
+						opacity: 0;
+						height: 0;
+					}
+				}
+
+				
+			}
+		}
+	}
+	
+}

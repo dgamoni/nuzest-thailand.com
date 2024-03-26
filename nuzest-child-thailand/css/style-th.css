@@ -1,0 +1,83 @@
+@charset "UTF-8";
+/* Thail Language CSS Document */
+
+/* Import Thai font : Kanit */
+@import 'https://fonts.googleapis.com/css?family=Kanit:100,200,400,400i,500&subset=thai';
+
+		
+body, 
+p, 
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6,
+#feature-banner + .intro-sec h1,
+#feature-banner + .intro-sec > .container h1,
+.intro-sec.primary-intro h1 {
+	font-family: Kanit !important;
+}
+
+h1, .h1,
+h2, .h2 {
+	font-weight: 100;
+}
+
+body, p {
+	font-weight: 200;
+}
+
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+	font-weight: 400;
+}
+
+body, p {
+	font-size: 18px;
+	/*font-weight: 200;*/
+}
+
+
+	
+/* Home page */
+
+/*.usp-bubble h4 {
+	font-weight: 400;
+}
+
+.snippet .title {
+	font-weight: 400;
+}*/
+
+@media (min-width: 786px) {
+	.intro-sec.primary-intro p {
+		font-size: 21px;
+	} 
+}
+
+@media (min-width: 992px) {  
+	.usp-sec{
+		height: 900px;
+	}
+}
+
+@media (min-width: 1200px) {  
+	.usp-sec{
+		height: 920px;
+	}
+	#feature-banner p {
+  		font-size: 21px;
+	}
+	
+}
+@media (min-width: 1600px) {  
+	.usp-sec{
+		height: 1000px;
+	}
+}
+
+/* Product Pages */
+

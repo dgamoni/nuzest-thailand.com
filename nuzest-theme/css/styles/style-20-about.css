@@ -1,0 +1,76 @@
+/*===========================================
+	About Us Page
+===========================================*/
+
+.content-sec {
+    padding: 50px 0 !important;
+}
+
+.content-sec .section-header {
+    padding: 0;
+}
+
+.story-slider strong {
+    display: block;
+    font-family: Lato;
+    font-size: 22px !important;
+    margin: 0 0 12px;
+}
+
+#philosophy h1 {
+    text-align: left;
+    margin-bottom: .6em;
+}
+
+#story p, #philosophy p {
+    color: #5b5b5b;
+    line-height: 1.4;
+}
+
+#story {
+    background: url(../../images/about/about-nuzest.jpg) no-repeat bottom center;
+}
+
+
+
+@media only screen and (max-width: 479px){
+	.about #carousel-custom-dots .btn{
+		font-size: 10px
+	}
+}
+
+@media only screen and (min-width: 768px){
+	.text-columns {
+		-webkit-column-count: 2;
+		-webkit-column-gap: 40px;
+		-moz-column-count: 2;
+		-moz-column-gap: 40px;
+		-o-column-count: 2;
+		-o-column-gap: 40px;
+		-ms-column-count: 2;
+		-ms-column-gap: 40px;
+	}
+	#story p, #philosophy p {
+		font-size: 18px;
+	}
+	.content-sec {
+		padding: 80px 0 !important;
+	}
+	#philosophy .section-header{
+		text-align: left;
+	}
+}
+
+@media only screen and (min-width: 992px){
+	.content-sec {
+		padding: 160px 0 !important;
+	}
+}
+
+
+
+
+
+
+
+

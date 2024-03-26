@@ -1,0 +1,64 @@
+.menu-item-language img.iclflag {
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  height: 12px !important;
+  margin-bottom: 0 !important;
+  margin-right: 4px;
+  width: 12px !important;
+}
+
+#lang_sel_footer ul li img {
+  border-radius: 50%;
+  height: 12px;
+  .relative;
+  top: 1px;
+  width: 12px;
+}
+
+#menu-header-menu {
+
+  .menu-item-language {
+
+    text-align: right;
+    z-index: 99;
+
+    &:hover {
+      background: @color-bg-alt;
+      outline: 1px solid @color-border;
+    }
+
+    > a {
+      padding-right: 16px;
+    }
+
+    > a[href="#"] {
+      background: url(/wp-content/plugins/sitepress-multilingual-cms/res/img/nav-arrow-down.png);
+      background-repeat: no-repeat;
+      background-position-x: right;
+      background-position-y: 12px;
+    }
+
+    .submenu-languages {
+      display: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        margin: 0;
+        padding: 5px 0;
+        outline: none;
+
+        &:hover {
+          background: @color-cat-ggs;
+          outline: 1px solid @color-border;
+        }
+      }
+    }
+
+    &:hover .submenu-languages {
+      display: block;
+    }
+  }
+
+}

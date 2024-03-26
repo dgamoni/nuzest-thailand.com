@@ -1,0 +1,107 @@
+/******************************
+*
+*  RoyalSlider Skin for Nuzest Inner Carousels
+*
+*    1. Arrows 
+*    2. Bullets
+*    3. Thumbnails
+*    4. Tabs
+*    5. Fullscreen button
+*    6. Play/close video button
+*    7. Preloader
+*    8. Caption
+*    
+*  Sprite: 'rs-nuzest-arrows.png'
+*  Feel free to edit anything
+*  If you don't some part - just delete it
+* 
+******************************/
+
+/* Background */
+.nz-inner-carousel,
+.nz-inner-carousel .rsOverflow,
+.nz-inner-carousel .rsSlide,
+.nz-inner-carousel .rsVideoFrameHolder,
+.nz-inner-carousel .rsThumbs {
+	background: none;
+	color: #333;
+}
+
+.nz-inner-carousel .rsGCaption {
+	background: none !important;
+}
+
+.nz-inner-carousel .carousel_caption {
+	color: #333333;
+	text-align: center;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.nz-inner-carousel .rsContent {
+-webkit-opacity: 0.5;
+  -moz-opacity: 0.5;
+	opacity: 0.5;
+}
+
+
+.nz-inner-carousel .rsActiveSlide .rsContent {
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+-webkit-transition: opacity 0.3s linear 0.1s;
+  -moz-transition: opacity 0.3s linear 0.1s;
+  -ms-transition: opacity 0.3s linear 0.1s;
+  -o-transition: opacity 0.3s linear 0.1s;
+  transition: opacity 0.3s linear 0.1s;
+}
+
+
+/***************
+*
+*  1. Arrows
+*
+****************/
+
+.nz-inner-carousel .rsArrow {
+	height: 100%;
+	width: 44px;
+	position: absolute;
+	display: block;
+	cursor: pointer;
+	z-index: 21;
+}
+.nz-inner-carousel.rsVer .rsArrow {
+	width: 100%;
+	height: 44px;
+	
+}
+.nz-inner-carousel.rsVer .rsArrowLeft { top: 0; left: 0; }
+.nz-inner-carousel.rsVer .rsArrowRight { bottom: 0;  left: 0; }
+
+.nz-inner-carousel.rsHor .rsArrowLeft { left: 0; top: 0; }
+.nz-inner-carousel.rsHor .rsArrowRight { right: 0; top:0; }
+
+.nz-inner-carousel .rsArrowIcn {		
+	width: 32px;
+	height: 32px;
+	top: 50%;
+	left: 50%;
+	margin-top:-16px;	
+	margin-left: -16px;
+
+	position: absolute;	
+	cursor: pointer;	
+	background: url('rs-nuzest-arrows.png');
+	
+	border-radius: 2px;
+}
+
+
+.nz-inner-carousel.rsHor .rsArrowLeft .rsArrowIcn { background-position: 0 0; }
+.nz-inner-carousel.rsHor .rsArrowRight .rsArrowIcn { background-position: -64px -64px; }
+
+.nz-inner-carousel.rsVer .rsArrowLeft .rsArrowIcn { background-position: -96px -32px; }
+.nz-inner-carousel.rsVer .rsArrowRight .rsArrowIcn { background-position: -96px -64px; }
+
+.nz-inner-carousel .rsArrowDisabled .rsArrowIcn { opacity: .2; filter: alpha(opacity=20);  *display: none; }

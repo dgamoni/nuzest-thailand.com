@@ -1,0 +1,28 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3341353, 2017-02-06T23:25:44-0500
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: VivaBeautiful by Cultivated Mind
+ * URL: http://www.myfonts.com/fonts/cultivated-mind/viva-beautiful/regular/
+ * Copyright: Copyright (c) 2016 by Cultivated Mind. All rights reserved.
+ * Licensed pageviews: 20,000
+ * 
+ * 
+ * License: http://www.myfonts.com/viewlicense?type=web&buildid=3341353
+ * 
+ * © 2017 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/32fc29");
+
+  
+@font-face {font-family: 'VivaBeautiful';src: url('../fonts/32FC29_0_0.eot');src: url('../fonts/32FC29_0_0.eot?#iefix') format('embedded-opentype'),url('../fonts/32FC29_0_0.woff2') format('woff2'),url('../fonts/32FC29_0_0.woff') format('woff'),url('../fonts/32FC29_0_0.ttf') format('truetype');}
+ 

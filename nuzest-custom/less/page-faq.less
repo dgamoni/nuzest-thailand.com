@@ -1,0 +1,90 @@
+/* ============================================
+
+	FAQ page
+
+=============================================== */
+
+
+body.faqs {
+	
+	.topic-list {
+		padding-left: 5px;
+		padding-right: 5px;
+		
+		.btn-square {
+			margin-bottom: 5px;
+		}
+	}
+	
+	.main-topic {
+		border-bottom: 2px solid @color-brand;
+		padding: 60px 0 30px;
+		
+		@media @desktop {
+			padding: 90px 0 30px;
+		}
+		
+		@media @xwide {
+			padding: 120px 0 30px;
+		}
+	}
+	
+	.main-topic header {
+		@media @desktop {
+			margin-bottom: 25px; 
+		}
+		
+		@media @xwide {
+			margin-bottom: 45px;
+		}
+	}
+
+	.main-topic:last-of-type {
+		border: none;
+	}
+
+	.btn-square {	
+		width: 100%;
+	}
+
+	.sub-topic {
+		h2 {
+			border-bottom: 1px solid @color-grey-20;
+			padding-bottom: 9px;
+			margin: 0;
+			margin-bottom: 30px;
+			font-family: 'Alright Sans LT Thin';
+			color: @color-grey-40;
+
+			@media (min-width: @screen-desktop) {
+				/**
+				 * 1. Cap the heading font-size at 30px.
+				 */
+
+				font-size: 30px; // [1]
+			}
+		}
+
+		.faq-list li {
+			padding-left: 18px;
+			margin-right: 30px;
+			margin-bottom: 45px;
+
+			h3 {
+				font-family: 'Alright Sans';
+				margin: 0 0 21px;
+				padding-right: 30px;
+				font-size: 21px;
+			}
+		}
+	}
+
+	.sub-topic + .sub-topic {
+		margin-top: 30px;
+	}
+
+	.search-box {
+		overflow: visible;
+		z-index: 3;
+	}
+}

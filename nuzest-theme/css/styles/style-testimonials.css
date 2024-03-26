@@ -1,0 +1,116 @@
+/* ============================================
+	Testimonials
+=============================================== */
+
+/* Common */
+p.byline {
+    color: #b3b3b3;
+}
+
+blockquote.testimonial:before {
+    font-size: 125%;
+    content: '\201c';
+    position: relative;
+    left: -3px;
+}
+blockquote.testimonial:after {
+    content: '\201d';
+}
+blockquote.testimonial {
+    border: 0;
+    position: relative;
+    padding: 12px 0;
+    margin: 0 0 18px;
+    font-size: 21px;
+    line-height: 1.3em;
+}
+
+@media only screen and (min-width: 768px){
+	blockquote.testimonial {
+		padding: 21px 0;
+		margin: 0 0 33px;
+		font-size: 24px;
+	}
+}
+
+@media only screen and (min-width: 992px){
+	blockquote.testimonial {
+		font-size: 27px;
+	}
+}
+
+@media only screen and (min-width: 1200px){
+	blockquote.testimonial {
+		font-size: 30px;
+	}
+}
+
+
+/* 2 side by side */
+.testimonials .user-profile .img-profile {
+    width: 115px;
+    height: 115px;
+}
+
+.testimonials .user-profile .quick-list li .quick-arrow, 
+.container.testimonials .user-profile .quick-list li .quick-arrow {
+    right: auto;
+    left: 50%;
+    background: url(../../images/elem/menu-expand-green.svg);
+}
+
+.testimonials .quick-list{
+	margin-top: 0px
+}
+
+.testimonials .user-profile .quick-list li {
+    min-height: 140px;
+    margin: 0;
+    padding: 0;
+}
+.testimonials .user-profile .quick-list li > blockquote{
+	position: absolute;
+	opacity: 1;
+    -webkit-transition: all 0.1s linear 0.1s;
+    transition: all 0.1s linear 0.1s;
+}
+.testimonials .user-profile .quick-list li.active > blockquote {
+    opacity: 0;
+	height: 0;
+}
+
+.testimonials .quick-list li .detail{
+	padding-right: 0;
+	padding-bottom: 30px;
+}
+
+
+@media only screen and (min-width: 992px){
+	.testimonials .user-profile .quick-list li{
+		min-height: 160px;
+	}
+}
+@media only screen and (min-width: 1200px){
+
+	.testimonials .user-profile h4{
+		margin-bottom: 0px;
+	}
+}
+@media only screen and (min-width: 1600px){
+	.testimonials .user-profile .quick-list li {
+		min-height: 120px;
+	}
+}
+
+
+/* Full width slider */
+.testimonialContent {
+	padding: 0 10%;
+}
+
+.testimonialContent .img-profile {
+	height: 150px;
+	width: 150px;
+	border: none;
+	box-shadow: none;
+}

@@ -1,0 +1,326 @@
+/******************************
+*
+*  RoyalSlider Skin for Nuzest Post Sliders
+*
+*    1. Arrows 
+*    2. Bullets
+*    3. Thumbnails
+*    4. Tabs
+*    5. Fullscreen button
+*    6. Play/close video button
+*    7. Preloader
+*    8. Caption
+*    
+*  Sprite: 'rs-nuzest-arrows.png'
+*  Feel free to edit anything
+*  If you don't some part - just delete it
+* 
+******************************/
+
+
+/* Background */
+.nz-post-slider,
+.nz-post-slider .rsOverflow,
+.nz-post-slider .rsSlide,
+.nz-post-slider .rsVideoFrameHolder,
+.nz-post-slider .rsThumbs {
+	background: #EEE;
+	color: #222;
+}
+
+/* Positioning */
+
+.nz-post-slider {
+	width: 100% !important;
+	margin-left: auto;
+	margin-right: auto;
+	height: 460px !important;
+	border-bottom: 1px solid #d6d6d6;
+	}
+
+.nz-post-slider::after {
+	content: url(../../../images/bkg/peak-banner.svg);
+	display: none;
+	height: 57px;
+	position: absolute;
+	right: -2px;
+	top: 100%;
+	width: 389px;
+}
+
+.nz-post-slider .rsContent {
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+	.nz-post-slider {
+		width: 750px !important;
+		height: 280px !important;
+	}
+	
+	@media screen and (min-width: 768px) {
+		.nz-post-slider::after {
+			display: block;
+		}
+	}
+}
+
+@media screen and (min-width: 992px) {
+	.nz-post-slider {
+		width: 970px !important;
+		height: 340px !important;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.nz-post-slider {
+		width: 1170px !important;
+		height: 460px !important;
+	}
+}
+
+@media screen and (min-width: 1600px) {
+	.nz-post-slider {
+		width: 1570px !important;
+		height: 680px !important;
+	}
+}
+
+
+/* internal sections */
+.nz-post-slider .post-image {
+	background-position: right;
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+}
+
+.nz-post-slider .banner-img {
+	height: 280px;
+	padding: 0;
+}
+
+.nz-post-slider .banner-info {
+	background: #ffffff none repeat scroll 0 0;
+	border-right: 1px solid #d6d6d6;
+	border-top: 1px solid #d6d6d6;
+	height: 180px;
+	padding: 70px 20px 20px 30px;
+	position: relative;
+}
+
+.nz-post-slider .banner-info .more-link {
+	display: none;
+}
+
+.nz-post-slider .author-banner {
+  left: 20px;
+  min-height: 80px;
+  padding: 12px 15px 0 90px;
+  position: absolute;
+  top: 0;
+}
+
+.nz-post-slider .author-banner .img-profile {
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.08);
+    height: 66px;
+    left: 0;
+    position: absolute;
+    top: -18px;
+    width: 66px;
+}
+
+.nz-post-slider .author-banner .authName {
+    color: #333333;
+    font-size: 16px;
+    margin-bottom: 3px;
+}
+
+.nz-post-slider .author-banner .authByline {
+    color: #999999;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+@media screen and (min-width: 768px) {
+	.nz-post-slider .banner-img {
+		height: 100%;
+		padding: 0;
+	}
+	.nz-post-slider .banner-info {
+		height: 100%;
+		padding-top: 15px;
+	}
+	.nz-post-slider .author-banner {
+		top: auto;
+		bottom: 15px;
+		left: -33px;
+	}
+	.nz-post-slider .post-image {
+		border-left: 1px solid #d6d6d6;
+		border-top: 1px solid #d6d6d6;
+	}
+	
+	.nz-post-slider .author-banner .img-profile {
+    	top: 0;
+	}
+}
+
+@media screen and (min-width: 992px) {
+	.nz-post-slider .banner-info {
+		padding-top: 45px;
+	}
+	.nz-post-slider .author-banner {
+		bottom: 15px;
+		left: -33px;
+		top: auto;
+	}
+	
+	
+}
+@media screen and (min-width: 1200px) {
+	.nz-post-slider .author-banner {
+		bottom: 18px;
+		padding-left: 90px;
+		padding-right: 30px;
+	}
+	
+	.nz-post-slider .author-banner .authName {
+		font-size: 21px;
+		margin-bottom: 6px;
+	}
+	
+	.nz-post-slider .author-banner .authByline {
+	  font-size: 15px;
+	  line-height: 21px;
+	}
+}
+
+@media screen and (min-width: 1600px) {
+	.nz-post-slider .author-banner {
+		bottom: 35px;
+		left: -50px;
+		padding-left: 120px;
+	}
+	
+	.nz-post-slider .author-banner .img-profile {
+	  height: 100px;
+	  top: -15px;
+	  width: 100px;
+	}
+}
+
+
+
+
+/***************
+*
+*  1. Arrows
+*
+****************/
+
+.nz-post-slider .rsArrow {
+	height: 100%;
+	width: 44px;
+	position: absolute;
+	display: block;
+	cursor: pointer;
+	z-index: 21;
+}
+.nz-post-slider.rsVer .rsArrow {
+	width: 100%;
+	height: 44px;
+	
+}
+.nz-post-slider.rsVer .rsArrowLeft { top: 0; left: 0; }
+.nz-post-slider.rsVer .rsArrowRight { bottom: 0;  left: 0; }
+
+.nz-post-slider.rsHor .rsArrowLeft { left: 0; top: 0; }
+.nz-post-slider.rsHor .rsArrowRight { right: 0; top:0; }
+
+.nz-post-slider .rsArrowIcn {		
+	width: 32px;
+	height: 32px;
+	top: 50%;
+	left: 50%;
+	margin-top:-16px;	
+	margin-left: -16px;
+
+	position: absolute;	
+	cursor: pointer;	
+	background: url('rs-nuzest-arrows.png');
+	
+	border-radius: 2px;
+}
+
+
+.nz-post-slider.rsHor .rsArrowLeft .rsArrowIcn { background-position: 0 0; }
+.nz-post-slider.rsHor .rsArrowRight .rsArrowIcn { background-position: -64px -64px; }
+
+.nz-post-slider.rsVer .rsArrowLeft .rsArrowIcn { background-position: -96px -32px; }
+.nz-post-slider.rsVer .rsArrowRight .rsArrowIcn { background-position: -96px -64px; }
+
+.nz-post-slider .rsArrowDisabled .rsArrowIcn { opacity: .2; filter: alpha(opacity=20);  *display: none; }
+
+
+
+
+
+
+
+/***************
+*
+*  2. Bullets
+*
+****************/
+
+.nz-post-slider .rsBullets {
+	position: relative;
+	z-index: 35;
+	padding-top: 4px;
+	width: 100%;
+	height: auto;
+	margin: 0 auto; 
+	text-align: center;
+	line-height: 5px;
+	overflow: hidden;
+	background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    bottom: -20px;
+    overflow: visible;
+    position: relative;
+    z-index: 100;
+	
+}
+.nz-post-slider .rsBullets * {
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+.nz-post-slider .rsBullet {
+	width: 5px;
+	height: 5px;
+	display: inline-block;
+	*display:inline; 
+	*zoom:1;
+	padding: 6px;
+	 cursor: pointer;
+  display: inline-block;
+  padding: 10px;
+}
+
+.nz-post-slider .rsBullet span {
+  border: 1px solid #858585;
+  border-radius: 50%;
+  display: block;
+  height: 14px;
+  width: 14px;
+}
+
+.nz-post-slider .rsBullet.rsNavSelected span {
+	background-color: #858585;
+}
+

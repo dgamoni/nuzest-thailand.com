@@ -1,0 +1,12 @@
+/* ============================================
+
+	Admin custom styles
+
+=============================================== */
+
+/* always hide the roles box on posts */
+
+#rolediv.postbox {
+	display: none !important;
+
+}

@@ -1,0 +1,29 @@
+/* ============================================
+
+	Temporary styles
+	
+=============================================== */
+
+/*.container { border: 1px dotted; 
+}*/
+#temp { 
+	display: block; 
+	.opacity(0.4);
+}
+/* Layout #1 - Extra small devices (phones, less than 768px) */
+.temp-xl, .temp-lgr, .temp-lg, .temp-md, .temp-sm{ display: none; } .temp-xs{ display: block; }
+
+/* Layout #2 - Small devices (ipad portrait + mini, 768px and up) */
+@media @mobile { .temp-xl, .temp-lgr, .temp-lg, .temp-md, .temp-xs{ display: none; } .temp-sm{ display: block } }
+
+/* Layout #3 - Medium devices (ipad landscape + small desktops, 992px and up) */
+@media @desktop { .temp-xl, .temp-lgr, .temp-lg, .temp-sm, .temp-xs{ display: none; } .temp-md{ display: block } }
+
+/* Layout #4 - Large devices (normal desktops, 1200px and up) */
+@media @wide { .temp-xl, .temp-lgr, .temp-md, .temp-sm, .temp-xs{ display: none; } .temp-lg{ display: block } }
+
+/* Layout #5 - Extra large devices (wide screen desktops, 1600px and up) */
+@media @xwide { .temp-lgr, .temp-lg, .temp-md, .temp-sm, .temp-xs{ display: none; } .temp-xl{ display: block } }
+
+
+

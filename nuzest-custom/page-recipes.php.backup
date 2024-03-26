@@ -1,0 +1,196 @@
+<?php
+	wp_enqueue_script('underscore', null, null, null, true);
+	wp_enqueue_script('underscore-mixins', get_template_directory_uri().'/js/common/_.mixins.js', array('underscore'), '', true);
+	wp_enqueue_script('angular', '//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js', array('jquery'), '', true);
+	wp_enqueue_script('angular-sanitize', '//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-sanitize.min.js', array('angular'), '', true);
+	wp_enqueue_script('angular-animate', '//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js', array('angular'), '', true);
+	wp_enqueue_script('angular-paginate', get_template_directory_uri().'/js/common/angularPagination.js', array('angular'), '', true);
+	wp_enqueue_script('angular-truncate', get_template_directory_uri().'/js/common/truncate.js', array('angular'), '', true);
+	wp_enqueue_script('angular-wp-taxonomy', get_template_directory_uri().'/js/common/services/angularWPTaxonomy.js', array('angular'), '', true);
+	wp_enqueue_script('angular-wp-posts', get_template_directory_uri().'/js/common/services/angularWPPosts.js', array('angular','angular-paginate'), '', true);
+	wp_enqueue_script('angular-wp-recipe', get_template_directory_uri().'/js/common/services/angularWPRecipe.js', array('angular','angular-wp-posts'), '', true);
+	wp_enqueue_script('recipes_js', get_template_directory_uri().'/js/recipes/recipes.js', array(
+		'angular','angular-sanitize','angular-animate',
+		'angular-wp-taxonomy', 'angular-wp-recipe',
+		'underscore-mixins'), '', true);
+
+
+	$page_title = get_field('page_title');
+	$page_intro = get_field('page_intro');
+
+	$banner_query = new WP_Query( array(
+		'post_type' => 'banners',
+		'meta_key' => 'location',
+		'meta_value' => 'recipes',
+		'posts_per_page' => 1,
+	));
+
+	get_header();
+?>
+
+<?php if ( $banner_query -> have_posts() ) : while ( $banner_query -> have_posts() ) : $banner_query -> the_post(); ?>
+<section id="feature-banner" class="feature-banner-blog">
+	<div class="container banner-container">
+		<?php if( have_rows( 'small_banners' ) ): ?>
+			<div class="row royalSlider rsDefault">
+			<?php while ( have_rows( 'small_banners' ) ) : the_row(); ?>
+			
+			<?php
+			if( get_sub_field( 'active' )) : 
+				$banner_image = get_sub_field( 'banner_image' ); 
+				$bnpost = get_sub_field( 'recipe_link' );
+				if ( ( get_sub_field( 'get_recipe_content' ) == 'post' ) ) {
+					$banner_title = get_the_title( $bnpost->ID );
+					$excerpt = get_the_excerpt( $bnpost->ID );
+				} else {
+					$banner_title = get_sub_field( 'banner_heading' );
+					$excerpt = get_sub_field( 'banner_content' );
+				};
+				$terms = get_the_terms( $bnpost->ID, 'dietary' );
+				$link = post_permalink( $bnpost->ID );
+			?>
+				<div class="rsContent">
+					<div class="col-sm-7 col-md-8 col-xl-9 banner-img">
+						<div class="post-image" style="background-image: url('<?php echo $banner_image['url'] ?>')"></div>
+					</div>
+					<div class="col-sm-5 col-md-4 col-xl-3 banner-info">
+						<h2><?php echo $banner_title; ?></h2>
+						<p><?php echo($excerpt); ?></p>
+
+						<div class="recipe-tags">
+							<?php
+								foreach ( $terms as $term ) {
+									$diet = $term->name;
+									echo '<p class="snip-tag"><span>' . $diet . '</span></p>';
+								}
+							?>
+						</div>
+
+						<div class="banner-footer">
+							<a class="btn btn-primary " href="<?php echo $link ?>"><?php _e('View Recipe', 'nuzest-custom') ?></a>
+						</div>
+					</div>
+				</div>
+			
+		<?php endif; endwhile; ?>
+		</div>
+		<?php endif; ?>
+    </div>
+</section>
+<?php endwhile; endif; wp_reset_postdata(); ?>
+
+<section ng-app="recipeSearchApp" class="overflow-visible">
+	<div class="container" >
+		<div class="row section-header">
+			<div class="col-md-12">
+				<h1><?php echo $page_title ?></h1>
+				<?php echo $page_intro ?>
+			</div>
+		</div>
+		<div class="row margin-bottom-md" ng-controller="SearchArea as searchArea">
+			<div class="col-md-3">
+				<div class="filter-controller activeToggle">
+					<h3>
+						<?php _e('Recipe type:', 'nuzest-custom') ?>
+						<span ng-if="searchArea.selected.meal_type.length<1"><?php _e('All', 'nuzest-custom') ?></span>
+						<span ng-if="searchArea.selected.meal_type.length===1" ng-bind-html="searchArea.selected.meal_type[0]"></span>
+						<span ng-if="searchArea.selected.meal_type.length>1"><?php _e('Multiple', 'nuzest-custom') ?></span>
+					</h3>
+					<ul>
+						<li ng-repeat="meal in searchArea.taxonomies.meal_type">
+							<span class="checkbox">
+								<input type="checkbox" name="{{meal.slug}}" id="{{meal.slug}}" value="{{meal.slug}}" ng-model="searchArea.filters.meal_type[meal.slug]">
+								<label for="{{meal.slug}}" ng-bind-html="meal.name"></label>
+							</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="filter-controller activeToggle">
+					<h3>
+						<?php _e('Product type:', 'nuzest-custom') ?>
+						<span ng-if="searchArea.selected.products.length<1"><?php _e('All', 'nuzest-custom') ?></span>
+						<span ng-if="searchArea.selected.products.length===1" ng-bind-html="searchArea.selected.products[0]"></span>
+						<span ng-if="searchArea.selected.products.length>1"><?php _e('Multiple', 'nuzest-custom') ?></span>
+					</h3>
+					<ul>
+						<li ng-repeat="product in searchArea.taxonomies.products">
+							<span class="checkbox">
+								<input type="checkbox" name="{{product.slug}}" id="{{product.slug}}" value="{{product.slug}}" ng-model="searchArea.filters.products[product.slug]">
+								<label for="{{product.slug}}" ng-bind-html="product.name"></label>
+							</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="filter-controller activeToggle">
+					<h3>
+						<?php _e('Diet type:', 'nuzest-custom') ?>
+						<span ng-if="searchArea.selected.dietary.length<1"><?php _e('All', 'nuzest-custom') ?></span>
+						<span ng-if="searchArea.selected.dietary.length===1" ng-bind-html="searchArea.selected.dietary[0]"></span>
+						<span ng-if="searchArea.selected.dietary.length>1"><?php _e('Multiple', 'nuzest-custom') ?></span>
+					</h3>
+					<ul>
+						<li ng-repeat="diet in searchArea.taxonomies.dietary">
+							<span class="checkbox">
+								<input type="checkbox" name="{{diet.slug}}" id="{{diet.slug}}" value="{{diet.slug}}" ng-model="searchArea.filters.dietary[diet.slug]">
+								<label ng-bind-html="diet.name" for="{{diet.slug}}"></label>
+							</span>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+
+			<div class="col-md-3">
+				<div class="field-icon">
+					<input ng-model="searchArea.filters.search" maxlength="150" type="text" class="txt" placeholder="Search" />
+					<button ng-click="searchArea.search()" id="searchsubmit" class="btn"><span class="glyphicon glyphicon-search"></span></button>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="snippets">
+			<div class="container-fluid">
+				<div class="row" ng-controller="RecipeList as recipeList">
+					<div class="col-sm-6 col-md-4 col-lg-3 recipe" ng-repeat="recipe in recipeList.posts">
+						<article class="snippet" >
+		                    <a ng-href="{{recipe.link}}" title="{{recipe.title}}" class="snippet-image">
+		                        <img class="img-responsive" width="100%" ng-src="{{recipe.featured_image.source}}" alt="{{recipe.title}}">
+		                    </a>
+
+							<div class="recipe-tags clearfix">
+								<p class="snip-tag" ng-repeat="diet in recipe.terms.dietary"><span>{{diet.name}}</span></p>
+							</div>
+
+							<div class="info">
+								<h5 class="title"><a ng-href="{{recipe.link}}" ng-bind-html="recipe.title"></a></h5>
+								<p class="hidden-xs hidden-sm" ng-bind-html="recipe.excerpt | words:24"></p>
+							</div>
+							<a class="btn btn-primary" ng-href="{{recipe.link}}"><?php _e('View', 'nuzest-custom') ?></a>
+						</article>
+					</div>
+					<div class="col-xs-12 text-center" ng-if="recipeList.loading"><h2><?php _e('Loading', 'nuzest-custom') ?>&hellip;</h2></div>
+					<div class="col-xs-12 text-center" ng-if="recipeList.noResults()"><h2><?php _e('Sorry, no results found, please try a different search', 'nuzest-custom') ?></h2></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row row-pagination" ng-controller="RecipePagination as recipePagination">
+			<div class="pagination">
+				<ul>
+					<li class="arrow arrow-left" ng-if="recipePagination.pagination.hasPrevPage()"><a ng-click="recipePagination.pagination.prevPage()"></a></li>
+					<li ng-repeat="page in recipePagination.pages track by $index" ng-class="{active: page===recipePagination.pagination.currentPage}">
+						<a ng-click="recipePagination.pagination.setPage(page)">{{page}}</a>
+					</li>
+					<li class="arrow arrow-right" ng-if="recipePagination.pagination.hasNextPage()"><a ng-click="recipePagination.pagination.nextPage()"></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+<?php get_footer(); ?>

@@ -1,0 +1,297 @@
+/* ============================================
+
+	Recipes page
+
+=============================================== */
+
+.recipes {
+	.recipe {
+		-webkit-transition: 0.5s linear all;
+		transition: 0.5s linear all;
+
+		&.ng-enter {
+			.opacity(0);
+			&.ng-enter-active {
+				// left:0;
+				.opacity(1);
+			}
+		}
+		&.ng-leave {
+			opacity:1;
+			&.ng-leave-active {
+				.opacity(0);
+			}
+		}
+		&.ng-move {
+			.opacity(0.5);
+			&.ng-move-active {
+				.opacity(1);
+			}
+		}
+	}
+}
+
+
+
+ul.dietary-class {
+	list-style: none;
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+
+	li {
+		display: inline-block;
+		padding: 0;
+		margin: 0;
+
+		&:not(:last-of-type) {
+			margin-right: 20px;
+		}
+
+		a {
+			display: block;
+			float: left;
+			width: 33px;
+			height: 33px;
+			// icon placement
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+
+		&.gluten-free {
+			a {
+				background-image: url(images/icons/GlutenFree-green.svg);
+			}
+		}
+
+		&.dairy-free {
+			a {
+				background-image: url(images/icons/DairyFree-green.svg);
+			}
+		}
+		&.sugar-free {
+			a {
+				background-image: url(images/icons/SugarFree-green.svg);
+			}
+		}
+
+		&.vegan {
+			a {
+				background-image: url(images/icons/Vegan-green.svg);
+			}
+		}
+	}
+}
+
+
+
+.rec-ingredients {
+	margin: 30px 0 45px;
+
+	@media @desktop {
+		/**
+		 * 1. On desktop we're back to left aligned text/icons.
+		 */
+
+		margin-top: 20px;
+	}
+
+	&:after {
+		content: '';
+		background: url('images/bkg/peak-ingredients.svg') transparent no-repeat 0 0;
+		background-size: contain;
+		display: block;
+		.relative;
+		width: 100%;
+		height: 30px;
+		top: -1px;
+
+	}
+
+	.bubble {
+		padding: 30px 20px 0;
+		background: @color-bg-alt;
+		border-radius: 10px 10px 0 0;
+		border: 1px solid #d6d6d6;
+		border-bottom: 0;
+
+		h3 {
+			margin: 0 0 18px;
+		}
+
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+
+			li {
+				list-style: none;
+				margin: 0;
+				padding: 15px 0 12px 33px;
+				.relative;
+				border-bottom: 1px solid @color-border-alt;
+				&:last-of-type {
+					border: 0;
+				}
+				&:before {
+					color: @color-brand;
+					content: '•';
+					counter-increment: li;
+					font-size: 21px;
+					left: 4px;
+					top: 15px;
+					line-height: 21px;
+					.absolute;
+					text-align: right;
+				}
+			}
+		}
+
+		.extra {
+			display: none;
+			.absolute;
+		}
+
+		ul img {
+			width: 15px;
+			margin-top: -10px;
+		}
+
+		ul li:hover .extra {
+			display: block;
+		}
+	}
+}
+
+
+
+
+
+
+
+.nz-prod {
+	margin: 45px 0;
+	padding: 30px 30px 20px 20px;
+	background-color: @color-border-alt;
+
+	h3 {
+		margin: 0 0 18px;
+	}
+
+	.nz-prod-image {
+		float: right;
+		margin-left: 1em;
+	}
+
+	.btn {
+		margin-top: 1em;
+	}
+}
+
+.recipe-left-col img{
+	margin-bottom: 20px;
+}
+
+@media @desktop {
+	.recipe-right-col{
+		padding: 0 20px;
+	}
+	.recipe-detail header {
+		text-align: left;
+	}
+}
+
+@media @wide {
+	.recipe-right-col {
+		padding: 0 40px;
+	}
+}
+
+
+
+/*
+	Single Pages
+*/
+
+.single-recipes {
+
+	// time, serves, dietary icons, etc
+	.recipe-info {
+		text-align: left;
+		padding-bottom: 1em;
+
+		// time, serves
+		.cooking-meta {
+			display: inline-block;
+			vertical-align: top;
+			margin: 0 0 1em;
+		}
+
+			.info {
+				margin-right: 40px;
+
+				img {
+					margin-right: 10px;
+				}
+			}
+
+		@media @tablet {
+			/**
+			 * 1. On tablet we swap to center aligned text/icons.
+			 */
+
+			text-align: center; // [1]
+
+			.cooking-meta {
+				margin-bottom: 0; // [1]
+			}
+
+			.dietary-class {
+				margin-top: -4px; // [1]
+			}
+		}
+
+		@media @desktop {
+			/**
+			 * 1. On desktop we're back to left aligned text/icons.
+			 */
+
+			text-align: left; // [1]
+			padding-bottom: 0; // [1]
+
+			.cooking-meta {
+				margin-bottom: 1em; // [1]
+			}
+		}
+	}
+
+	.rec-method {
+		h3 {
+			margin: 0 0 30px;
+		}
+		ol {
+			counter-reset: li;
+			margin: 0;
+			padding: 0;
+			li {
+				list-style: none;
+				margin: 0 0 21px;
+				padding: 0 0 0 33px;
+				.relative;
+				&:before {
+					color: @color-grey-60;
+					content: counter(li, decimal) '.';
+					counter-increment: li;
+					font-size: 16px;
+					line-height: 21px;
+					left: 4px;
+					top: -1px;
+					.absolute;
+					text-align: right;
+				}
+
+			}
+		}
+	}
+}

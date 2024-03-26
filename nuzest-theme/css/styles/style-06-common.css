@@ -1,0 +1,302 @@
+/* ============================================
+	Schema.org structured data
+=============================================== */
+
+.schema-publisher {
+	display: none;
+}
+
+
+/* ============================================
+	404 Page
+=============================================== */
+
+.error-404 {
+	text-align: center;
+	padding: 60px 20px;
+}
+
+section#comments {
+	border-top: 1px dashed #ccc;
+	padding: 30px 0 50px;
+}
+
+
+/* ============================================
+	Modals
+=============================================== */
+
+.modal-backdrop {
+	background: #ededef;
+}
+
+.modal-dialog {
+    position: relative;
+}
+.modal-header {
+    border-bottom: 0px
+}
+.modal-body {
+	padding: 15px;
+}
+.modal button.close {
+	z-index: 9999;
+	position: relative;
+	margin-top: 10px;
+    margin-right: 15px;
+}
+
+.modal .modal-dialog .modal-content {
+    box-shadow: 1px 3px 20px rgba(214, 214, 214, 0.2);
+    border: 1px solid #d6d6d6;
+}
+
+@media only screen and (min-width: 768px){
+	.modal-body {
+		padding: 30px;
+	}
+	.modal .modal-dialog .modal-content {
+		border-radius: 30px;
+	}
+}
+
+
+@media only screen and (min-width: 1600px){
+	.modal-body {
+		padding: 40px;
+	}
+	
+	.modal .modal-dialog .modal-content .modal-header, 
+	.modal .modal-dialog .modal-content .modal-body {
+		padding: 40px;
+	}
+}
+
+
+
+/* WooCommerce Quick Buy Modal */
+div.pp_woocommerce .pp_content_container {
+	border-radius: 30px !important;
+}
+div.pp_overlay {
+	background: #ededef !important;
+	filter: alpha(opacity=50) !important;
+	opacity: .5 !important;
+}
+div.quick-view div.quick-view-content {
+	padding-top: 20px;
+}
+div.quick-view div.quick-view-image a.button {
+	border-radius: 30px;
+}
+
+
+/* In the media Page */
+
+#viewMedia .modal-body {
+    text-align: center;
+}
+
+/* ============================================
+	Page Intro Sections
+=============================================== */
+
+body:not(.feature-banner) .intro-text + .row,
+body:not(.feature-banner) .intro-sec + .row {
+	padding: 30px 0;
+}
+
+.entry-content > .row {
+	padding: 30px 0;
+}
+
+.entry-content > .row#good-green-stuff,
+.entry-content > .row#clean-lean-protein,
+.entry-content > .row#kids-good-stuff,
+.entry-content > .row#just-fruit-veg,
+.entry-content > .row#quick-vita-kick,
+.entry-content > .row#good-green-snack {
+	padding: 0;
+}
+
+.row.intro-text,
+.row.intro-sec {
+	margin-left: 0;
+	margin-right: 0;
+	padding: 50px 0;
+}
+
+/*body.feature-banner .entry-content > .row:first-of-type {
+	padding: 0;
+}*/
+
+body.feature-banner .entry-content > .row {
+	padding: 0;
+}
+
+.vc_clearfix + .row {
+	padding: 0;
+}
+
+
+body.feature-banner .intro-text,
+body.feature-banner .intro-sec {
+	background-color: #ededef; 
+	position: relative;
+	padding: 30px 15px 20px;
+}
+
+@media (min-width: 768px) {
+	
+	body.feature-banner .intro-text,
+	body.feature-banner .intro-sec {
+		border-radius: 0 100px 0 0;
+		margin-top: -100px;
+	}
+	
+	body.feature-banner .intro-text > div:first-of-type,
+	body.feature-banner .intro-sec > div:first-of-type {
+		margin-top: -50px;
+		margin-bottom: 30px;
+	}
+	
+	.intro-sec.primary-intro p {
+		font-size: 16px;
+		line-height: 24px;
+	}
+}
+
+@media (min-width: 992px) {
+		
+	.row.intro-text,
+	.row.intro-sec {
+		padding: 65px 0;
+	}
+	
+	body:not(.feature-banner) .intro-text + .row,
+	body:not(.feature-banner) .intro-sec + .row {
+		padding: 50px 0;
+	}
+
+	
+	body.feature-banner .intro-text,
+	body.feature-banner .intro-sec {
+		border-radius: 0 120px 0 0;
+		margin-top: -120px;
+	}
+}
+
+@media (min-width: 1200px) {
+	body.feature-banner .intro-text,
+	body.feature-banner .intro-sec {
+		border-radius: 0 150px 0 0;
+		margin-top: -150px;
+	}
+	
+	body.feature-banner .intro-text > div:first-of-type,
+	body.feature-banner .intro-sec > div:first-of-type {
+		margin-top: -60px;
+		margin-bottom: 30px;
+	}
+}
+
+@media (min-width: 1600px) {
+		
+	.row.intro-text,
+	.row.intro-sec {
+		padding: 80px 0;
+	}
+	
+	body.feature-banner .intro-text,
+	body.feature-banner .intro-sec {
+		border-radius: 0 180px 0 0;
+		margin-top: -180px;
+	}
+	
+	body.feature-banner .intro-text > div:first-of-type,
+	body.feature-banner .intro-sec > div:first-of-type {
+		margin-top: -80px;
+		margin-bottom: 50px;
+	}
+}
+
+
+
+.section-header {
+    padding: 50px 0 35px;
+    text-align: center;
+}
+
+@media (min-width: 992px) {
+	.section-header {
+    	padding: 60px 0 45px;
+    	text-align: center;
+	}
+}
+
+@media (min-width: 1600px) {
+	.section-header {
+    	padding: 70px 0 55px;
+    	text-align: center;
+	}
+}
+
+
+
+
+/* ============================================
+	Icons & Social Links 
+=============================================== */
+
+.social-links a {
+    font-size: 22px;
+    color: #808080;
+    border: 1px solid #e6e6e6;
+    border-radius: 100%;
+    width: 35px;
+    height: 35px;
+    display: block;
+    text-align: center;
+    position: relative;
+}
+
+.field-icon button {
+    position: absolute;
+    right: 15px;
+    top: 1px;
+    padding: 0;
+    border: 0 !important;
+    background: transparent;
+    margin: 0;
+    min-width: 45px;
+    text-align: center;
+    line-height: 41px;
+}
+.field-icon button span {
+    font-size: 18px;
+    line-height: inherit;
+    color: #808080;
+    pointer-events: none;
+    z-index: 10;
+}
+
+
+
+/* ============================================
+	Random 
+=============================================== */
+
+.fill-bg-alt {
+	background-color: #ffffff !important;
+}
+
+
+.location{
+	text-align: center;
+}
+
+
+
+
+
+

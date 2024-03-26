@@ -1,0 +1,221 @@
+/* ============================================
+
+	Helpers
+
+=============================================== */
+
+
+.nowrap 				{ white-space: nowrap; }
+
+.static					{ position: static; }
+.relative 				{ position: relative; }
+.absolute 				{ position: absolute; }
+
+.text-left				{ text-align: left; }
+.text-right				{ text-align: right; }
+.text-center			{ text-align: center; }
+
+.uppercase				{ text-transform: uppercase; }
+
+.float-right			{ float: right; }
+.float-left				{ float: left; }
+
+.hidden 				{ display: none; }
+
+.overflow-visible {
+	overflow: visible;
+}
+.overflow-hidden {
+	overflow: hidden;
+}
+
+// 2 columns where reqd (modern browser only)
+.text-columns {
+	@media @tablet {
+		-webkit-column-count: 2;
+		-webkit-column-gap: 40px;
+		-moz-column-count: 2;
+		-moz-column-gap: 40px;
+		-o-column-count: 2;
+		-o-column-gap: 40px;
+		-ms-column-count: 2;
+		-ms-column-gap: 40px;
+	}
+	text-align: left;
+}
+
+
+
+// colors
+.fill-bg-body 			{ background-color: @color-bg-body !important; }
+.fill-bg-alt 			{ background-color: @color-bg-alt !important; }
+.fill-border-alt 		{ background-color: @color-border-alt !important; }
+.fill-brand 			{ background-color: @color-brand !important; }
+.fill-alert 			{ background-color: @color-alert !important; }
+.fill-none				{ background-color: transparent !important; }
+
+
+// vertical align reusables
+
+.fill-table {
+	height: 100%;
+	display: table;
+	.vertical-align {
+		display: table-cell;
+		height: 100%;
+		vertical-align: middle;
+	}
+}
+
+
+// grid clearfix
+.clear-row {
+	clear: both;
+	&:before,
+	&:after {
+			content: " ";
+			display: table;
+	}
+	&:after {
+			clear: both;
+	}
+}
+
+// mixin for round corners
+.round(@radius)		 	{ border-radius: unit(@radius, px); }
+.circle				 	{ border-radius: 50%; }
+
+
+.translateY(@val) {
+	-webkit-transform: translateY(@val);
+	-moz-transform: translateY(@val);
+	-ms-transform: translateY(@val);
+	transform: translateY(@val);
+}
+
+.scale(@x, @y) {
+	-webkit-transform: scale(@x, @y);
+	-moz-transform: scale(@x, @y);
+	-ms-transform: scale(@x, @y);
+	transform: scale(@x, @y);
+}
+
+.opacity(@val) {
+	opacity: @val;
+	@percent: @val * 100;
+	zoom: 1;
+	-ms-filter: ~'"progid:DXImageTransform.Microsoft.Alpha(opacity=@{percent})"';
+	filter: ~"alpha(opacity = @{percent})";
+}
+
+.gradient(@angle, @from, @to) {
+	background-image:         linear-gradient(@angle, @from, @to);
+}
+
+.bg-image-fill {
+	background-repeat: no-repeat;
+	background-size: cover;
+	// fix background size in old ie
+	-ms-behavior: url(backgroundsize.min.htc);
+	behavior: url(backgroundsize.min.htc);
+}
+
+
+.border-box {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.no-select {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+
+.space(@size) {
+	letter-spacing: unit(@size, em);
+}
+
+// block link
+.blockLink {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+// margins
+.margin-top-xs		{ margin-top: 15px !important; }
+.margin-top-sm		{ margin-top: 21px !important; }
+.margin-top-md		{ margin-top: 30px !important; }
+.margin-top-lg		{ margin-top: 45px !important; }
+.margin-top-xl		{ margin-top: 60px !important; }
+
+.margin-bottom-xs	{ margin-bottom: 15px !important; }
+.margin-bottom-sm	{ margin-bottom: 21px !important; }
+.margin-bottom-md	{ margin-bottom: 30px !important; }
+.margin-bottom-lg	{ margin-bottom: 45px !important; }
+.margin-bottom-xl	{ margin-bottom: 60px !important; }
+
+.flat { margin-top: 0; margin-bottom: 0; }
+.flat-top { margin-top: 0; }
+.flat-bottom { margin-top: 0; }
+
+
+.padd-xs 	{
+	padding: 30px 0 30px;
+	@media @tablet 	{ padding: 54px 0 54px; }
+	@media @wide 	{ padding: 75px 0 75px; }
+}
+
+.padd-sm 	{
+	padding: 54px 0 75px;
+	@media @tablet 	{ padding: 90px 0 120px; }
+	@media @wide 	{ padding: 120px 0 150px; }
+}
+
+.padd-lg 	{
+	padding: 66px 0 90px;
+	@media @tablet 	{ padding: 120px 0 150px; }
+	@media @wide 	{ padding: 160px 0 190px; }
+}
+
+
+/* centered columns styles */
+.row-centered { text-align: center; }
+
+
+// breaks layout
+.col-centered {
+	@media @tablet {
+		display: inline-block;
+		float: none;
+		//inline-block space fix
+		margin: 0 -2px;
+		// fix vertical positioning
+		vertical-align: top;
+	}
+}
+
+.list-unstyled {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	li {
+		margin: 0;
+		padding:0;
+	}
+}
+
+.list-stacked-mobile li {
+	width: 100%;
+
+	@media @desktop {
+		width: inherit;
+	}
+}

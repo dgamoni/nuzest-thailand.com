@@ -1,0 +1,1972 @@
+/* ============================================
+
+	Components - Monique 25 August
+
+=============================================== */
+
+
+/* ============================================
+
+	USP box outs
+
+=============================================== */
+
+.usp-sec {
+	background: @color-bg-alt;
+	height: auto;
+	padding-top: 0;
+	position: relative;
+
+	h1 {
+		@media @desktop {
+			.nowrap;
+		}
+		@media @wide {
+			white-space: normal;
+		}
+	}
+
+	@media @desktop {
+		padding-top: 45px;
+		height: 680px;
+
+	}
+
+	@media @wide {
+		padding-top: 75px;
+		height: 760px;
+	}
+
+	@media @xwide {
+		padding-top: 120px;
+		height: 900px;
+	}
+
+
+	h2, h3 {
+		font-family: 'Alright Sans';
+	}
+
+	> div {
+		position: relative;
+		z-index: 10;
+	}
+
+	div.img-wrap {
+		z-index: 0;
+		.bg-image-fill;
+		background-position: 10% 50%;
+		width: 100%;
+		height: 300px;
+		@media @tablet {
+			height: 400px;
+		}
+		@media @desktop {
+			background-position: 65% 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		@media @xxwide {
+				background-position: 40% 100%;
+			}
+
+		// for left aligned bubble
+		&.image-right {
+			background-position: 90% 50%;
+			@media @desktop {
+				background-position: 45% 100%;
+			}
+			@media @xxwide {
+				background-position: 60% 100%;
+			}
+		}
+
+	}
+
+}
+
+// bubble container
+
+.usp-bubble {
+	padding: 20px 0;
+	@media @desktop {
+		background: @color-bg-alt;
+		border-radius: 80px 0 80px 80px;
+		padding: 30px 50px;
+
+		h4 {
+			margin: 0 0 3px;
+		}
+
+		&:after {
+			content: url(images/icons/peak-tr.svg);
+			display: block;
+			height: 40px;
+			position: absolute;
+			width: 25px;
+			right: -10px;
+			top: 0;
+		}
+
+		&.right {
+			border-radius: 0 80px 80px;
+			&:after {
+				   -moz-transform: scaleX(-1);
+					 -o-transform: scaleX(-1);
+				-webkit-transform: scaleX(-1);
+						transform: scaleX(-1);
+				filter: FlipH;
+				-ms-filter: "FlipH";
+				left: -10px;
+				right: auto;
+			}
+		}
+	}
+
+	// align buttons with list text
+	.usp-buttons {
+		padding: 18px 0 6px 40px;
+
+		@media @mobile {
+			padding-left: 0;
+		}
+	}
+
+	ul {
+		li {
+			background-image: url(images/icons/tick-green.svg);
+			background-repeat: no-repeat;
+			background-position:left top;
+			background-size: 30px 20px;
+			padding-left: 40px;
+		}
+	}
+}
+
+.clean-lean-protein .usp-bubble ul li {
+	background-image: url(images/icons/tick-orange.svg);
+}
+
+.kids-good-stuff .usp-bubble ul li {
+	background-image: url(images/icons/tick-purple.svg);
+}
+
+
+// align buttons with list text
+.usp-buttons {
+	padding: 18px 0 20px;
+	text-align: center;
+
+	@media @desktop {
+		text-align: left;
+	}
+}
+
+
+/* ============================================
+
+	Modals
+
+=============================================== */
+
+.modal {
+	/* change default Bootstrap modals */
+	.modal-backdrop {
+		background: @color-bg-body;
+		&.in {
+			.opacity(0.75);
+		}
+	}
+
+	.modal-dialog {
+		margin: 70px auto 0;
+		width: 96%;
+		z-index: 1050;
+		@media @tablet 		{ width: 720px; margin: 15% auto 30px; }
+		@media @desktop 	{ width: 800px; }
+		@media @wide 		{ width: 940px; }
+		@media @xwide 		{ width: 1024px; }
+
+		.modal-content {
+			box-shadow: 1px 3px 20px fade(@color-border, 20%);
+			border: 1px solid @color-border;
+			.round(15);
+			@media @tablet {
+				.round(30);
+			}
+
+			.modal-header,
+			.modal-body {
+				padding: 30px 20px;
+				@media @tablet 	{ padding: 30px; }
+				@media @xwide 	{ padding: 40px; }
+
+			}
+			.modal-header {
+				border: 0;
+				padding-bottom: 0;
+				h2 {
+					margin: 0;
+				}
+			}
+		}
+	}
+}
+
+
+/*
+	Region Select Modal
+*/
+
+#regionSelect {
+	.modal-dialog {
+		@media @tablet 		{ width: 720px; }
+		@media @desktop 	{ width: 720px; }
+		@media @wide 		{ width: 720px; }
+		@media @xwide 		{ width: 720px; }
+
+		.modal-body {
+			padding-top: 0;
+			
+			h3.m-region {
+				cursor: pointer;
+				border-top: 1px solid @color-border-alt;
+				padding-top: 10px;
+				margin-top: 5px;
+				.quick-arrow {
+					background: url("images/bkg/menu-expand.svg") no-repeat right top;
+					display: inline-block;
+					float: right;
+					height: 8px;
+					width: 10px;
+					margin-top: 5px;
+				}
+				&.active-region .quick-arrow {
+					transform: scaleY(-1);
+				}
+			}
+			
+			.row.map-row {
+				padding: 20px 0;
+				svg {
+					a:hover {
+						path {
+							fill: #D7DF3A !important;
+						}
+					}
+				}
+			}
+			
+			.row.region-row {
+				display: none;
+				padding-top: 18px;
+				padding-bottom: 12px;
+				
+				
+				@media @tablet {
+					border-top: 1px solid @color-border-alt;
+				}
+
+				h3 {
+					margin: 0 0 18px;
+					font-family: "Alright Sans LT Thin";
+					text-align: center;
+				}
+
+				.region {
+					padding-bottom: 10px;
+					float: left;
+					
+					@media @mobile {
+						width: 100%;
+					}
+					
+					.flag {
+						background-repeat: no-repeat;
+						background-size: cover;
+						.circle;
+						display: block;
+						float: left;
+						height: 20px;
+						margin-right: 8px;
+						width: 20px;
+						//border: 1px solid #aeaeae;
+						box-shadow: 0 1px 2px 1px rgba(0,0,0,0.1);
+
+					}
+
+					&#reg-aus .flag		 { background-image: url(images/icons/flags/flag_aus.png); }
+					&#reg-nz .flag		 { background-image: url(images/icons/flags/flag_nz.png); }
+					&#reg-hk .flag		 { background-image: url(images/icons/flags/flag_hk.png); }
+					&#reg-sg .flag		 { background-image: url(images/icons/flags/flag_sg.png); }
+					&#reg-jp .flag		 { background-image: url(images/icons/flags/flag_jp.png); }
+					&#reg-ru .flag		 { background-image: url(images/icons/flags/flag_ru.png); }
+					&#reg-eu .flag		 { background-image: url(images/icons/flags/flag_eu.png); }
+					&#reg-uk .flag		 { background-image: url(images/icons/flags/flag_uk.png); }
+					&#reg-sc .flag		 { background-image: url(images/icons/flags/flag_sc.png); }
+					&#reg-is .flag		 { background-image: url(images/icons/flags/flag_is.png); }
+					&#reg-hu .flag		 { background-image: url(images/icons/flags/flag_hu.png); }
+					&#reg-usa .flag		 { background-image: url(images/icons/flags/flag_usa.png); }
+					&#reg-chl .flag		 { background-image: url(images/icons/flags/flag_chl.png); }
+					&#reg-ae .flag		 { background-image: url(images/icons/flags/flag_ae.png); }
+					
+
+					.regionName {
+						font-family: "Alright Sans Medium";
+						margin-top: 2px;
+						.lang {
+							color: lighten(@color-text, 33%);
+							font-size: 10px;
+							margin-left: 10px;
+						}
+					}
+
+				}
+			}
+			
+			.row.global-row, .row.instructions {
+				border-top: 1px solid @color-border-alt;
+				text-align: center;
+				padding: 18px 0 12px;
+				h3 {
+					margin: 0;
+					font-family: "Alright Sans LT Thin";
+				}
+				p {
+					margin: 0;
+				}
+				.flag {
+					.circle;
+					display: inline-block;
+					margin-right: 8px;
+					width: 20px;
+					height: 20px;
+					background-image: url(images/icons/flags/flag_nuzest.png);
+					
+				}
+					
+			}
+		}
+	}
+}
+
+/*
+	Region Return Modal
+*/
+
+#regionReturn {
+	.modal-dialog {
+		@media @tablet 		{ width: 600px; }
+		@media @desktop 	{ width: 600px; }
+		@media @wide 		{ width: 600px; }
+		@media @xwide 		{ width: 600px; }
+
+		p {
+			margin: 0 0 30px;
+		}
+		.prevRegion {
+			font-family: 'Alright Sans Medium';
+		}
+	}
+
+}
+
+
+
+/* ============================================
+
+	Filter dialogues
+
+=============================================== */
+
+
+.filter-controller {
+	position: relative;
+	display: block;
+	border: 1px solid @color-border-alt;
+	background-color: @color-bg-alt;
+	padding: 0 12px;
+	.round(4);
+
+	h3 {
+		font-size: 15px;
+		color: @color-grey-60;
+		line-height: 43px;
+		margin: 0;
+		cursor: pointer;
+		position: relative;
+		z-index: 10;
+		overflow: hidden;
+		font-family: "Alright Sans";
+		.no-select;
+
+		&:after {
+			content: '\f107';
+			font-family: 'FontAwesome';
+			display: block;
+			position: absolute;
+			text-align: right;
+			top: 0;
+			right: 0;
+			line-height: inherit;
+			pointer-events: none;
+			color: lighten(@color-text-alt, 30%);
+			transition: color 0.2s linear, transform 0.2s ease-in-out;
+			font-size: 150%;
+		}
+		&:hover {
+			&:after {
+				color: @color-text;
+			}
+		}
+		.active& {
+			&:after {
+				transform: rotate(-180deg);
+				transition: transform 0.2s ease-in-out;
+			}
+		}
+	}
+
+	// toggle drop down visibility when clicked
+	&.active {
+		border-radius: 4px 4px 0 0;
+		ul {
+			visibility: visible;
+			top: 100%;
+			.opacity(1);
+		}
+	}
+
+	// list of options
+	ul {
+		visibility: hidden;
+		list-style: none;
+		margin: 0;
+		position: absolute;
+		width: 100%;
+		top: 90%;
+		left: -1px; // for border adjustment
+		padding: 0;
+		background-color: @color-bg-alt;
+		border: 1px solid @color-border-alt;
+		border-top: 0;
+		box-shadow: 1px 9px 6px rgba(0,0,0,0.1);
+		box-sizing: content-box;
+		.opacity(0);
+		transition: all 0.2s ease-in-out;
+		z-index: 20;
+		li {
+			white-space: nowrap;
+			font-size: 18px;
+			line-height: 44px;
+			padding: 0px;
+			margin: 0;
+			span {
+				color: @color-bg-alt;
+				display: block;
+				padding: 0 12px;
+				border-bottom: 1px solid @color-border-alt;
+				label {
+					display: block;
+					padding: 12px 0 6px 20px;
+					color: @color-text;
+				}
+				input[type=radio]+label:before,
+				input[type=checkbox]+label:before {
+					left: 12px;
+					content: '';
+					.round(0);
+					width: 4px;
+					background: @color-grey-10;
+					border: 0;
+				}
+
+
+				&:hover {
+					background: @color-bg-body;
+					border-bottom: 1px solid @color-border-alt;
+				}
+			}
+			&:last-of-type {
+				span {
+					border: 0;
+					padding-bottom: 3px;
+				}
+			}
+		}
+	}
+}
+
+
+/* ============================================
+
+	Royal Slider
+
+=============================================== */
+
+
+.rsBullets {
+	width: 100%;
+	margin: 0 auto;
+	background: transparent;
+	text-align: center;
+	line-height: 18px;
+	overflow: hidden;
+
+	// individual bullet
+	.rsBullet {
+		display: inline-block;
+		padding: 10px 6px;
+		cursor: pointer;
+
+		span {
+			display: block;
+			width: 14px;
+			height: 14px;
+			border-radius: 50%;
+			border: 1px solid #858585;
+		}
+
+		&.rsNavSelected span {
+			background-color: #858585;
+		}
+	}
+}
+
+.rsArrow {
+	/*cursor: pointer;
+	top: 0;	*/
+	display: block;
+	height: 100%;
+	position: absolute;
+	width: 45px;
+	z-index: 21;
+	.rsArrowIcn {
+		background: url("images/icons/page-arrow.svg") no-repeat 0 0;
+		border-radius: 2px;
+		cursor: pointer;
+		height: 95px;
+		left: 50%;
+		margin-left: -16px;
+		margin-top: -47px;
+		position: absolute;
+		top: 50%;
+		width: 32px;
+	}
+
+	&.rsArrowLeft {
+		left: 0;
+	}
+
+	&.rsArrowRight {
+		right: 0;
+		.rsArrowIcn {
+			.scale(-1, 1);
+		}
+	}
+}
+
+
+.rsHidden {
+	opacity: 0;
+	transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s;
+	visibility: hidden;
+}
+
+
+
+/* ============================================
+
+	Intro blocks
+
+=============================================== */
+
+
+.intro-sec {
+	background-color: @color-bg-alt;
+	text-align: center;
+	padding: 35px 0 45px;
+
+	@media @mobile          { text-align: left;}
+	@media @desktop 		{ padding: 65px 0 60px; }
+	@media @wide 			{ padding: 50px 0 90px; }
+	@media @xwide 			{ padding: 90px 0 120px; }
+
+	&.primary-intro {
+		// margin-top is to account for BODY padding
+		margin-top: -60px;
+		padding-top: 30px + 45px;
+
+		@media @tablet {
+			/**
+			 * 1. Increase font sizes for headings and other text.
+			 */
+
+			h1 {
+				font-family: 'Alright Sans Thin'; // [1]
+				font-size: 69px; // [1]
+				line-height: 63px; // [1]
+			}
+
+			p {
+				font-size: 16px; // [1]
+				line-height: 24px; // [1]
+			}
+		}
+
+		@media @desktop 	{ margin-top: -135px; padding-top: 135px + 60px; }
+		@media @wide 		{ padding-top: 135px + 90px; }
+		@media @xwide 		{ padding-top: 135px + 120px; }
+
+		& + .search-box {
+			position: relative;
+			margin-top: -20px;
+			padding: 0 0 20px;
+			@media @desktop 	{ margin-top: -40px; padding: 0 0 40px; }
+			@media @wide 		{ margin-top: -60px; padding: 0 0 60px; }
+			@media @xwide 		{ margin-top: -80px; padding: 0 0 80px; }
+		}
+	}
+
+	&.intro-secondary {
+		padding: 20px 0;
+		@media @desktop 		{ padding: 36px 0; }
+		@media @wide 			{ padding: 45px 0; }
+		@media @xwide 			{ padding: 60px 0; }
+	}
+
+	.woocommerce-page & {
+		background-color: transparent;
+	}
+
+	// curved intro-sec beneath feature banners
+	#feature-banner + & {
+		background: @color-bg-body;
+		.intro-sec-rounded; // include rules from below class
+		&.intro-secondary {
+			&:before {
+				display: none;
+			}
+		}
+		h1 {
+			font-size: 30px;
+			line-height: 35px;
+			@media @tablet {
+				font-size: 48px;
+				line-height: 51px;
+			}
+		}
+	}
+
+	#feature-banner.product-banner + & {
+		.intro-sec-rounded.product-page;
+	}
+
+	// rounded corner type
+	&.intro-sec-rounded {
+		position: relative;
+		margin-top: 0 !important;
+		z-index: 20;
+		overflow: visible;
+		top: -30px;
+
+		// reduce padding but pull up h1 to even out content
+		padding: 30px 0;
+		@media @tablet 			{ padding: 0 0 50px; }
+		@media @desktop 		{ padding: 0 0 60px; }
+		@media @wide 			{ padding: 0 0 75px; }
+		@media @xwide 			{ padding: 0 0 90px; }
+		@media @xxwide 			{ padding: 0 0 100px; }
+
+		> .container h1 {
+			@media @tablet 		{ margin-top: -25px; }
+			@media @desktop 	{ margin-top: -30px; }
+			@media @wide 		{ margin-top: -38px; }
+			@media @xwide 		{ margin-top: -45px; }
+			@media @xxwide 		{ margin-top: -50px; }
+		}
+
+		// generate round corner overlay
+
+		@media @tablet {
+			&:before {
+				content: '';
+				display: block;
+				background-color: inherit;
+				width: 100%;
+				position: absolute;
+				right: 0;
+				height: 100px;
+				top: -100px;
+				border-radius: 0 100px 0 0;
+			}
+		}
+
+		@media @desktop {
+			&:before {
+				height: 120px;
+				top: -120px;
+				border-radius: 0 120px 0 0;
+			}
+		}
+
+		@media @wide {
+			&:before {
+				height: 150px;
+				top: -150px;
+				border-radius: 0 150px 0 0;
+			}
+		}
+
+		@media @xwide {
+			&:before {
+				height: 180px;
+				top: -180px;
+				border-radius: 0 180px 0 0;
+			}
+		}
+
+		@media @xxwide {
+			&:before {
+				height: 200px;
+				top: -200px;
+				border-radius: 0 200px 0 0;
+			}
+		}
+
+
+	// for product pages
+
+		&.product-page {
+
+			// reduce padding but pull up h1 to even out content
+			@media @tablet 			{ padding: 0 0 40px; }
+			@media @desktop 		{ padding: 0 0 50px; }
+			@media @wide 			{ padding: 0 0 60px; }
+			@media @xwide 			{ padding: 0 0 75px; }
+			@media @xxwide 			{ padding: 0 0 90px; }
+
+			> .container h1 {
+				@media @tablet 		{ margin-top: -20px; }
+				@media @desktop 	{ margin-top: -25px; }
+				@media @wide 		{ margin-top: -30px; }
+				@media @xwide 		{ margin-top: -38px; }
+				@media @xxwide 		{ margin-top: -45px; }
+			}
+
+
+			@media @tablet {
+				&:before {
+					height: 80px;
+					top: -80px;
+					border-radius: 0 80px 0 0;
+				}
+			}
+
+			@media @desktop {
+				&:before {
+					height: 100px;
+					top: -100px;
+					border-radius: 0 100px 0 0;
+				}
+			}
+
+			@media @wide {
+				&:before {
+					height: 120px;
+					top: -120px;
+					border-radius: 0 120px 0 0;
+				}
+			}
+
+			@media @xwide {
+				&:before {
+					height: 150px;
+					top: -150px;
+					border-radius: 0 150px 0 0;
+				}
+			}
+
+			@media @xxwide {
+				&:before {
+					height: 180px;
+					top: -180px;
+					border-radius: 0 180px 0 0;
+				}
+			}
+		}
+	}
+
+
+}
+
+
+
+/* ============================================
+
+	Content blocks
+
+=============================================== */
+
+.content-sec {
+	padding: 50px 0;
+	
+	&.snippets {
+		padding: 50px 0;
+	}
+	
+	// reset any .section-header elements trying to add padding to top of section
+	.section-header {
+		padding: 0;
+
+		.btn {
+			margin-top: 0;
+		}
+	}
+
+	@media @tablet {
+		/**
+		 * 1. Increased padding around content in blade.
+		 * 2. Increased margins around CTA buttons blade header.
+		 */
+
+		padding: 80px 0; // [1]
+
+		.section-header {
+			.btn {
+				margin-top: 20px; // [2]
+				margin-bottom: 80px; // [2]
+			}
+		}
+	}
+
+	@media @desktop {
+		/**
+		 * 1. Increased padding around content in blade.
+		 */
+
+		padding: 160px 0; // [1]
+	}
+}
+
+
+/* ============================================
+
+	Feature banners
+
+=============================================== */
+
+
+#feature-banner {
+	width: 100%;
+	height: 280px;
+	background-color: @color-bg-alt;
+	position: relative;
+	z-index: 10;
+	.opacity(0);
+	
+	.rsBullets {
+		position: relative;
+		z-index: 100;
+	}	
+	body.home &, body.products & {
+		.rsBullets { display: none; }
+	}
+
+	&.royalSlider {
+		> div {
+			width: 100%;
+		}
+	}
+	.rsContent {
+		width: 100%;
+		position: absolute;
+		.bg-image-fill;
+		background-size: cover;
+		
+		//image cropping on mobile device (larger devices set on page)
+		@media @mobile {
+			&.m-crop-hard-left {
+				background-position: left !important;
+			}
+			&.m-crop-left {
+				background-position: 25% !important;
+			}
+			&.m-crop-mid {
+				background-position: center !important;
+			}
+			&.m-crop-right {
+				background-position: 75% !important;
+			}
+			&.m-crop-hard-right {
+				background-position: right !important;
+			}
+		}
+	}
+
+	// size variations and specific placements
+	// .taller class set programatically in inc/content-banners.php
+	
+	@media @tablet {
+		height: 480px;
+	}	
+	@media @desktop {
+		height: 560px;
+		&.taller {
+			height: 650px;
+			//background-size: 1375px;
+		}
+	}
+	@media @wide {
+		height: 650px;
+		&.taller {
+			height: 770px;
+			//background-size: 1540px;
+		}
+	}
+	@media @xwide {
+		height: 760px;
+		&.taller {
+			height: 960px;
+			//background-size: 1840px;
+		}
+	}
+	@media @xxwide {
+		height: 1020px;
+		&.taller {
+			height: 1200px;
+			//background-size: cover;
+		}
+	}
+
+	.post-image {
+		width: 100%;
+		height: 100%;
+		min-height: 200px;
+		background-color: @color-border-alt;
+		.bg-image-fill;
+	}
+	
+
+	// banner content area
+	.banner-content {
+		position: relative;
+		/*position: absolute;*/
+		overflow: hidden;
+		height: 280px;
+		/*top: 20px;
+		bottom: 20px;
+		background: white;*/
+		padding: 30px 20px;
+
+		@media (max-width: @screen-tablet) {
+			width: 100%;
+		}
+
+		@media @smtab {
+			padding: 50px 30px 0;
+		}
+		@media @tablet {
+			/*position: relative;
+			bottom: auto;*/
+			height: auto;
+			/*background: none;*/
+			padding: 75px 30px 0;
+		}
+		@media @desktop 	{ padding-top: 160px; }
+		@media @xwide 		{ padding-top: 180px; }
+		@media @xxwide 		{ padding-top: 220px; }
+	}
+} //close #feature-banner 
+
+
+/**
+ * Banners that are flush with the top of the page (underneath the floating header).
+ */
+
+#feature-banner.feature-banner--flush {
+	// pull the banner up underneath the header to be flush with top of page
+	/*margin-top: -@body-offset;*/
+
+	p {
+		display: none;
+	}
+	
+	@media @tablet {
+		p {	
+			display: block; 
+		}
+	}
+			
+	@media @desktop {
+		margin-top: -@body-offset-lg;
+	}
+}
+
+/**
+ * Blog type pages
+ */
+
+#feature-banner.feature-banner-blog {
+	//margin-top: 135px;
+	height: auto;
+	padding-bottom: 20px;
+	background-color: transparent;
+
+	@media @tablet {
+		margin-top: 70px;
+	}
+	
+	.container.banner-container {
+		padding: 0;
+	}
+
+	.royalSlider {
+		width: 100%;
+		height: 461px;
+		border-bottom: 1px solid @color-border;
+
+		@media @tablet {
+			height: 280px;
+		}
+		
+		@media @desktop {
+			height: 340px;
+		}
+		
+		@media @wide {
+			height: 460px;
+		}
+
+		@media @xwide {
+			height: 680px;
+		}
+
+
+		&.row {
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+		&:after {
+			content: url("images/bkg/peak-banner.svg");
+			display: none;
+			height: 57px;
+			position: absolute;
+			right: 0;
+			top: 100%;
+			width: 389px;
+
+			@media @tablet {
+				display: block;
+			}
+		}
+
+
+		.banner-img {
+			padding: 0;
+			height: 280px;
+			@media @desktop {
+				height: 100%;
+			}
+
+			.post-image {
+				background-position: 50%;
+			}
+		}
+		.banner-info {
+			padding: 30px 20px 20px 30px;
+			background: @color-bg-alt;
+			height: 180px;
+			border-top: 1px solid #d6d6d6;
+			border-right: 1px solid #d6d6d6;
+			position: relative;
+
+			a.btn {
+				margin: 12px 0 0;
+			}
+			@media @tablet {
+				height: 100%;
+			}
+			
+			@media @desktop {
+				padding: 45px 20px 20px 30px;
+				a.btn {
+					margin: 30px 0 0;
+				}
+			}
+		}
+	}
+
+	.rsBullets {
+		background: none;
+		overflow: visible;
+		bottom: -20px;
+
+		@media @mobile {
+			bottom: -10px;
+		}
+	}
+
+}
+
+// tweaks for blog banners only
+//offset content to clear author on mobile layout, blog only
+.page.blog #feature-banner.feature-banner-blog {
+	.royalSlider .banner-info {
+
+		padding-top: 70px;
+
+		@media @tablet {
+			padding-top: 45px;
+		}
+		
+	}
+}
+
+
+.banner-footer {
+	position: absolute;
+	bottom: 25px;
+
+	@media @desktop {
+		bottom: 35px;
+	}
+
+	.page.blog & {
+
+		@media @desktop {
+			position: relative;
+			margin-top: 30px;
+		}
+	}
+}
+
+
+
+
+
+/* ============================================
+
+	Post Snippets
+
+=============================================== */
+
+.snippets {
+	background: @color-bg-body;
+	padding: 0 0 30px;
+}
+
+.snippet {
+	background: @color-bg-alt;
+	border: 1px solid rgba(224, 225, 224, .5);
+	border-radius: 0 0 15px 15px;
+	overflow: hidden;
+	margin-bottom: 20px;
+	text-align: center;
+	position: relative;
+	padding-bottom: 70px;
+
+	@media @mobile {
+		// don't use snippet height JS heights at mobile
+		height: auto !important;
+	}
+
+	@media @tablet {
+		border-bottom-left-radius: 30px;
+		border-bottom-right-radius: 30px;
+	}
+
+	> div {
+		padding-right: 10px;
+		padding-left: 10px;
+
+		@media @tablet {
+			padding-right: 20px;
+			padding-left: 20px;
+		}
+	}
+
+	.snippet-image {
+		padding: 0;
+		width: 100%;
+		height: 140px;
+		.bg-image-fill;
+		background-position: center center;
+		@media @tablet 		{ height: 300px; }
+		@media @xwide 		{ height: 320px; }
+
+		a {
+			.blockLink;
+		}
+	}
+
+	div.info {
+		text-align: left;
+		padding-top: 10px;
+		padding-bottom: 15px;
+
+		.title {
+			overflow: hidden;
+			margin-top: 0;
+		}
+
+		p {
+			overflow: hidden;
+		}
+
+		@media @mobile {
+			p {
+				font-size: 13px;
+			}
+		}
+
+		@media @tablet {
+			padding-top: 25px;
+		}
+	}
+
+	// when the info follows recipe tags, we want it to be flush with bottom
+	// of recipe tags on mobile
+	.recipe-tags + div.info {
+		padding-top: 0;
+
+		@media @tablet {
+			padding-top: 20px;
+		}
+	}
+
+	div.author-info {
+		text-align: left;
+		height: 50px;
+		position: relative;
+		padding: 9px 15px 0 50px;
+
+		@media @tablet {
+			height: 40px;
+			padding-left: 110px;
+		}
+
+		.img-profile {
+			position: absolute;
+			top: -18px;
+			left: 10px;
+			height: 36px;
+			width: 36px;
+			border-width: 2px;
+
+			@media @tablet {
+				top: -36px;
+				left: 15px;
+				height: 80px;
+				width: 80px;
+			}
+		}
+
+		.authName, .authByline {
+			font-size: 13px;
+			line-height: 15px;
+			margin: 0;
+		}
+
+		.authName {
+			color: @color-grey-60;
+		}
+
+		.authByline {
+			color: @color-grey-30;
+		}
+	}
+
+	div.recipe-tags {
+		height: 40px;
+		width: 100%;
+		overflow: hidden;
+		padding: 6px 0 0 6px;
+		text-align: left;
+		.border-box;
+		.nowrap;
+		margin: 0;
+		-webkit-mask-image: -webkit-linear-gradient(right, rgba(0,0,0,0) 20px, rgba(0,0,0,1) 50px);
+		-moz-mask-image: -moz-linear-gradient(right, rgba(0,0,0,0) 20px, rgba(0,0,0,1) 50px);
+
+		@media @tablet {
+			padding: 15px 0 3px 10px;
+		}
+	}
+
+	a {
+		color: inherit;
+	}
+
+	.title {
+		font-family: 'Alright Sans';
+	}
+
+	.btn {
+		position: absolute;
+		bottom: 20px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+}
+
+
+
+/* ============================================
+
+	Tags
+
+=============================================== */
+
+div.recipe-tags {
+	.no-select;
+	clear: left;
+	margin: 12px 0;
+}
+
+
+.snip-tag {
+	display: inline-block;
+	margin: 3px 3px 0;
+	font-size: 8px;
+	color: @color-grey-40;
+	text-transform: uppercase;
+	position: relative;
+	line-height: 12px;
+
+	@media @tablet {
+		font-size: 10px;
+	}
+
+	span {
+		border: 1px solid #d6d6d6;
+		border-left: none;
+		border-radius: 0 3px 3px 0;
+		display: block;
+		height: 21px;
+		margin-left: 14px;
+		padding: 4px 5px 0 1px;
+	}
+
+	&:before {
+		content: url("images/bkg/tag-left.svg");
+		display: block;
+		height: 21px;
+		position: absolute;
+		width: 15px;
+	}
+}
+
+
+
+
+/* ============================================
+
+	Pagination
+
+=============================================== */
+
+.row-pagination {
+	text-align: center;
+	font-family: "Alright Sans";
+	font-variant-numeric: lining-nums;
+	-moz-font-feature-settings:"lnum" 1;
+	-moz-font-feature-settings:"lnum=1";
+	-ms-font-feature-settings:"lnum" 1;
+	-o-font-feature-settings:"lnum" 1;
+	-webkit-font-feature-settings:"lnum" 1;
+	font-feature-settings:"lnum" 1;
+
+	.pagination {
+		width: 100%;
+		padding: 0 10px;
+
+		li {
+			display: inline-block;
+			width: 3%;
+			margin: 0 1.5%;
+			min-width: 30px;
+			vertical-align: middle;
+
+			&.active  {
+				color: @color-text;
+				font-size: 45px;
+				a {
+					color: inherit;
+					font-size: inherit;
+				}
+			}
+
+			a, span {
+				color: lighten(@color-text, 33.333%);
+				text-decoration: none;
+				font-size: 33px;
+				line-height: 45px;
+				display: block;
+				width: 100%;
+				height: 45px;
+				cursor: pointer;
+
+				&:hover,
+				&:active,
+				&.current  {
+					.active;
+				}
+
+				&.prev {
+					.arrow;
+				}
+				&.next {
+					.arrow;
+					.arrow-right;
+				}
+			}
+
+			&.arrow {
+				//width: 20px;
+				background: url(images/icons/page-arrow.svg) no-repeat 50%;
+				text-indent: -9999px;
+				&:hover {
+					background: url(images/icons/page-arrow-over.svg) no-repeat 50%;
+				}
+			}
+			.arrow-right,
+			&.arrow-right {
+				.scale(-1,1);
+			}
+
+		}
+	}
+}
+
+
+/* ============================================
+
+	Accordian / quick list
+
+=============================================== */
+
+.quick-list {
+	li {
+		position: relative;
+		cursor: pointer;
+
+		padding-left: 0;
+		margin-bottom: 24px;
+
+		@media @tablet {
+			padding-left: 18px;
+			margin-right: 30px;
+			margin-bottom: 45px;
+		}
+
+		h3 {
+			font-family: 'Alright Sans';
+			margin: 0 0 6px;
+			padding-right: 30px;
+		}
+
+		p {
+			color: @color-grey-60;
+			padding-right: 12px;
+		}
+
+		p.detail, .detail p {
+			color: @color-grey-60;
+			padding-right: 10px;
+		}
+
+		.detail {
+			display: none;
+			padding-right: 12px;
+		}
+
+		.quick-arrow {
+			background: url("images/bkg/menu-expand.svg") no-repeat scroll right top rgba(0, 0, 0, 0);
+			height: 8px;
+			position: absolute;
+			right: 10px;
+			bottom: 0;
+		}
+
+		&.active .quick-arrow {
+			transform: scaleY(-1);
+		}
+
+		hr {
+			border-color: @color-grey-20;
+		}
+
+		@media @tablet {
+			hr {
+				margin-top: 0;
+			}
+		}
+	}
+}
+
+
+
+/* ============================================
+
+	Scrolling content
+
+=============================================== */
+
+
+.simply-scroll-container { // Container DIV - automatically generated
+	position: relative;
+	margin-bottom: 15px;
+	height: 400px;
+	@media @desktop {
+		height: 340px;
+	}
+	@media @wide {
+		height: 420px;
+	}
+	@media @xxwide {
+		height: 500px;
+	}
+
+
+	.simply-scroll-clip { // Clip DIV - automatically generated
+		position: relative;
+		overflow: hidden;
+		height: inherit;
+		-webkit-mask-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 0, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 95%, rgba(0,0,0,0) 100%);
+
+		.simply-scroll-list { // UL/OL/DIV - the element that simplyScroll is inited on
+			overflow: hidden;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			li {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+				h3 {
+					margin: 18px 0 3px;
+				}
+				img {
+					border: none;
+					display: block;
+				}
+			}
+		}
+	}
+}
+
+// unconfirmed usage, legacy styling
+
+/*.simply-scroll { // Customisable base class for style override DIV
+	width: 576px;
+	height: 200px;
+	margin-bottom: 1em;
+}
+
+.simply-scroll .simply-scroll-clip {
+	//width: 576px;
+	height: 200px;
+}
+
+.simply-scroll .simply-scroll-list li {
+	float: left;
+	//width: 290px;
+	height: 200px;
+}*/
+
+
+
+
+/* ============================================
+
+	Ingredients lists
+
+=============================================== */
+
+
+#in-slide {
+	position: fixed;
+	right: -100%;
+	top: 0;
+	z-index: 201;
+	height: 100%;
+	background: @color-bg-alt;
+	overflow-y: scroll !important;
+	overflow-x: hidden !important;
+	
+	padding-top: 52px;
+	width: 95%;
+
+	@media @tablet {
+		width: 75%;
+	}
+
+	@media @desktop {
+		padding-top: 85px;
+		width: 800px;
+	}
+
+	@media @xwide {
+		padding-top: 115px;
+	}
+	
+	.in-image {
+		.bg-image-fill;
+		
+		min-height: 200px;
+		margin: 0 -20px 21px;
+		
+		@media @smtab {
+			min-height: 300px;
+		}
+		@media @tablet {
+			min-height: 400px;
+			margin: 0 -10px 21px;
+		}
+		
+		
+	}
+
+	.in-content {
+		padding-top: 18px;
+		padding-bottom: 15px;
+		// ingredients list
+		.in-group {
+			border: 1px solid @color-border;
+			margin-bottom: 10px;
+			position: relative;
+			.round(0);
+			padding: 0 10px 0 30px;
+
+			&:before {
+				background-color: @color-brand;
+				border: 1px solid @color-border;
+				border-left: transparent;
+				bottom: -1px;
+				content: "";
+				display: block;
+				left: 0;
+				position: absolute;
+				top: -1px;
+				width: 10px;
+			}
+
+
+			&.sv:before 				{ background-color: #FFE6A1; }
+			&.rc:before 				{ background-color: #562200; }
+			&.cc:before 				{ background-color: #A56B4D; }
+			&.ws:before 				{ background-color: #EF687A; }
+			&.jn:before 				{ background-color: #FBB96A; }
+
+			/*
+			&.greens-fruits:before 		{ background-color: #37c036; }
+			&.nervous-system:before 	{ background-color: #5ebd8c; }
+			&.antioxidants:before 		{ background-color: #199beb; }
+			&.added-essentials:before 	{ background-color: #9675b1; }
+			&.digestion:before 			{ background-color: #ee648d; }
+			&.alkalines:before 			{ background-color: #e99253; }
+			&.flavours:before 			{ background-color: #fc686f; }
+			*/
+			
+			&.ggs-1:before 				{ background-color: #37c036; }
+			&.ggs-2:before 				{ background-color: #5ebd8c; }
+			&.ggs-3:before 				{ background-color: #199beb; }
+			&.ggs-4:before 				{ background-color: #9675b1; }
+			&.ggs-5:before 				{ background-color: #ee648d; }
+			&.ggs-6:before 				{ background-color: #e99253; }
+			&.ggs-7:before 				{ background-color: #fc686f; }
+			
+			&.kgs-1:before 				{ background-color: #6C2B82; }
+			&.kgs-2:before 				{ background-color: #C79BC7; }
+			&.kgs-3:before 				{ background-color: #E3F3F6; }
+			&.kgs-4:before 				{ background-color: #BDE3E8; }
+			&.kgs-5:before 				{ background-color: #02A8B0; }
+			&.kgs-6:before 				{ background-color: #BFD858; }
+			&.kgs-7:before 				{ background-color: #ECB322; }
+			&.kgs-8:before 				{ background-color: #DC8027; }
+
+			.panel-heading {
+				padding: 10px 30px 6px 0;
+				margin: 0 0 4px;
+				display: block;
+				border-bottom: 1px solid @color-border-alt;
+				transition: border 0.2s linear;
+				&:after {
+					transform: scaleY(-1);
+					content: '\f107';
+					font-family: 'FontAwesome';
+					color: lighten(@color-text-alt, 30%);
+					display: block;
+					position: absolute;
+					right: 12px;
+					top: 3px;
+					font-size: 150%;
+				}
+				&:hover, &:focus {
+					outline: none;
+					&:after {
+						color: @color-text;
+					}
+				}
+				&.collapsed {
+					border-bottom: 1px solid transparent;
+					&:after {
+						transform: none;
+						color: lighten(@color-text-alt, 30%);
+					}
+				}
+			}
+			.ing-head	{
+				font-family: "Alright Sans Medium", Helvetica, Arial, sans-serif;
+				font-size: 16px;
+			}
+
+
+			// the list of ingredients
+			ul {
+				.list-unstyled;
+				margin-top: -9px;
+				padding: 0 0 24px;
+				li {
+					padding: 15px 0 0;
+					border-bottom: 1px dashed @color-border-alt;
+					font-size: 14px;
+					span {
+						display: inline-block;
+						max-width: 66.666%;
+						&:last-of-type {
+							float: right;
+						}
+						@media @tablet {
+							background-color: @color-bg-alt;
+							position: relative;
+							top: 6px;
+							padding-right: 9px;
+							&:last-of-type {
+								padding-right: 0;
+								padding-left: 9px;
+							}
+						}
+					}
+					&.ing-head {
+						border-bottom: none;
+					}
+				}
+			}
+		}
+	}
+
+
+	// close button
+	.close {
+		position: absolute;
+		top: 135px;
+		right: 40px;
+	}
+
+	// share section
+	.share {
+		border-top: 1px solid @color-brand;
+		padding: 20px;
+	}
+}
+
+// background fill for modal
+.in-backdrop {
+	display: none;
+	top: 0;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 3;
+
+	background: @color-bg-body;
+	.opacity(0.75);
+}
+
+// Videos
+
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; // 16:9 /
+	padding-top: 25px;
+	height: 0;
+	margin-top: 40px;
+}
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+
+/* ============================================
+
+	Vitamins and Minerals list + graph
+
+=============================================== */
+
+.vitamins {
+	position: relative;
+	padding-top: 2em;
+
+	@media (max-width: @screen-desktop) {
+		.rsArrow {
+			display: none;
+		}
+	}
+}
+
+.vitamins__menu {
+	.clearfix();
+
+	@media @desktop 		{ padding: 0 10%; }
+	@media @xwide 			{ padding: 0 15%; }
+	@media @xxwide 			{ padding: 0 20%; }
+
+	> li {
+		display: block;
+		float: left;
+		width: 33.333%;
+
+		> a {
+			display: block;
+			padding: 9px 0 7px;
+			border: 1px solid @color-border-alt;
+
+			&:hover {
+				color: @color-brand;
+			}
+		}
+
+		&.active {
+			> a {
+				background: @color-brand;
+				color: @color-text;
+				border-color: @color-brand;
+			}
+		}
+
+		@media @mobile { font-size: 12px; }
+		@media @tablet { width: 20%; }
+	}
+}
+
+.vitamins__bubble {
+	.text-left;
+
+	z-index: 10;
+	display: none;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background: fade(@color-bg-body, 85%);
+	padding: 35px;
+	border-radius: 30px 30px 0 30px;
+
+	/*h2 {
+		margin: 0 0 1em;
+	}*/
+
+	h3 {
+		font-size: 16px;
+		line-height: 21px;
+		font-family: 'Alright Sans Medium';
+		margin: 0 0 1em;
+	}
+
+	&:before {
+		content: url("images/bkg/peak-vitamins.svg");
+		height: 28px;
+		right: 0;
+		position: absolute;
+		bottom: -28px;
+		width: 13px;
+	}
+	
+	@media @tablet {
+		bottom: 110px;
+	}
+
+	@media @desktop {
+		display: block;
+		top: 200px;
+		right: 100px;
+		bottom: auto;
+		left: auto;
+		width: 360px;
+		background: @color-bg-body;
+		background: fade(darken(@color-bg-body, 1%), 85%);
+		border-radius: 0 60px 60px;
+
+		&:before {
+			content: url("images/bkg/peak-vitamins.svg");
+			height: 28px;
+			left: -13px;
+			right: auto;
+			position: absolute;
+			top: 0;
+			bottom: auto;
+			width: 13px;
+		}
+
+		h2 {
+			font-size: 30px;
+			line-height: 39px;
+			font-family: 'Alright Sans';
+		}
+
+		.close {
+			display: none;
+		}
+	}
+	
+	@media @xwide {
+		right: 180px;
+	}
+	
+	@media @xxwide {
+		right: 240px;
+	}
+	
+}
+
+
+
+/* slick carousel */
+
+.carousel {
+	margin: 2em auto 1em;
+	&.carousel--usp {
+		.carousel__slide {
+			.opacity(0.6);
+			transition: opacity 0.3s linear 0.1s;
+
+			.carousel__image {
+				width: 100%;
+				margin: 0 auto;
+			}
+
+			.carousel__caption {
+				padding: 1em 5% 0.5em;
+				@media @wide {
+					padding: 1em 15% 0.5em;
+				}
+			}
+
+			&.slick-active {
+				.opacity(1);
+			}
+		}
+
+	}
+}

@@ -1,0 +1,123 @@
+<?php get_header(); ?>
+
+<?php the_post(); ?>
+
+<!-- SET PHP VARIABLES -->
+<?php
+		$thumbnail_id = get_post_thumbnail_id();
+		$thumbnail_url = wp_get_attachment_image_src( $thumbnail_id, 'thumbnail-size', true );
+		$thumbnail_meta = get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true);
+?>
+<section class="recipe-detail">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-push-5 col-lg-5 col-lg-push-6 recipe-right-col">
+
+				<header class="page-header">
+					<h1><?php the_title(); ?></h1>
+					<?php the_content(); ?>
+
+					<div class="recipe-info clearfix">
+						<p class="cooking-meta">
+                        	<?php if (get_field( 'time' )){ ?>
+							<span class="info"><img src="<?php bloginfo( 'template_directory' ); ?>/images/icons/CookingTime-green.svg" height="27px"><?php the_field('time'); ?> <?php _ex('mins','Short for minutes','nuzest-custom') ?></span>
+                            <?php }; ?>
+                            <?php if (get_field( 'serves' )){ ?>
+							<span class="info"><img src="<?php bloginfo( 'template_directory' ); ?>/images/icons/Servings-green.svg" height="27px"><?php _ex('Serves','Recipe serves','nuzest-custom') ?> <?php the_field('serves'); ?></span>
+                            <?php }; ?>
+						</p>
+
+						<ul class="dietary-class">
+							<?php
+							$terms = get_the_terms( $post->ID, 'dietary' );
+
+							foreach ((array)$terms as $term ) {
+								$diet = $term->slug;
+								$parent = $term->taxonomy;
+								echo '<li class="' . $diet . '"><a href="/' . $parent . '/' . $diet . '"></a></li>';
+							}
+							?>
+						</ul>
+					</div>
+				</header>
+
+				<div class="mobile-image visible-xs-block visible-sm-block">
+					<img class="img-responsive" width="100%" src="<?php echo $thumbnail_url[0]; ?>" alt="<?php echo $thumbnail_meta; ?>">
+				</div>
+
+
+				<div class="rec-ingredients">
+					<div class="bubble">
+						<h3><?php _e('Ingredients', 'nuzest-custom') ?></h3>
+						<ul>
+							<?php if( have_rows( 'ingredients') ) : while ( have_rows('ingredients') ) : the_row(); ?>
+								<li>
+									<?php the_sub_field('ingredient'); ?>
+									<?php $extra = get_sub_field( 'extra' ) ?>
+									<?php if( $extra ): ?>
+										<img src="<?php bloginfo('template_directory'); ?>/images/icons/question.svg" data-toggle="tooltip" data-placement="bottom" title="<?php echo $extra ?>">
+									<?php endif; ?>
+								</li>
+							<?php endwhile; endif; ?>
+						</ul>
+					</div>
+				</div>
+
+
+				<div class="rec-method">
+					<h3><?php _ex('Method', 'cooking method', 'nuzest-custom') ?></h3>
+					<?php the_field('method'); ?>
+				</div>
+
+				<?php get_template_part( 'inc/block', 'social-share' ); ?>
+
+				<?php
+				$cat = get_field( 'nuzest_product_cat' );
+				if ($cat) :
+					$thumbnail_id = get_woocommerce_term_meta( $cat->term_id, 'thumbnail_id', true );
+					$image = wp_get_attachment_image( $thumbnail_id );
+					$term_link = get_term_link( $cat );
+				?>
+				<div class="nz-prod clearfix">
+					<h3>This recipe uses <?php print ($cat->name); ?></h3>
+					<div class="nz-prod-image"><?php echo $image ?></div>
+					<p><?php print ($cat->description); ?></p>
+					<a class="btn btn-primary" href="<?php echo $term_link ?>">Buy Now</a>
+				</div>
+				<?php endif ?>
+
+			</div>
+			<!-- /END COLUMN -->
+
+			<div class="col-md-4 col-md-pull-5 col-lg-5 col-lg-pull-4 hidden-xs recipe-left-col">
+				<img class="img-responsive hidden-sm" src="<?php echo $thumbnail_url[0]; ?>" alt="<?php echo $thumbnail_meta; ?>">
+
+				<?php
+				$images = get_field('images');
+				if( $images ):
+					foreach( $images as $image ): ?>
+						<img class="img-responsive" width="100%" src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>" />
+					<?php endforeach;
+				endif; ?>
+			</div>
+			<!-- /END COLUMN -->
+
+		</div>
+		<!-- /END ROW -->
+
+	</div>
+</section>
+
+<section class="snippets">
+	<div class="container">
+		<div class="row section-header">
+			<div class="col-md-12">
+				<h1><?php _e('Related Recipes', 'nuzest-custom') ?></h1>
+			</div>
+		</div>
+
+		<?php get_template_part( 'inc/block', 'related-snippets' ); ?>
+	</div>
+</section>
+
+<?php get_footer(); ?>

@@ -1,0 +1,72 @@
+/* ============================================
+	Products Pages
+=============================================== */
+
+/* Products */
+.row.has-snippets {
+	padding-bottom: 0;
+}
+
+.products .usp-buttons{
+	padding: 18px 0 26px 0px;
+}
+
+
+@media only screen and (min-width: 992px){
+	.has-snippets .usp-sec:after {
+		content: url(../../images/elem/product-usp-peak.svg);
+		position: absolute;
+		bottom: -6px;
+		left: 50%;
+		margin-left: -58px;
+		width: 116px;
+		z-index: 3;
+	}
+}
+
+/* Common */
+.usp-list {
+    margin-top: 100px;
+}
+
+.ggs-product-quote, 
+.kgs-product-quote, 
+.clp-product-quote {
+    padding: 250px 0;
+}
+.ggs-product-quote h2, 
+.kgs-product-quote h2, 
+.clp-product-quote h2 {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 46px;
+    width: 60%;
+    color: #fff;
+}
+
+
+/* Clean Lean Protein*/
+.clean-lean-protein blockquote{
+	font-size: 30px;
+	padding: 21px 0;
+    margin: 0;
+    border-left: 0px;
+}
+.clean-lean-protein blockquote:before {
+    font-size: 125%;
+    content: '\201c';
+    position: relative;
+    left: -3px;
+}
+.clean-lean-protein blockquote:after {
+    content: '\201d';
+}
+.clean-lean-protein blockquote p {
+    display: inline !important;
+    font-size: inherit !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: inherit !important;
+}

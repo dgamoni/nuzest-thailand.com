@@ -1,0 +1,168 @@
+/* ============================================
+	Slide in Ingredients Panels 
+=============================================== */
+
+.ingredients-toggle-btn {
+    text-align: center;
+}
+
+.in-backdrop {
+    display: none;
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+	background-color: #ededef; /*v3 updated colour scheme */
+    filter: alpha(opacity=75);
+    opacity: 0.75;
+    zoom: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=75)";
+    filter: alpha(opacity = 75);
+}
+#in-slide {
+    position: fixed;
+    right: -100%;
+    top: 0;
+    z-index: 201;
+    height: 100%;
+    background: #ffffff;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+    padding-top: 52px;
+    width: 95%;
+}
+#in-slide .close {
+    position: absolute;
+    top: 135px;
+    right: 40px;
+}
+#in-slide .in-content {
+    padding-top: 18px;
+    padding-bottom: 15px;
+}
+#in-slide .in-content .in-group {
+    border: 1px solid #d6d6d6;
+    margin-bottom: 10px;
+    position: relative;
+    border-radius: 0px;
+    padding: 0 10px 0 30px;
+}
+
+#in-slide .in-content .in-group.panel-default:before {
+    background-color: #d7df3a;
+    border: 1px solid #d6d6d6;
+    border-left: transparent;
+    bottom: -1px;
+    content: "";
+    display: block;
+    left: 0;
+    position: absolute;
+    top: -1px;
+    width: 10px;
+}
+#in-slide .in-content .in-group.panel-default .panel-title{
+	margin: 13px 0
+}
+#in-slide .in-content .in-group .panel-heading.collapsed {
+    border-bottom: 1px solid transparent;
+}
+#in-slide .in-content .in-group .panel-heading {
+    padding: 10px 30px 6px 0;
+    margin: 0 0 4px;
+    display: block;
+    border-bottom: 1px solid #eaece9;
+    -webkit-transition: border 0.2s linear;
+    transition: border 0.2s linear;
+}
+#in-slide .in-image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    -ms-behavior: url(backgroundsize.min.htc);
+    behavior: url(backgroundsize.min.htc);
+    min-height: 200px;
+    margin: 0 -20px 21px;
+}
+
+@media only screen and (min-width: 992px){
+	#in-slide {
+		padding-top: 85px;
+		width: 800px;
+	}
+}
+
+@media only screen and (min-width: 768px){
+	#in-slide .in-image {
+		min-height: 400px;
+	}
+}
+
+
+
+#in-slide .in-content .in-group .panel-heading::after {
+	-webkit-transform: scaleY(-1);
+	-ms-transform: scaleY(-1);
+	transform: scaleY(-1);
+	content: '\f107';
+	font-family: 'FontAwesome';
+	color: #b1b1b1;
+	display: block;
+	position: absolute;
+	right: 12px;
+	top: 3px;
+	font-size: 150%;
+}
+
+#in-slide .in-content .in-group .panel-heading.collapsed::after {
+	-webkit-transform: none;
+	-ms-transform: none;
+	transform: none;
+	color: #b1b1b1;
+}
+
+#in-slide .in-content .in-group .panel-heading:hover::after, 
+#in-slide .in-content .in-group .panel-heading:focus::after {
+	color: #333333;
+}
+
+#in-slide .in-content .in-group .panel-heading:hover {
+	text-decoration: none;
+}
+#in-slide .in-content .in-group ul {
+	padding-left: 0;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	margin-top: -9px;
+	padding: 0 0 24px;
+}
+
+#in-slide .in-content .in-group ul li {
+	padding: 15px 0 0;
+	border-bottom: 1px dashed #eaece9;
+	font-size: 14px;
+}
+
+#in-slide .in-content .in-group ul li span {
+	display: inline-block;
+	max-width: 66.666%;
+}
+
+#in-slide .in-content .in-group ul li span:last-of-type {
+	float: right;
+}
+
+@media only screen and (min-width: 768px){
+	#in-slide .in-content .in-group ul li span {
+		background-color: #ffffff;
+		position: relative;
+		top: 6px;
+		padding-right: 9px;
+	}
+	
+	#in-slide .in-content .in-group ul li span:last-of-type {
+		padding-right: 0;
+		padding-left: 9px;
+	}
+}

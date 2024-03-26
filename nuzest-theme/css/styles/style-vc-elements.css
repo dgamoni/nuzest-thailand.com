@@ -1,0 +1,204 @@
+/* ============================================
+	Product USP Lists + FAQ Lists
+=============================================== */
+
+.quick-list li {
+	position: relative;
+	cursor: pointer;
+	padding-left: 0;
+	margin-bottom: 24px;
+}
+
+.quick-list li h3 {
+	margin: 0 0 6px;
+	padding-right: 30px;
+}
+
+.quick-list li p {
+	padding-right: 12px;
+}
+
+.quick-list li p.detail, 
+.quick-list li .detail p {
+	color: #666666;
+	padding-right: 10px;
+}
+
+.quick-list li .detail {
+	display: none;
+	padding-right: 12px;
+	padding-bottom: 15px;
+}
+
+.quick-list li .quick-arrow {
+	background: url(../../images/elem/menu-expand-green.svg) no-repeat scroll right top rgba(0, 0, 0, 0);
+	height: 8px;
+	position: absolute;
+	right: 10px;
+	bottom: 0;
+}
+
+.quick-list li.active .quick-arrow {
+	-webkit-transform: scaleY(-1);
+	-ms-transform: scaleY(-1);
+	transform: scaleY(-1);
+}
+
+.quick-list li .quick-arrow {
+	background: url(../../images/elem/menu-expand.svg) no-repeat scroll right top rgba(0, 0, 0, 0);
+	height: 8px;
+	position: absolute;
+	right: 10px;
+	bottom: 0;
+}
+.quick-list-pop li .quick-arrow {
+	background: url(../../images/elem/menu-expand.svg) no-repeat scroll right top rgba(0, 0, 0, 0);
+	height: 8px;
+	position: absolute;
+	right: 10px;
+	bottom: 0;
+}
+
+@media only screen and (min-width: 768px) {
+	.quick-list li {
+		padding-left: 18px;
+		margin-right: 30px;
+		margin-bottom: 45px;
+	}
+}
+
+
+
+/* ============================================
+	Scroll to button
+=============================================== */
+
+p.anchor {
+	height: 0;
+	margin: 0;
+	position: relative;
+	top: -70px;
+	visibility: hidden;
+}
+
+@media only screen and (min-width: 992px) {
+	p.anchor {
+		top: -135px;
+	}
+}
+
+
+
+/* ============================================
+	Sticky Buy Now (Bootstrap Affix)
+=============================================== */
+
+.bnFixed {
+	background: #ffffff;
+	border-top: 1px solid #eaece9;
+	width: 100%;
+	text-align: center;
+	padding: 12px 0;
+	z-index: 200;
+}
+
+.bnFixed.affix { bottom: 0; }
+
+.bnFixed .col-centered {
+	display: inline-block;
+	float: none;
+	text-align: left;
+	margin-right: -4px;
+	vertical-align: top;
+}
+
+.bnFixed h5 { margin: 10px 0 2px; }
+
+.bnFixed p { margin-bottom: 6px; font-size: 12px; }
+
+@media only screen and (min-width: 992px) {
+	.bnFixed p { display: block; }
+	.bnFixed .btn { margin-top: 20px; }
+}
+
+
+
+/* ============================================
+	Section Divider
+=============================================== */
+
+.spacer {
+	height: 80px;
+	position: absolute;
+	bottom: 0;
+	background: #ffffff;
+	width: 50%;
+}
+
+.spacer.left {
+	left: 0;
+	
+	border-radius: 0 80px 0 0;
+}
+
+.spacer.right {
+	right: 0;
+	border-radius: 80px 0 0;
+}
+
+
+
+/* ============================================
+	Home Page Contact Block
+=============================================== */
+
+.contact-block {
+	margin: 5px 10% 10px;
+	text-align: center;
+}
+
+.contact-block .upper {
+	background: none repeat scroll 0 0 #ffffff;
+	border-left: 1px solid #e6e6e6;
+	border-radius: 24px 24px 0 0;
+	border-right: 1px solid #e6e6e6;
+	border-top: 1px solid #e6e6e6;
+	padding: 20px 30px;
+}
+
+.contact-block .lower {
+	border: 1px solid #e6e6e6;
+	border-radius: 0 0 24px 24px;
+	padding: 20px 0px;
+}
+
+.contact-block a.btn {
+	margin: 21px 5px;
+}
+
+@media only screen and (min-width: 768px) {
+	.contact-block .lower {
+		padding: 20px 0;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+	.contact-block {
+		margin: 5px 10% 10px 10%;
+	}
+	
+	.contact-block .upper {
+		background: none repeat scroll 0 0 #ffffff;
+		border-left: 1px solid #e6e6e6;
+		border-radius: 18px 18px 0 0;
+		border-right: 1px solid #e6e6e6;
+		border-top: 1px solid #e6e6e6;
+		padding: 20px;
+	}
+	
+	.contact-block .lower {
+		border: 1px solid #e6e6e6;
+		border-radius: 0 0 18px 18px;
+		padding: 20px;
+	}
+}
